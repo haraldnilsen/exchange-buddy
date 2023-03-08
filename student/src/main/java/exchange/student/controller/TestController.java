@@ -1,4 +1,4 @@
-package exhange.student.controller;
+package exchange.student.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -10,7 +10,7 @@ public class TestController {
 
     @GetMapping
     public String getTest() {
-        return "test";
+        return "testView";
     }
 
 }
