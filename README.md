@@ -9,26 +9,16 @@ Prosjektgruppe 10
 	- "Tindermode"
 - Profil ~ semester, pris, interesser, "søker/søker ikke"
 
-### Ide 2 - Studentidrett
-- All idrett har tabeller (toppscorere, antall mål)
-- Hvilket lag som gjør det best
-- Kontaktpersoner på lag
-- Antall medlemmer
-- Hvordan man melder seg på
-
-### Ide 3 - BookBuddy
-- Finner noen på samme skole, samme linje som du kan kjøpe bøker av
-
 ## Roller
-- Oppdragsgiver ~ Lærer?
-- Produkteier ~ ?
+- Oppdragsgiver ~ Studass *navn*?
+- Produkteier ~ Harald Nilsen
 	- Enten kunden selv eller utviklingsleder
 	- Ansvar:
 		- Omfangsstyring
 		- At prosjektet realiserer de funksjonene som gir virksomheten størst verdi
 		- Gi beskjed til teamet hvordan arbeidet i sprinten har foregått og hvordan enkelt personer har bidratt under eller i sluttfasen av et prosjekt. 
 		- Er produkteier fornøyd med arbeidet i sprinten er det enkelt å gi ros til sine medarbeidere.
-- Scrumleder ~ ?
+- Scrumleder ~ Dennis Rizah Osmani
 	- Fungerer som en mentor for å hjelpe scrumteamet (hele teamet) med å gjøre seg best mulig nytte av scrumrammeverket
 	- Ansvar:
 		- Ansvarlig for å forstå og anvende scrum i samsvar med Scrum Guide.
