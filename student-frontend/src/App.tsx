@@ -1,10 +1,11 @@
 import React from 'react';
 import './App.css';
+import Test from "../src/Test/Test";
 
 function App() {
   return (
-    <div className="App">
-      <h1>Schhhnii chnnna csnakai</h1>
+    <div className='justify-center items-center flex mt-32'>
+      <Test />
     </div>
   );
 }

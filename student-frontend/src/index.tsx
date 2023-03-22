@@ -16,6 +16,10 @@ const root = ReactDOM.createRoot(
 const route = createBrowserRouter([
   {
     path:"/",
+    element: <App/>
+  },
+  {
+    path:"/home",
     element: <Home/>
   },
   {
