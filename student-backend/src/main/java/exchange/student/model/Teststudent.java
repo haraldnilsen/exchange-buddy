@@ -13,10 +13,9 @@ public class Teststudent {
 	@GeneratedValue
 	private Integer sid;
 	private String name;
-	private Integer studentnr;
+	private String studentnr;
 	
-	public Teststudent(Integer sid, String name, Integer studentnr) {
-		this.sid = sid;
+	public Teststudent(String name, String studentnr) {
 		this.name = name;
 		this.studentnr = studentnr;
 	}
@@ -39,11 +38,11 @@ public class Teststudent {
 		this.name = name;
 	}
 
-	public Integer getStudentnr() {
+	public String getStudentnr() {
 		return studentnr;
 	}
 
-	public void setStudentnr(Integer studentnr) {
+	public void setStudentnr(String studentnr) {
 		this.studentnr = studentnr;
 	}
 

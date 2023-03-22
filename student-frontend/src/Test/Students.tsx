@@ -1,12 +1,6 @@
 import React, { useState, useEffect } from "react";
-import StudentService from "../util/StudentService";
-import axios, { AxiosResponse } from "axios";
-
-interface Student {
-    sid: number;
-    name: string;
-    studentnr: number;
-}
+import StudentService, { Student } from "../util/StudentService";
+import { AxiosResponse } from "axios";
 
 const Students: React.FC = () => {
 
@@ -53,7 +47,7 @@ const Students: React.FC = () => {
                     {
                         students.map((stud: Student) => {
                             return(
-                                <tr key={stud.sid}>
+                                <tr key={stud.studentnr}>
                                     <td>{stud.name}</td>
                                     <td>{stud.studentnr}</td>
                                 </tr>
