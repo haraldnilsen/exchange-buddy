@@ -19,7 +19,7 @@ public class RoompostService {
 
 	private @Autowired RoompostRepo roompostRepo;
 	
-	public List <Roompost> findByParameters (Integer minPrice, Integer maxPrice,
+	public List <Roompost> findActiveByParameters (Integer minPrice, Integer maxPrice,
 			String city, String term){
 		List <Roompost> allPosts = roompostRepo.findAll();
 		List <Roompost> sorted = allPosts.stream()
@@ -27,7 +27,8 @@ public class RoompostService {
 		x.getPrice() >= minPrice &&
 		x.getPrice() <= maxPrice &&
 		x.getCity().equals(city) &&
-		x.getTerm().equals(term))
+		x.getTerm().equals(term) &&
+		x.isActive())
 		.toList();
 		
 		return sorted;

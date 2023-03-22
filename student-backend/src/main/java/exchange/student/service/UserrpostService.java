@@ -26,14 +26,15 @@ public class UserrpostService {
 	 * @return list of right posts
 	 */
 	
-	public List <Userrpost> findByParameters (Integer price, String term, String city) {
+	public List <Userrpost> findActiveByParameters (Integer price, String term, String city) {
 		List<Userrpost> allPosts = userpostRepo.findAll();
 		List<Userrpost> sorted = allPosts.stream().
 		filter(x -> 
 		x.getMaxPrice() >= price && 
 		x.getMinPrice() <= price &&
 		x.getCity().equals(city) &&
-		x.getTerm().equals(term))
+		x.getTerm().equals(term) &&
+		x.isActive())
 		.toList();
 		
 		return sorted;
