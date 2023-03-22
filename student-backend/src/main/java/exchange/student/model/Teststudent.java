@@ -2,6 +2,7 @@ package exchange.student.model;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -10,12 +11,12 @@ import javax.persistence.Table;
 public class Teststudent {
 	
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer sid;
 	private String name;
-	private String studentnr;
+	private Integer studentnr;
 	
-	public Teststudent(String name, String studentnr) {
+	public Teststudent(String name, Integer studentnr) {
 		this.name = name;
 		this.studentnr = studentnr;
 	}
@@ -38,11 +39,11 @@ public class Teststudent {
 		this.name = name;
 	}
 
-	public String getStudentnr() {
+	public Integer getStudentnr() {
 		return studentnr;
 	}
 
-	public void setStudentnr(String studentnr) {
+	public void setStudentnr(Integer studentnr) {
 		this.studentnr = studentnr;
 	}
 

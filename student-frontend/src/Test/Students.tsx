@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import StudentService, { Student } from "../util/StudentService";
+import StudentService, { Student } from "./StudentService";
 import { AxiosResponse } from "axios";
 
 const Students: React.FC = () => {
@@ -8,17 +8,6 @@ const Students: React.FC = () => {
     const [loading, setLoading] = useState(false);
 
     useEffect(() => {
-        /*
-        Promise.all([
-            getData()
-        ])
-        .then(([resStudents]) => {
-            Promise.all([resStudents.json()])
-        })
-        .then(() => {
-            setLoading(true);
-        })
-        */
        getData();
 
     }, [loading]);
