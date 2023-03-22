@@ -30,7 +30,16 @@ const Test: React.FC = () => {
                 {/* onChange sends the values to the state, which then is used to submit data */}
                 <input name="studname" onChange={e => setName(e.target.value)} value={name} className="rounded h-8 m-1 text-center" placeholder="Name" />
                 <input name="studentnr" onChange={e => setStudentnr(Number(e.target.value))} value={studentnr} className="rounded h-8 m-1 text-center" placeholder="Studentnummer" />
-                <button className="bg-violet-400 w-20 rounded m-1">Submit</button>
+            
+                <div className='button w-20 h-8 bg-pink-200 rounded-lg cursor-pointer select-none
+                active:translate-y-2  active:[box-shadow:0_0px_0_0_#1b6ff8,0_0px_0_0_#1b70f841]
+                active:border-b-[0px]
+                transition-all duration-150 [box-shadow:0_10px_0_0_#006400]
+                border-b-[1px] border-pink-300
+                '>
+                    <span className='flex flex-col justify-center items-center h-full text-black font-marker '>submit</span>
+                </div>
+            
             </form>
         </>
     );

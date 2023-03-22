@@ -1,4 +1,5 @@
 import React from "react";
+import Navbar from "../components/Navbar";
 /*
     Search page for the different search options
     Switches between two different search components
@@ -9,6 +10,7 @@ import React from "react";
 const Search : React.FC = () => {
     return(
         <>
+            <Navbar />
             <h1>Search page</h1>
         </>
     );

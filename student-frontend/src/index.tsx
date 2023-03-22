@@ -15,11 +15,11 @@ const root = ReactDOM.createRoot(
 
 const route = createBrowserRouter([
   {
-    path:"/",
+    path:"/app",
     element: <App/>
   },
   {
-    path:"/home",
+    path:"/",
     element: <Home/>
   },
   {

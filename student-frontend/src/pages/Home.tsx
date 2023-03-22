@@ -1,4 +1,6 @@
 import React from "react";
+import Navbar from "../components/Navbar";
+
 /*
     Simple home page for the webapp
     When selecting Room og User search a search bar will appear
@@ -8,6 +10,7 @@ import React from "react";
 const Home : React.FC = () => {
     return (
         <>
+            <Navbar />
             <h1>Home Page</h1>
         </>
     );

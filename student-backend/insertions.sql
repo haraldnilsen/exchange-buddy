@@ -7,12 +7,11 @@ CREATE TABLE userr
 	mobile VARCHAR PRIMARY KEY,
 	fname VARCHAR,
 	lname VARCHAR,
-	fdate DATE,
-	profilepic BYTEA,
+	fdate VARCHAR,
+	profilepic VARCHAR,
 	sex VARCHAR,
 	salt VARCHAR,
 	password VARCHAR
-	
 );
 
 CREATE TABLE roompost
