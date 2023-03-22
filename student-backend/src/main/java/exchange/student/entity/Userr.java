@@ -17,7 +17,7 @@ public class Userr {
 	
 	private String fname;
 	private String lname;
-	private Date fdate;
+	private String fdate;
 	private String profilepic; // getBlobAsBytes, Lobhandler
 	private String sex;
 	private String salt;
@@ -25,7 +25,7 @@ public class Userr {
 
 	
 	
-	public Userr(String mobile, String fname, String lname, Date fdate, String profilepic, String sex, String salt,
+	public Userr(String mobile, String fname, String lname, String fdate, String profilepic, String sex, String salt,
 			String password) {
 		this.mobile = mobile;
 		this.fname = fname;
@@ -82,12 +82,12 @@ public class Userr {
 	}
 
 	
-	public Date getFdate() {
+	public String getFdate() {
 		return fdate;
 	}
 	
 	
-	public void setFdate(Date fdate) {
+	public void setFdate(String fdate) {
 		this.fdate = fdate;
 	}
 

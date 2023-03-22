@@ -35,7 +35,7 @@ public class UserrService {
 	 * @return
 	 */
 	
-	public Userr RegisterUserr(String mobile, String fname, String lname, Date fdate, 
+	public Userr RegisterUserr(String mobile, String fname, String lname, String fdate, 
 			String profilepic, String sex, String password) {
 		
 		String salt = exchange.student.util.PasswordHashAndSalt.genererTilfeldigSalt();
