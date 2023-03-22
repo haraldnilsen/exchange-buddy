@@ -36,13 +36,15 @@ public class UserrService {
 	 */
 	
 	public Userr RegisterUserr(String mobile, String fname, String lname, Date fdate, 
-			String profilepic, String sex, String salt, String password) {
+			String profilepic, String sex, String password) {
+		
+		String salt = exchange.student.util.PasswordHashAndSalt.genererTilfeldigSalt();
+		password = exchange.student.util.PasswordHashAndSalt.hashMedSalt(password, salt);
 		
 		Userr user = new Userr(mobile, fname, lname, fdate, profilepic, sex, salt, password);
 		urepo.save(user);
 		
 		return user;
-		
 	}
 	
 	/**
