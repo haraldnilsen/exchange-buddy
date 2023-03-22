@@ -26,7 +26,7 @@ public class UserrpostService {
 	 * @return list of right posts
 	 */
 	
-	public List <Userrpost> findByParam (int price, String term, String city) {
+	public List <Userrpost> findByParameters (Integer price, String term, String city) {
 		List<Userrpost> allPosts = userpostRepo.findAll();
 		List<Userrpost> sorted = allPosts.stream().
 		filter(x -> 
@@ -39,10 +39,22 @@ public class UserrpostService {
 		return sorted;
 	}
 	
-	public void newUserrpost(String term, String city, String country, boolean active,
+	/**
+	 * stores a new userpost to the database
+	 * 
+	 * @param all userpost params
+	 * @return list of right posts
+	 */
+	
+	public Userrpost newUserrpost(String term, String city, String country, boolean active,
 			String bio, Integer minPrice, Integer maxPrice) {
 		
 		Userrpost send = new Userrpost(term, city, country, active, bio, minPrice, maxPrice);
+		userpostRepo.save(send);
+		
+		return send;
 	}
+	
+	
 	
 }
