@@ -34,6 +34,7 @@ const Students: React.FC = () => {
             setStudents(response.data);
             console.log(response.data);
         })
+        setLoading(true);
     }
 
     if(!loading) {
@@ -41,17 +42,26 @@ const Students: React.FC = () => {
     } else {
         return(
             <>
-                <h1>hei</h1>
-
-                
-                {
-                    students.map((stud: Student) => {
-                        <tr key={stud.sid}>
-                            <td>{stud.name}</td>
-                            <td>{stud.studentnr}</td>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Studentnummer</th>
                         </tr>
-                    })
-                }
+                </thead>
+                <tbody>
+                    {
+                        students.map((stud: Student) => {
+                            return(
+                                <tr key={stud.sid}>
+                                    <td>{stud.name}</td>
+                                    <td>{stud.studentnr}</td>
+                                </tr>
+                            )
+                        })
+                    }
+                </tbody>
+                </table>
             
             </>
         );

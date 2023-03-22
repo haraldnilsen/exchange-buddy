@@ -20,6 +20,8 @@ public class Teststudent {
 		this.name = name;
 		this.studentnr = studentnr;
 	}
+	
+	public Teststudent() {}
 
 	public Integer getSid() {
 		return sid;

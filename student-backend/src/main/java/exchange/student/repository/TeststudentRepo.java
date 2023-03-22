@@ -4,7 +4,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import exchange.student.model.Teststudent;
 
-public interface TeststudentRepo extends JpaRepository<Integer, Teststudent> {
+public interface TeststudentRepo extends JpaRepository<Teststudent, Integer> {
 
 	Teststudent findBySid(Integer sid);
 	

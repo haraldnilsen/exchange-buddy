@@ -33,7 +33,7 @@ CREATE TABLE roompost
 
 CREATE TABLE userpost
 (
-	upostid VARCHAR PRIMARY KEY,
+	upostid SERIAL PRIMARY KEY,
 	term VARCHAR,
 	city VARCHAR,
 	country VARCHAR,
