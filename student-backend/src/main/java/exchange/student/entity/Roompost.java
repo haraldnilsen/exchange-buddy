@@ -25,14 +25,16 @@ public class Roompost {
 	private String bio;
 	private boolean wifi;
 	private boolean appliances;
+	private int price;
 	
 	@OneToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name="mobile", referencedColumnName = "mobile")
 	private Userr mobile;
+	
 
 	public Roompost(int rpostid, String term, String city, String country, boolean active, int roomates, String bio,
-			boolean wifi, boolean appliances, Userr mobile) {
-	
+			boolean wifi, boolean appliances, int price, Userr mobile) {
+		super();
 		this.rpostid = rpostid;
 		this.term = term;
 		this.city = city;
@@ -42,8 +44,17 @@ public class Roompost {
 		this.bio = bio;
 		this.wifi = wifi;
 		this.appliances = appliances;
+		this.price = price;
 		this.mobile = mobile;
 	}
+
+
+
+	public Roompost() {
+		super();
+	}
+
+
 
 	public int getRpostid() {
 		return rpostid;
@@ -124,5 +135,15 @@ public class Roompost {
 	public void setMobile(Userr mobile) {
 		this.mobile = mobile;
 	}
+
+	public int getPrice() {
+		return price;
+	}
+
+	public void setPrice(int price) {
+		this.price = price;
+	}
+	
+	
 	
 }

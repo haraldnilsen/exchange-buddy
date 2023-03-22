@@ -10,8 +10,8 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="userpost")
-public class Userpost {
+@Table(name="userrpost")
+public class Userrpost {
 
 	@Id
 	@GeneratedValue (strategy = GenerationType.IDENTITY)
@@ -22,21 +22,34 @@ public class Userpost {
 	private String country;
 	private boolean active;
 	private String bio;
+	private int minPrice;
+	private int maxPrice;
 	
 	@OneToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name="mobile", referencedColumnName = "mobile")
 	private Userr mobile;
+	
 
-	public Userpost(int upostid, String term, String city, String country, boolean active, String bio, Userr mobile) {
-		
+	public Userrpost(int upostid, String term, String city, String country, boolean active, String bio, int minPrice,
+			int maxPrice, Userr mobile) {
+		super();
 		this.upostid = upostid;
 		this.term = term;
 		this.city = city;
 		this.country = country;
 		this.active = active;
 		this.bio = bio;
+		this.minPrice = minPrice;
+		this.maxPrice = maxPrice;
 		this.mobile = mobile;
 	}
+
+
+	public Userrpost() {
+		super();
+	}
+
+
 
 	public int getUpostid() {
 		return upostid;
@@ -93,5 +106,24 @@ public class Userpost {
 	public void setMobile(Userr mobile) {
 		this.mobile = mobile;
 	}
+
+
+	public int getMinPrice() {
+		return minPrice;
+	}
+
+	public void setMinPrice(int minPrice) {
+		this.minPrice = minPrice;
+	}
+
+	public int getMaxPrice() {
+		return maxPrice;
+	}
+
+	public void setMaxPrice(int maxPrice) {
+		this.maxPrice = maxPrice;
+	}
+	
+	
 	
 }

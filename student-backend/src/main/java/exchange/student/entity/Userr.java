@@ -1,9 +1,4 @@
 package exchange.student.entity;
-
-
-
-
-
 import java.util.Date;
 
 import javax.persistence.Entity;
@@ -41,6 +36,14 @@ public class Userr {
 		this.salt = salt;
 		this.password = password;
 	}
+
+	
+
+
+	public Userr() {
+		super();
+	}
+
 
 
 

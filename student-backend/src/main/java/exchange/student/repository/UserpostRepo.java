@@ -2,10 +2,10 @@ package exchange.student.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import exchange.student.entity.Userpost;
+import exchange.student.entity.Userrpost;
 
-public interface UserpostRepo extends JpaRepository<Userpost, Integer> {
+public interface UserpostRepo extends JpaRepository<Userrpost, Integer> {
 
-	Userpost findByUpostid(int upostid);
+	Userrpost findByUpostid(int upostid);
 
 }

@@ -27,6 +27,7 @@ CREATE TABLE roompost
 	wifi BOOL,
 	appliances BOOL,
 	mobile VARCHAR NOT NULL,
+	price INTEGER,
 	
 	FOREIGN KEY (mobile) REFERENCES userr(mobile)
 );
@@ -39,6 +40,8 @@ CREATE TABLE userpost
 	country VARCHAR,
 	active BOOL,
 	bio VARCHAR,
+	minPrice INTEGER,
+	maxPrice INTEGER,
 	mobile VARCHAR NOT NULL,
 	
 	FOREIGN KEY (mobile) REFERENCES userr(mobile)
