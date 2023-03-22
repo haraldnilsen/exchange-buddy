@@ -20,8 +20,7 @@ import exchange.student.service.UserrService;
 public class ServiceTests {
 
 	// TEST DATA
-	@Autowired UserrRepo urepo;
-	@Autowired UserrService uservice;
+	private UserrService uservice = new UserrService();
 	private Userr user1;
 	private Userr user2;
 	
@@ -30,7 +29,7 @@ public class ServiceTests {
 				
 		user1 = uservice.RegisterUserr("12345678", "Petter", "Pilgaard", "20.12.1969", "mordiNaken", "Mann", "Vendela");
 		user2 = new Userr("12345678", "Petter", "Pilgaard", "20.12.1969", "mordiNaken", "Mann", "123", "Vendela");
-		urepo.save(user2);
+		uservice.saveUserr(user2);
 	}
 	
 	/**
@@ -41,7 +40,8 @@ public class ServiceTests {
 	public void findUserrByMobile() {
 		System.out.println("Test av userr fra databasen");
 		
-//		assertEquals("123456789", uservice.getUserr(user1.getMobile()));
+		Userr usrrCheck = uservice.getUserr("12345678");	
+		System.out.println(usrrCheck.getMobile() + " " + usrrCheck.getFname() + "kukker");
 		
 		assertTrue(user2.equals(uservice.getUserr(user2.getMobile())));
 	}
