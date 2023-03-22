@@ -42,7 +42,7 @@ public class UserrpostService {
 	public void newUserrpost(String term, String city, String country, boolean active,
 			String bio, Integer minPrice, Integer maxPrice) {
 		
-		Userrpost send = new Userrpost(term, city, country, active, bio, minPrice, maxPrice, null);
+		Userrpost send = new Userrpost(term, city, country, active, bio, minPrice, maxPrice);
 	}
 	
 }

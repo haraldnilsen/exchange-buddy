@@ -31,7 +31,7 @@ public class Userrpost {
 	
 
 	public Userrpost(String term, String city, String country, boolean active, String bio, Integer minPrice,
-			Integer maxPrice, Userr mobile) {
+			Integer maxPrice) {
 		super();
 		this.term = term;
 		this.city = city;
@@ -40,7 +40,6 @@ public class Userrpost {
 		this.bio = bio;
 		this.minPrice = minPrice;
 		this.maxPrice = maxPrice;
-		this.mobile = mobile;
 	}
 
 

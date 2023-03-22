@@ -33,7 +33,7 @@ public class Roompost {
 	
 
 	public Roompost(String term, String city, String country, boolean active, Integer roomates, String bio,
-			boolean wifi, boolean appliances, Integer price, Userr mobile) {
+			boolean wifi, boolean appliances, Integer price) {
 		super();
 		this.term = term;
 		this.city = city;
@@ -44,7 +44,7 @@ public class Roompost {
 		this.wifi = wifi;
 		this.appliances = appliances;
 		this.price = price;
-		this.mobile = mobile;
+
 	}
 
 
