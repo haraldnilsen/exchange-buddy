@@ -1,6 +1,7 @@
 package exchange.student.service;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -26,9 +27,22 @@ public class UserrpostService {
 	 */
 	
 	public List <Userrpost> findByParam (int price, String term, String city) {
-		List<Userrpost> liste = userpostRepo.findAll();
-//		liste.stream().filter(x -> )
-		return null;
+		List<Userrpost> allPosts = userpostRepo.findAll();
+		List<Userrpost> sorted = allPosts.stream().
+		filter(x -> 
+		x.getMaxPrice() >= price && 
+		x.getMinPrice() <= price &&
+		x.getCity().equals(city) &&
+		x.getTerm().equals(term))
+		.toList();
+		
+		return sorted;
+	}
+	
+	public void newUserrpost(String term, String city, String country, boolean active,
+			String bio, Integer minPrice, Integer maxPrice) {
+		
+		Userrpost send = new Userrpost(term, city, country, active, bio, minPrice, maxPrice, null);
 	}
 	
 }
