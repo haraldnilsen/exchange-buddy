@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Navbar from "../components/Navbar";
 import UserService from "../util/UserService";
+import { NavLink } from "react-router-dom";
 
 const Register : React.FC = () => {
 
@@ -28,11 +29,13 @@ const Register : React.FC = () => {
 
         console.log("Sending user to backend");
 
-        clearInput();
-
         await UserService.postUser(userr).then((response) => {
             console.log(response);
         })
+
+        alert("Bruker registrert!");
+        clearInput();
+        window.location.replace("http://localhost:3000/");
     }
 
     const clearInput = () => {

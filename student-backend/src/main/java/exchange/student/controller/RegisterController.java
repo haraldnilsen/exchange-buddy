@@ -29,10 +29,12 @@ public class RegisterController {
 	@PostMapping("user")
 	public /*ResponseEntity<Userr>*/ void postStudent(@RequestBody Userr user) {
 		
-		Userr userr2 = userService.getUserr(user.getMobile());
+		Userr duplicateUser = userService.getUserr(user.getMobile());
 		
-		if (user.getMobile() == userr2.getMobile()) {
-			
+		if (duplicateUser != null) {
+			// User is not in database
+			// TODO - response message - user exists
+			return;
 		}
 		
 		boolean valid = RegexUtil.validateUser(user);
