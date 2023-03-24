@@ -57,7 +57,7 @@ const Register : React.FC = () => {
                     <img src={require("../images/trans.png")} />
                 </div>
 
-                {/* form */}
+                {/* Form */}
                 <form
                     onSubmit={e => handleUserSubmit(e)}
                     className="bg-pink-200 h-96 w-64 rounded-r-xl shadow-2xl"
