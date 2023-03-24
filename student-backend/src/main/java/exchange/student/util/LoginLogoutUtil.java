@@ -1,5 +1,9 @@
 package exchange.student.util;
 
+import javax.servlet.http.HttpSession;
+
+import exchange.student.entity.Userr;
+
 public class LoginLogoutUtil {
 
 	/**
@@ -13,5 +17,17 @@ public class LoginLogoutUtil {
 	
     public static boolean isValidMobil(String mobil) {
     	return mobil != null && mobil.matches("^" + MAX_8_DIGIT + "$");
+    }
+    
+    public static void loggUtBruker(HttpSession session) {
+		session.invalidate();
+	}
+    
+    public static boolean erBrukerInnlogget(HttpSession session) {
+		return session != null;
+	}
+    
+    public static boolean isUserValid(Userr p, String password, ) {
+    	if(p == null || p.getMobile())
     }
 }
