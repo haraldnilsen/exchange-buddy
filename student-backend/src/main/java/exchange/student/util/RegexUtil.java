@@ -8,7 +8,7 @@ public class RegexUtil {
 	private static final String FNAME_VALIDATOR = "^[a-zA-Z ]*$";
 	private static final String LNAME_VALIDATOR = "^[a-zA-Z ]*$";
 	private static final String FDATE_VALIDATOR = "^[0-3]?[0-9].[0-3]?[0-9].(?:[0-9]{2})?[0-9]{2}$";
-	private static final String PROFILEPIC_VALIDATOR = "^[-a-zA-Z0-9@:%._\\\\+~#?&//=]$";
+	private static final String PROFILEPIC_VALIDATOR = "^[a-zA-Z0-9\\.]+$";
 	private static final String SEX_VALIDATOR = "^[a-zA-Z]*$";
 	private static final String PASSWORD_VALIDATOR = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{8,20}$";
 
