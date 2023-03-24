@@ -36,13 +36,14 @@ public class UserrService {
 	 * @return
 	 */
 		
-	public Userr RegisterUserr(String mobile, String fname, String lname, String fdate, 
-			String profilepic, String sex, String password) {
+	public Userr RegisterUserr(Userr user) {
 		
 		String salt = PasswordHashAndSalt.genererTilfeldigSalt();
-		password = PasswordHashAndSalt.hashMedSalt(password, salt);
+		String password = PasswordHashAndSalt.hashMedSalt(user.getPassword(), salt);
 		
-		Userr user = new Userr(mobile, fname, lname, fdate, profilepic, sex, salt, password);
+		user.setPassword(password);
+		user.setSalt(salt);
+		
 		urepo.save(user);
 		
 		return user;

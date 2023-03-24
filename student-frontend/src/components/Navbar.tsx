@@ -7,10 +7,6 @@ import Button3d from "../icons/Button3d";
 const Navbar: React.FC = (props) => {
 
     let [ open, setOpen ] = useState(false);
-
-    const navbar = document.getElementById("navbar");
-    if(navbar != null)
-        navbar.style.backgroundColor = "FF9A00"
         
     return(
         <>
@@ -41,7 +37,7 @@ const Navbar: React.FC = (props) => {
                             </NavLink>
                         </li>
                         <li className='md:ml-8 text-xl md:my-0 my-7'>
-                            <NavLink to="/newsletter">
+                            <NavLink to="/search">
                                 <p className='text-pink-200 hover:text-pink-400 duration-500'>search</p>
                             </NavLink>
                         </li>

@@ -16,7 +16,7 @@ const Register : React.FC = () => {
     const handleUserSubmit = async(e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
 
-        const user = {
+        const userr = {
             mobile: mobile,
             fname: firstname,
             lname: lastname,
@@ -27,7 +27,9 @@ const Register : React.FC = () => {
             password: password
         }
 
-        await UserService.postUser(user).then((response) => {
+        console.log("Sending user to backend");
+
+        await UserService.postUser(userr).then((response) => {
             console.log(response);
         })
     }
@@ -83,8 +85,17 @@ const Register : React.FC = () => {
                             type="password"
                             placeholder="passord"
                             onChange={e => setPassword(e.target.value)}
-                        />    
-                        <Button3d text="submit" />
+                        />  
+
+<div className='button w-20 h-8 bg-pink-200 rounded-lg cursor-pointer select-none
+                active:translate-y-2  active:[box-shadow:0_0px_0_0_#1b6ff8,0_0px_0_0_#1b70f841]
+                active:border-b-[0px]
+                transition-all duration-150 [box-shadow:0_10px_0_0_#006400]
+                border-b-[1px] border-pink-300
+                '>
+
+
+                        
                     </div>
                 </form>
             </div>

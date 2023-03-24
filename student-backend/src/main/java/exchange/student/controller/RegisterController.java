@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import exchange.student.entity.Userr;
 import exchange.student.repository.UserrRepo;
+import exchange.student.service.UserrService;
 
 @RestController
 @RequestMapping("/api")
@@ -22,19 +23,13 @@ import exchange.student.repository.UserrRepo;
 		)
 public class RegisterController {
 	
-	@Autowired UserrRepo userRepo;
+	@Autowired UserrService userService;
 
-	@PostMapping("student")
-	public ResponseEntity<Userr> postStudent(@RequestBody Userr user) {
-		/*
-		 * HER MÅ DET FIKSES
-		 *  - user.passord må hashes med salt
-		 *  - user.passord må oppdateres
-		 *  - user.salt må oppdateres
-		 */
+	@PostMapping("user")
+	public /*ResponseEntity<Userr>*/ void postStudent(@RequestBody Userr user) {
 		
-		// userRepo.save(user);
-		return null;
+		userService.RegisterUserr(user);
+		
 	}
 	
 }
