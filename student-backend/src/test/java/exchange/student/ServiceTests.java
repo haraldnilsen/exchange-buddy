@@ -27,7 +27,7 @@ public class ServiceTests {
 	@BeforeEach()
 	public void setup() {
 				
-		user1 = uservice.RegisterUserr("12345678", "Petter", "Pilgaard", "20.12.1969", "mordiNaken", "Mann", "Vendela");
+//		user1 = uservice.RegisterUserr("12345678", "Petter", "Pilgaard", "20.12.1969", "mordiNaken", "Mann", "Vendela");
 		user2 = new Userr("12345678", "Petter", "Pilgaard", "20.12.1969", "mordiNaken", "Mann", "123", "Vendela");
 		uservice.saveUserr(user2);
 	}

@@ -43,17 +43,16 @@ public class UserrpostService {
 	/**
 	 * stores a new userpost to the database
 	 * 
-	 * @param all userpost params
-	 * @return list of right posts
+	 * @param a userpost object
+	 * @return the userpost object
+	 * 
 	 */
 	
-	public Userrpost newUserrpost(String term, String city, String country, boolean active,
-			String bio, Integer minPrice, Integer maxPrice) {
+	public Userrpost newUserrpost(Userrpost post) {
 		
-		Userrpost send = new Userrpost(term, city, country, active, bio, minPrice, maxPrice);
-		userpostRepo.save(send);
+		userpostRepo.save(post);
 		
-		return send;
+		return post;
 	}
 	
 	

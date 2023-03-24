@@ -19,6 +19,13 @@ public class RoompostService {
 
 	private @Autowired RoompostRepo roompostRepo;
 	
+	/**
+	 * finds the roomposts that match with the given paramters
+	 * 
+	 * @param minprice, maxprice, term, city
+	 * @return list of right posts
+	 */
+	
 	public List <Roompost> findActiveByParameters (Integer minPrice, Integer maxPrice,
 			String city, String term){
 		List <Roompost> allPosts = roompostRepo.findAll();
@@ -38,17 +45,15 @@ public class RoompostService {
 	/**
 	 * stores a new roompost to the database
 	 * 
-	 * @param all roompost params
+	 * @param A roompost object
 	 * @return list of right posts
 	 */
 	
-	public Roompost newRoompost(String term, String city, String country, boolean active,
-			Integer roommates, String bio, boolean wifi, boolean appliances, Integer price) {
+	public Roompost newRoompost(Roompost roompost) {
 		
-		Roompost send = new Roompost(term, city, country, active, roommates, bio, wifi, appliances, price);
-		roompostRepo.save(send);
+		roompostRepo.save(roompost);
 		
-		return send;
+		return roompost;
 		
 	}
 	
