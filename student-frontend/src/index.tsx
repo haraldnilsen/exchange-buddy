@@ -8,6 +8,7 @@ import Home from './pages/Home';
 import Login from './pages/Login';
 import Register from './pages/Register';
 import Search from './pages/Search';
+import Register2 from './pages/Register2';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -16,7 +17,7 @@ const root = ReactDOM.createRoot(
 const route = createBrowserRouter([
   {
     path:"/app",
-    element: <App/>
+    element: <Register2 />
   },
   {
     path:"/",

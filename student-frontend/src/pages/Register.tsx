@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import Navbar from "../components/Navbar";
 import UserService from "../util/UserService";
-import { NavLink } from "react-router-dom";
 
 const Register : React.FC = () => {
 
@@ -60,56 +59,82 @@ const Register : React.FC = () => {
                 {/* Form */}
                 <form
                     onSubmit={e => handleUserSubmit(e)}
-                    className="bg-pink-200 h-96 w-64 rounded-r-xl shadow-2xl"
+                    className="bg-pink-200 h-96 w-96 rounded-r-xl shadow-2xl flex justify-center items-center"
                 >
-                    <h1 className="text-d-green text-center mt-4 font-bold text-2xl m-2">Register</h1>
-                    <div className="items-center flex flex-col">
-                        <input
-                            className="bg-green-400 text-center rounded text-white w-30 h-8 m-1"
-                            placeholder="mobile"
-                            onChange={e => setMobile(e.target.value)}
-                            value={mobile}
-                        />
-                        <input
-                            className="bg-green-400 text-center rounded text-white w-30 h-8 m-1"
-                            placeholder="firstname"
-                            onChange={e => setFirstname(e.target.value)}
-                            value={firstname}
-                        />
-                        <input
-                            className="bg-green-400 text-center rounded text-white w-30 h-8 m-1"
-                            placeholder="lastname"
-                            onChange={e => setLastname(e.target.value)}
-                            value={lastname}
-                        />
-                        <input
-                            className="bg-green-400 text-center rounded text-white w-30 h-8 m-1"
-                            placeholder="date born"
-                            onChange={e => setDateborn(e.target.value)}
-                            value={dateborn}
-                        />
-                        <input
-                            className="bg-green-400 text-center rounded text-white w-30 h-8 m-1"
-                            placeholder="profilepicture url"
-                            onChange={e => setProfilepicture(e.target.value)}
-                            value={profilepicture}
-                        />
-                        <input
-                            className="bg-green-400 text-center rounded text-white w-30 h-8 m-1"
-                            placeholder="sex"
-                            onChange={e => setSex(e.target.value)}
-                            value={sex}
-                        />
-                        <input
-                            className="bg-green-400 text-center rounded text-white w-30 h-8 m-1"
-                            type="password"
-                            placeholder="passord"
-                            onChange={e => setPassword(e.target.value)}
-                            value={password}
-                        />
-                        <div className="w-32 m-1 hover:bg-slate-400 rounded-xl h-10 bg-green-600 shadow-xl text-center items-center flex justify-center">
-                            <input type="submit"  />
+                    
+
+                    <div>
+                        {/* Text container */}
+                        <div className="flex-col justify-center items-center">
+                            <h1 className="text-bold text-2xl text-center mb-8">Register</h1>
+                            <div>
+                                {/* Left side */}
+                                <div className="flex-col">
+                                    <input
+                                        className="bg-green-400 text-center rounded text-white w-30 h-8 m-1"
+                                        placeholder="firstname"
+                                        onChange={e => setFirstname(e.target.value)}
+                                        value={firstname}
+                                    />
+                                    <input
+                                        className="bg-green-400 text-center rounded text-white w-30 h-8 m-1"
+                                        placeholder="mobile"
+                                        onChange={e => setMobile(e.target.value)}
+                                        value={mobile}
+                                    />
+                                    <input
+                                        className="bg-green-400 text-center rounded text-white w-30 h-8 m-1"
+                                        type="password"
+                                        placeholder="passord"
+                                        onChange={e => setPassword(e.target.value)}
+                                        value={password}
+                                    />
+                                    <input
+                                        className="bg-green-400 text-center rounded text-white w-30 h-8 m-1"
+                                        placeholder="profilepicture url"
+                                        onChange={e => setProfilepicture(e.target.value)}
+                                        value={profilepicture}
+                                    />
+                                </div>
+
+                                {/* Right side */}
+                                <div className="flex-col">
+                                    <input
+                                        className="bg-green-400 text-center rounded text-white w-30 h-8 m-1"
+                                        placeholder="lastname"
+                                        onChange={e => setLastname(e.target.value)}
+                                        value={lastname}
+                                    />
+                                    <input
+                                        className="bg-green-400 text-center rounded text-white w-30 h-8 m-1"
+                                        placeholder="date born"
+                                        onChange={e => setDateborn(e.target.value)}
+                                        value={dateborn}
+                                    />
+                                    <input
+                                        className="bg-green-400 text-center rounded text-white w-30 h-8 m-1"
+                                        type="password"
+                                        placeholder="repeat passord"
+                                        onChange={e => setPassword(e.target.value)}
+                                        value={password}
+                                    />
+                                    <input
+                                        className="bg-green-400 text-center rounded text-white w-30 h-8 m-1"
+                                        placeholder="sex"
+                                        onChange={e => setSex(e.target.value)}
+                                        value={sex}
+                                    />
+                                </div>
+                            </div>
+
+
+
+                            <div className="w-32 m-1 hover:bg-slate-400 rounded-xl h-10 bg-green-600 shadow-xl text-center items-center flex justify-center">
+                                <input type="submit"  />
+                            </div>
+
                         </div>
+
                     </div>
                 </form>
             </div>
