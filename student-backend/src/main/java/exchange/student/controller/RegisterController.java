@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 import exchange.student.entity.Userr;
 import exchange.student.repository.UserrRepo;
 import exchange.student.service.UserrService;
+import exchange.student.util.RegexUtil;
 
 @RestController
 @RequestMapping("/api")
@@ -28,7 +29,21 @@ public class RegisterController {
 	@PostMapping("user")
 	public /*ResponseEntity<Userr>*/ void postStudent(@RequestBody Userr user) {
 		
-		userService.RegisterUserr(user);
+		Userr duplicateUser = userService.getUserr(user.getMobile());
+		
+		if (duplicateUser != null) {
+			// User is not in database
+			// TODO - response message - user exists
+			return;
+		}
+		
+		boolean valid = RegexUtil.validateUser(user);
+		
+		if(valid) {
+			userService.RegisterUserr(user);
+		} else {
+			// TODO Respinse message - not valid input
+		}
 		
 	}
 	
