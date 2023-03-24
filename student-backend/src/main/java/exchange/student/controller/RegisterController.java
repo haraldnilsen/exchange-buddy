@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 import exchange.student.entity.Userr;
 import exchange.student.repository.UserrRepo;
 import exchange.student.service.UserrService;
+import exchange.student.util.RegexUtil;
 
 @RestController
 @RequestMapping("/api")
@@ -28,7 +29,13 @@ public class RegisterController {
 	@PostMapping("user")
 	public /*ResponseEntity<Userr>*/ void postStudent(@RequestBody Userr user) {
 		
-		boolean valid = Util.validateUser(user);
+		Userr userr2 = userService.getUserr(user.getMobile());
+		
+		if (user.getMobile() == userr2.getMobile()) {
+			
+		}
+		
+		boolean valid = RegexUtil.validateUser(user);
 		
 		if(valid) {
 			userService.RegisterUserr(user);

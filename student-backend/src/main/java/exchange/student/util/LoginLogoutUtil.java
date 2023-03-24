@@ -8,10 +8,10 @@ public class LoginLogoutUtil {
 	 * makes sure the username is the user wants to use to login in is valid
 	 */
 	
-	public static final String MAX_8_DIGIT = "[8]";
+	public static final String MAX_8_DIGIT = "[0-9]{8}$";
 
 	
-    public static boolean isValidMobil(String mobil) {
-    	return mobil != null && mobil.matches("^" + MAX_8_DIGIT + "$");
+    public static boolean isValidMobile(String mobile) {
+    	return mobile != null && mobile.matches("^" + MAX_8_DIGIT + "$");
     }
 }
