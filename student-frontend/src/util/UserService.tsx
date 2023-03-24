@@ -2,7 +2,7 @@ import axios from "axios";
 
 const USER_REST_API_URL = "http://localhost:8080/api/user";
 
-export interface User {
+export interface Userr {
     mobile: string;
     fname: string;
     lname: string;
@@ -19,8 +19,8 @@ class UserService {
         return axios.get(USER_REST_API_URL);
     };
 
-    postUser(user: User) {
-        return axios.post(USER_REST_API_URL, user);
+    postUser(userr: Userr) {
+        return axios.post(USER_REST_API_URL, userr);
     }
 }
 

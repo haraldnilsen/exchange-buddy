@@ -28,7 +28,13 @@ public class RegisterController {
 	@PostMapping("user")
 	public /*ResponseEntity<Userr>*/ void postStudent(@RequestBody Userr user) {
 		
-		userService.RegisterUserr(user);
+		boolean valid = Util.validateUser(user);
+		
+		if(valid) {
+			userService.RegisterUserr(user);
+		} else {
+			// TODO Respinse message - not valid input
+		}
 		
 	}
 	
