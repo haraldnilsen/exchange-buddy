@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import Navbar from "../components/Navbar";
-import Button3d from "../icons/Button3d";
 import UserService from "../util/UserService";
 
 const Register : React.FC = () => {
@@ -29,9 +28,21 @@ const Register : React.FC = () => {
 
         console.log("Sending user to backend");
 
+        clearInput();
+
         await UserService.postUser(userr).then((response) => {
             console.log(response);
         })
+    }
+
+    const clearInput = () => {
+        setMobile("");
+        setFirstname("");
+        setLastname("");
+        setDateborn("");
+        setProfilepicture("");
+        setSex("");
+        setPassword("");
     }
 
     return(
@@ -54,40 +65,48 @@ const Register : React.FC = () => {
                             className="bg-green-400 text-center rounded text-white w-30 h-8 m-1"
                             placeholder="mobile"
                             onChange={e => setMobile(e.target.value)}
+                            value={mobile}
                         />
                         <input
                             className="bg-green-400 text-center rounded text-white w-30 h-8 m-1"
                             placeholder="firstname"
                             onChange={e => setFirstname(e.target.value)}
+                            value={firstname}
                         />
                         <input
                             className="bg-green-400 text-center rounded text-white w-30 h-8 m-1"
                             placeholder="lastname"
                             onChange={e => setLastname(e.target.value)}
+                            value={lastname}
                         />
                         <input
                             className="bg-green-400 text-center rounded text-white w-30 h-8 m-1"
                             placeholder="date born"
                             onChange={e => setDateborn(e.target.value)}
+                            value={dateborn}
                         />
                         <input
                             className="bg-green-400 text-center rounded text-white w-30 h-8 m-1"
                             placeholder="profilepicture url"
                             onChange={e => setProfilepicture(e.target.value)}
+                            value={profilepicture}
                         />
                         <input
                             className="bg-green-400 text-center rounded text-white w-30 h-8 m-1"
                             placeholder="sex"
                             onChange={e => setSex(e.target.value)}
+                            value={sex}
                         />
                         <input
                             className="bg-green-400 text-center rounded text-white w-30 h-8 m-1"
                             type="password"
                             placeholder="passord"
                             onChange={e => setPassword(e.target.value)}
+                            value={password}
                         />
-                        <input type="submit"  />
-                        <Button3d text="submit"/>
+                        <div className="w-32 m-1 hover:bg-slate-400 rounded-xl h-10 bg-green-600 shadow-xl text-center items-center flex justify-center">
+                            <input type="submit"  />
+                        </div>
                     </div>
                 </form>
             </div>
