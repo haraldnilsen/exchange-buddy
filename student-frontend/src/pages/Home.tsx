@@ -1,5 +1,6 @@
 import React from "react";
 import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
 
 /*
     Simple home page for the webapp
@@ -13,6 +14,7 @@ const Home : React.FC = () => {
         <>
             <Navbar />
             <h1>Home Page</h1>
+            <Footer />
         </>
     );
 }

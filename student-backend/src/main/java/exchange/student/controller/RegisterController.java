@@ -39,6 +39,8 @@ public class RegisterController {
 		
 		boolean valid = RegexUtil.validateUser(user);
 		
+		System.err.println(valid);
+		
 		if(valid) {
 			userService.RegisterUserr(user);
 		} else {
