@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -25,6 +26,12 @@ import exchange.student.util.RegexUtil;
 public class RegisterController {
 	
 	@Autowired UserrService userService;
+	
+	@GetMapping("response") 
+	public String responseMessage(String mordi) {
+		
+		return mordi;
+	}
 
 	@PostMapping("user")
 	public /*ResponseEntity<Userr>*/ void postStudent(@RequestBody Userr user) {
@@ -34,7 +41,7 @@ public class RegisterController {
 		if (duplicateUser != null) {
 			// User is not in database
 			// TODO - response message - user exists
-			return;
+			responseMessage("User already exixsts!");
 		}
 		
 		boolean valid = RegexUtil.validateUser(user);
@@ -44,7 +51,8 @@ public class RegisterController {
 		if(valid) {
 			userService.RegisterUserr(user);
 		} else {
-			// TODO Respinse message - not valid input
+			// TODO Response message - not valid input
+			responseMessage("Invalid input");
 		}
 		
 	}
