@@ -9,7 +9,7 @@ const Footer : React.FC = () => {
             <hr className="w-full h-1 my-8 bg-gray-200 border-0 rounded dark:bg-gray-300 mt-96"></hr>
 
             {/* Container */}
-            <div className="flex items-top justify-center">
+            <div className="flex items-top justify-center h-20">
 
                 {/* element 1 */}
                 <div className="mx-4">
