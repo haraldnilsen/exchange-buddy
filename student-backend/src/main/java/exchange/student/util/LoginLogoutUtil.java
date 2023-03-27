@@ -27,7 +27,10 @@ public class LoginLogoutUtil {
 		return session != null;
 	}
     
-    public static boolean isUserValid(Userr p, String password, ) {
-    	if(p == null || p.getMobile())
+    public static boolean isUserValid(Userr p, String password, String mobile ) {
+    	if(p == null || !isValidMobile(mobile) || !p.getMobile().matches(password) || !PasswordHashAndSalt.validerMedSalt(password, p.getSalt(), p.getPassword())) {
+    		return false;
+    	}
+    	return true;
     }
 }
