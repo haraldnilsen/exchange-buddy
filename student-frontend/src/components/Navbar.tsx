@@ -32,7 +32,7 @@ const Navbar: React.FC = (props) => {
 
                         </li>
                         <li className='md:ml-8 text-xl'>
-                            <NavLink to="/gallery">
+                            <NavLink to="/faq">
                                 <p className='text-pink-200 hover:text-pink-400 duration-500'>faq</p>
                             </NavLink>
                         </li>
