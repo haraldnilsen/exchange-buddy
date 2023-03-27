@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
 import UserService from "../util/UserService";
 
@@ -76,7 +77,7 @@ const Login : React.FC = () => {
                         <p className="my-0 mx-2">Password</p>
                         <input
                             className="bg-pink-200 text-green-700 border-b-2 rounded border-b-black m-2 outline-none"
-                            type=""
+                            type="password"
                             onChange={e => setPassword(e.target.value)}
                         />
                         <br/>
@@ -84,6 +85,7 @@ const Login : React.FC = () => {
                     </form> 
                 </div>
             </div>
+            <Footer />
         </>
     );
 }
