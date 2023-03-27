@@ -7,6 +7,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -37,17 +38,22 @@ public class LoginController {
 	}
 	
 	@PostMapping("login")
-	public String loginUser(String mobilnr, String salt, String passord) {
-		Userr user = userService.getUserr(mobilnr);
-		if(LoginLogoutUtil.isUserValid(user, passord, mobilnr) == true) {
+	public void loginUser(@RequestBody Userr userr) {
+		System.err.println("Login request received");
+		Userr user = userService.getUserr(userr.getMobile());
+		
+		if(LoginLogoutUtil.isUserValid(user, userr.getMobile(), userr.getPassword())) {
 			
-			return "redirect:/successPage"; // Replace "successPage" with the correct page to redirect to upon successful login
-		}
-		else {
-	        model.addAttribute("errorMessage", "Invalid mobile number or password");
-	        return "Login";
+			response = "Valid";
+			
+		} else {
+			
+			response = "Invalid username and/or password";
+			
 	    }
 	}
+	
+	
 	
 	
 }

@@ -2,6 +2,8 @@ import axios from "axios";
 
 const USER_REST_API_URL = "http://localhost:8080/api/user";
 const RESPONSE_REST_API_URL = "http://localhost:8080/api/response";
+const LOGIN_REST_API_URL = "http://localhost:8080/api/login";
+const LOGIN_RESPONSE_REST_API_URL = "http://localhost:8080/api/response2";
 
 export interface Userr {
     mobile: string;
@@ -16,6 +18,7 @@ export interface Userr {
 
 class UserService {
 
+    // For registering a new user
     getUsers() {
         return axios.get(USER_REST_API_URL);
     };
@@ -26,6 +29,16 @@ class UserService {
 
     getResponseMessage() {
         return axios.get(RESPONSE_REST_API_URL);
+    }
+
+
+    // For logging in
+    loginUser(userr: Userr) {
+        return axios.post(LOGIN_REST_API_URL, userr);
+    }
+
+    getLoginResponseMessage() {
+        return axios.get(LOGIN_RESPONSE_REST_API_URL);
     }
 
 }

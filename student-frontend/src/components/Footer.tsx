@@ -45,7 +45,7 @@ const Footer : React.FC = () => {
                 <hr className="w-3/4 h-0.5 my-8 bg-gray-200 border-0 rounded dark:bg-gray-300 mt-32"></hr>
             </div>
             
-            <div className="flex justify-center items-center">
+            <div className="flex justify-center items-center pb-10">
                 {/* Icons */}
                 <div className="flex mx-8"> 
                     <BsFacebook className="mx-4 text-2xl hover:text-green-700"/>

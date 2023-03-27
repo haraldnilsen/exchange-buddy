@@ -5,9 +5,11 @@ import reportWebVitals from './reportWebVitals';
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Home from './pages/Home';
 import Login from './pages/Login';
-import Search from './pages/Search';
 import Faq from './pages/Faq';
 import RegisterOld from './Test/RegisterOld';
+import SearchRoom from './pages/SearchRoom';
+import SearchUser from './pages/SearchUser';
+
 import Register from './pages/Register';
 
 const root = ReactDOM.createRoot(
@@ -33,7 +35,7 @@ const route = createBrowserRouter([
   },
   {
     path:"/search",
-    element: <Search/>
+    element: <SearchRoom/>
   },
 ])
 root.render(
