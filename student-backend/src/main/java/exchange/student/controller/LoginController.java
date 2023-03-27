@@ -7,6 +7,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -37,10 +38,10 @@ public class LoginController {
 	}
 	
 	@PostMapping("login")
-	public void loginUser(String mobile, String password) {
-		Userr user = userService.getUserr(mobile);
+	public void loginUser(@RequestBody Userr userr) {
+		Userr user = userService.getUserr(userr.getMobile());
 		
-		if(LoginLogoutUtil.isUserValid(user, password, mobile) == true) {
+		if(LoginLogoutUtil.isUserValid(user, userr.getPassword(), userr.getMobile()) == true) {
 			
 			response = "Valid";
 			return;
