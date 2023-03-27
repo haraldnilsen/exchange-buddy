@@ -42,16 +42,14 @@ public class LoginController {
 		System.err.println("Login request received");
 		Userr user = userService.getUserr(userr.getMobile());
 		
-		System.err.println(userr.getMobile() + " " + userr.getPassword());
-		
-		if(LoginLogoutUtil.isUserValid(user, userr.getPassword(), userr.getMobile())) {
+		if(LoginLogoutUtil.isUserValid(user, userr.getMobile(), userr.getPassword())) {
 			
 			response = "Valid";
-			return;
 			
-			}
-		else {
+		} else {
+			
 			response = "Invalid username and/or password";
+			
 	    }
 	}
 	
