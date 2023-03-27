@@ -54,7 +54,7 @@ const Register : React.FC = () => {
 
         await UserService.getResponseMessage().then((response) => {
             console.log(response.data);
-            if(response.data != "valid") {
+            if(response.data != "Valid") {
                 alert(response.data);
             } else {
                 alert("New user created!");

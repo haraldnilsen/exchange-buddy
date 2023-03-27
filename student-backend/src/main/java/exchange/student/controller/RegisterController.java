@@ -40,7 +40,8 @@ public class RegisterController {
 		
 		if (duplicateUser != null) {
 			// User is not in database
-			response = "User already exixsts!";
+			response = "User already exists!";
+			return;
 		}
 		
 		boolean valid = RegexUtil.validateUser(user);
