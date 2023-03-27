@@ -1,8 +1,6 @@
 package exchange.student.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -12,7 +10,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import exchange.student.entity.Userr;
-import exchange.student.repository.UserrRepo;
 import exchange.student.service.UserrService;
 import exchange.student.util.RegexUtil;
 
@@ -23,6 +20,7 @@ import exchange.student.util.RegexUtil;
 		methods = {RequestMethod.GET, RequestMethod.POST},
 		allowedHeaders = {"Content-Type", "Authorization"}
 		)
+
 public class RegisterController {
 	
 	@Autowired UserrService userService;
@@ -42,20 +40,16 @@ public class RegisterController {
 		
 		if (duplicateUser != null) {
 			// User is not in database
-			// TODO - response message - user exists
 			response = "User already exixsts!";
 		}
 		
 		boolean valid = RegexUtil.validateUser(user);
 		
-		System.err.println(valid);
-		
 		if(valid) {
 			userService.RegisterUserr(user);
+			response = "Valid";
 		} else {
-			// TODO Response message - not valid input
-			System.err.println("Invalid input");
-			response="Invalid input";
+			response = "Invalid input";
 		}
 		
 	}
