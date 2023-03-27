@@ -63,12 +63,12 @@ const Login : React.FC = () => {
                 <div className="justify-center items-center flex sd:flex-col bg-pink-200 rounded-xl shadow-md hover:shadow-2xl mt-64 border-4 border-green-900">
                     {/* Image */}
                     <div className="w-1/2 py-4">
-                        <img src={require("../images/login.png")} />
+                        <img alt="login image" src={require("../images/login.png")} />
                     </div>
 
                     {/* Form */}
                     <form className="w-1/4" onSubmit={e => handleUserSubmit(e)}>
-                        <h1 className="text-bold text-2xl text-center mb-8">Login</h1>
+                        <h1 className="font-bold text-2xl text-center mb-8">Login</h1>
                         <p className="my-0 mx-2">Username</p>
                         <input 
                             className="bg-pink-200 text-green-700 border-b-2 rounded border-b-black m-2 outline-none"
