@@ -25,12 +25,12 @@ const Login : React.FC = () => {
             profilepic: "",
             sex: "",
             salt: "",
-            password: ""
+            password: password
         }
 
         console.log("Sending user to backend");
 
-        await UserService.postUser(userr).then((response) => {
+        await UserService.loginUser(userr).then((response) => {
             console.log(response);
         })
           
@@ -69,9 +69,17 @@ const Login : React.FC = () => {
                     <form className="w-1/4" onSubmit={e => handleUserSubmit(e)}>
                         <h1 className="text-bold text-2xl text-center mb-8">Login</h1>
                         <p className="my-0 mx-2">Username</p>
-                        <input className="bg-pink-200 text-green-700 border-b-2 rounded border-b-black m-2 outline-none" />
+                        <input 
+                            className="bg-pink-200 text-green-700 border-b-2 rounded border-b-black m-2 outline-none"
+                            onChange={e => setMobile(e.target.value)}
+                        />
                         <p className="my-0 mx-2">Password</p>
-                        <input className="bg-pink-200 text-green-700 border-b-2 rounded border-b-black m-2 outline-none" /><br/>
+                        <input
+                            className="bg-pink-200 text-green-700 border-b-2 rounded border-b-black m-2 outline-none"
+                            type=""
+                            onChange={e => setPassword(e.target.value)}
+                        />
+                        <br/>
                         <input className="w-44 bg-green-500 border-b-4 border-green-900 h-9 hover:bg-gray-500 hover:border-gray-900 mx-2 my-4 rounded-xl " type="submit" value="login"/>
                     </form> 
                 </div>

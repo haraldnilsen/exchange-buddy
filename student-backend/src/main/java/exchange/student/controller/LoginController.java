@@ -39,9 +39,12 @@ public class LoginController {
 	
 	@PostMapping("login")
 	public void loginUser(@RequestBody Userr userr) {
+		System.err.println("Login request received");
 		Userr user = userService.getUserr(userr.getMobile());
 		
-		if(LoginLogoutUtil.isUserValid(user, userr.getPassword(), userr.getMobile()) == true) {
+		System.err.println(userr.getMobile() + " " + userr.getPassword());
+		
+		if(LoginLogoutUtil.isUserValid(user, userr.getPassword(), userr.getMobile())) {
 			
 			response = "Valid";
 			return;
