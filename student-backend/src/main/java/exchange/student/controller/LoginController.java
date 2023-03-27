@@ -37,15 +37,17 @@ public class LoginController {
 	}
 	
 	@PostMapping("login")
-	public String loginUser(String mobilnr, String salt, String passord) {
-		Userr user = userService.getUserr(mobilnr);
-		if(LoginLogoutUtil.isUserValid(user, passord, mobilnr) == true) {
+	public void loginUser(String mobile, String password) {
+		Userr user = userService.getUserr(mobile);
+		
+		if(LoginLogoutUtil.isUserValid(user, password, mobile) == true) {
 			
-			return "redirect:/successPage"; // Replace "successPage" with the correct page to redirect to upon successful login
-		}
+			response = "Valid";
+			return;
+			
+			}
 		else {
-	        model.addAttribute("errorMessage", "Invalid mobile number or password");
-	        return "Login";
+			response = "Invalid username and/or password";
 	    }
 	}
 	
