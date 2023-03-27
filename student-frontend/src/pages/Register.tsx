@@ -45,10 +45,7 @@ const Register : React.FC = () => {
             console.log(response);
         })
 
-        alert("Bruker prøver å bli lagt til");
         setTimeout(() => clearInput(), 1000);
-        // window.location.replace("http://localhost:3000/");
-
         handleResponseMessage();
     }
 
@@ -56,8 +53,15 @@ const Register : React.FC = () => {
         console.log("Getting response message from backend");
 
         await UserService.getResponseMessage().then((response) => {
-            console.log(response);
+            console.log(response.data);
+            if(response.data != "valid") {
+                alert(response.data);
+            } else {
+                alert("New user created!");
+                window.location.replace("http://localhost:3000/");
+            }
         })
+
     }
 
     const clearInput = () => {
