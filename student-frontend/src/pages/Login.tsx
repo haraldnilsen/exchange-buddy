@@ -60,7 +60,7 @@ const Login : React.FC = () => {
         <> 
             <Navbar />
             <div className="justify-center items-center flex">
-                <div className="justify-center items-center flex sd:flex-col bg-pink-200 rounded-xl shadow-md hover:shadow-2xl mt-64">
+                <div className="justify-center items-center flex sd:flex-col bg-pink-200 rounded-xl shadow-md hover:shadow-2xl mt-64 border-4 border-green-900">
                     {/* Image */}
                     <div className="w-1/2 py-4">
                         <img src={require("../images/login.png")} />
