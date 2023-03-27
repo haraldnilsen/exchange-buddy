@@ -14,6 +14,8 @@ const Home : React.FC = () => {
         <>
             <Navbar />
             <h1>Home Page</h1>
+            <div className="mt-96"></div>
+            <div className="mt-96"></div>
             <Footer />
         </>
     );

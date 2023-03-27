@@ -1,6 +1,7 @@
 import axios from "axios";
 
 const USER_REST_API_URL = "http://localhost:8080/api/user";
+const RESPONSE_REST_API_URL = "http://localhost:8080/api/response";
 
 export interface Userr {
     mobile: string;
@@ -22,6 +23,11 @@ class UserService {
     postUser(userr: Userr) {
         return axios.post(USER_REST_API_URL, userr);
     }
+
+    getResponseMessage() {
+        return axios.get(RESPONSE_REST_API_URL);
+    }
+
 }
 
 export default new UserService();

@@ -27,10 +27,12 @@ public class RegisterController {
 	
 	@Autowired UserrService userService;
 	
+	private String response = "";
+	
 	@GetMapping("response") 
-	public String responseMessage(String mordi) {
+	public String responseMessage() {
 		
-		return mordi;
+		return response;
 	}
 
 	@PostMapping("user")
@@ -41,7 +43,7 @@ public class RegisterController {
 		if (duplicateUser != null) {
 			// User is not in database
 			// TODO - response message - user exists
-			responseMessage("User already exixsts!");
+			response = "User already exixsts!";
 		}
 		
 		boolean valid = RegexUtil.validateUser(user);
@@ -52,7 +54,8 @@ public class RegisterController {
 			userService.RegisterUserr(user);
 		} else {
 			// TODO Response message - not valid input
-			responseMessage("Invalid input");
+			System.err.println("Invalid input");
+			response="Invalid input";
 		}
 		
 	}
