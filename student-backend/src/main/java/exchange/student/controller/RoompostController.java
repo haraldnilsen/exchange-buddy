@@ -30,12 +30,12 @@ public class RoompostController {
 	@Autowired private RoompostService roompostService;
 	@Autowired private RoompostRepo roompostRepo;
 	
-	@GetMapping
+	@GetMapping("all")
 	public List <Roompost> getAllRoomposts(){
 		return roompostRepo.findAll();
 	}
 	
-	@PostMapping
+	@PostMapping("roompost")
 	public Roompost createRoompost(@RequestBody Roompost roompost) {
 		return roompostService.newRoompost(roompost);
 	}
