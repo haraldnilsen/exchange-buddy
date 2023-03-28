@@ -3,6 +3,7 @@ import { NavLink } from "react-router-dom";
 import Menu from "../icons/Menu";
 import Close from "../icons/Close";
 import Button3d from "../icons/Button3d";
+import DropdownComponent from './DropdownComponent';
 
 const Navbar: React.FC = (props) => {
 
@@ -40,7 +41,12 @@ const Navbar: React.FC = (props) => {
                             </NavLink>
                         </li>
                         <li className='md:ml-8 text-xl md:my-0 my-7'>
-                            <NavLink to="/search">
+                            <NavLink to="/searchroom">
+                                <p className='text-pink-200 hover:text-pink-400 duration-500'>Find Room</p>
+                            </NavLink>
+                        </li>
+                        <li className='md:ml-8 text-xl md:my-0 my-7'>
+                            <NavLink to="/searchuser">
                                 <p className='text-pink-200 hover:text-pink-400 duration-500'>Find Buddy</p>
                             </NavLink>
                         </li>

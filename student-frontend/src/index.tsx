@@ -38,7 +38,7 @@ const route = createBrowserRouter([
     element: <AboutUs/>
   },
   {
-    path:"/search",
+    path:"/searchroom",
     element: <SearchRoom/>
   },
   {
