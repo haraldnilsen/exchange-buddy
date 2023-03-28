@@ -1,6 +1,8 @@
 import axios from "axios";
 
 // For searching rooms
+const ROOM_GET_ALL_API_URL = "http://localhost:8080/api/roompost/all";
+
 const ROOM_GET_API_URL = "http://localhost:8080/api/roompost";
 const ROOM_GET_ID_API_URL = "http://localhost:8080/api/roompost";
 
@@ -25,6 +27,10 @@ export interface RoomPost {
 }
 
 class RoomPostService {
+
+    getAllRoomPosts() {
+        return axios.get(ROOM_GET_ALL_API_URL);
+    }
 
     getRoomPosts() {
         return axios.get(ROOM_GET_API_URL);
