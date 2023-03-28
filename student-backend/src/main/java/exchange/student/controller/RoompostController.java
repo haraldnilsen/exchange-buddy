@@ -39,10 +39,12 @@ public class RoompostController {
 	
 	@GetMapping("filter")
 	public List<Roompost> getFilteredRoomposts(@RequestParam Roompost roompost) {
-			
+		
+		System.err.println("FØR");
 		List<Roompost> filter = roompostService.filterByParameters(roompost.getTerm(), roompost.getCity(), 
 					roompost.getCountry(), roompost.isActive(), roompost.getRoomates());
 		
+		System.err.println("ETTEr");
 		return filter;
 	}
 	

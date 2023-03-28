@@ -69,7 +69,7 @@ const SearchUser: React.FC = () => {
                 </form>
 
                 {/* Results */}
-                <div className="flex flex-wrap w-1/2">
+                <div className="flex flex-wrap w-8/12">
                     <UserPost />
                     <UserPost />
                     <UserPost />

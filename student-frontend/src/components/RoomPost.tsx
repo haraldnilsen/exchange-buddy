@@ -1,21 +1,5 @@
 import React from "react";
 
-export interface RoompostToBackend {
-    address: string;
-    term: string; 
-    city: string;
-    country: string;
-    active: boolean;
-    roomates: string;
-    bio: string;
-    wifi: boolean;
-    appliances: boolean;
-    mobile: string;
-    price: string;
-    kvm: string;
-    picture: string;
-}
-
 export interface RoomPostProps {
     address: string;
     term: string; 

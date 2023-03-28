@@ -3,8 +3,8 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { MdWifi } from "react-icons/md";
 import { GiWashingMachine } from "react-icons/gi";
-import RoomPost, { RoomPostProps, RoompostToBackend } from "../components/RoomPost";
-import RoomPostService from "../util/RoomPostService";
+import RoomPost, { RoomPostProps } from "../components/RoomPost";
+import RoomPostService, { RoompostToBackend } from "../util/RoomPostService";
 import { NewtonsCradle } from '@uiball/loaders'
 
 const SearchRoom: React.FC = () => {
@@ -87,7 +87,7 @@ const SearchRoom: React.FC = () => {
         }
         console.log("Sending roompost request to backend");
 
-        await RoomPostService.getAllRoomPosts().then((response) => {
+        await RoomPostService.searchRoomPost(Roompost).then((response) => {
             console.log(response.data);
             setSearchResults(response.data);
         })
