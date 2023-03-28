@@ -73,6 +73,10 @@ public class RoompostService {
 				.filter(x -> x.isAppliances() == appliances)
 				.toList();
 		
+		if(x.getCountry().equals(country) || x.getCountry().equals("")) {
+			
+		}
+		
 		return filtered;
 	}
 	
