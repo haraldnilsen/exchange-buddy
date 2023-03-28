@@ -37,15 +37,11 @@ public class Userr {
 		this.password = password;
 	}
 
-	
-
 
 	public Userr() {
 		super();
 	}
-
-
-
+	
 
 	public String getMobile() {
 		return mobile;
