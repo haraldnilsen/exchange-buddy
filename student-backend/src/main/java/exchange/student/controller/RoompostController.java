@@ -60,6 +60,7 @@ public class RoompostController {
 		rpost.setRoomates(roompost.getRoomates());
 		rpost.setTerm(roompost.getTerm());
 		rpost.setWifi(roompost.isWifi());
+		rpost.setKvm(roompost.getKvm());
 		
 		
 		roompostRepo.save(rpost);

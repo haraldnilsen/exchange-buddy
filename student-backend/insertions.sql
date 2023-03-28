@@ -27,6 +27,7 @@ CREATE TABLE roompost
 	appliances BOOL,
 	mobile VARCHAR NOT NULL,
 	price INTEGER,
+	kvm INTEGER,
 	
 	FOREIGN KEY (mobile) REFERENCES userr(mobile)
 );

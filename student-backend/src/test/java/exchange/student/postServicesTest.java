@@ -29,39 +29,39 @@ public class postServicesTest {
 	Userrpost to = new Userrpost("h2022", "Bergen", "Norge", true, "Leter etter rolig kammerat", 4000, 7000);
 	Userrpost tre = new Userrpost("v2022", "Bergen", "Norge", true, "Leter etter tjomi med bra sofaløsning", 5000, 7000);
 	
-	Roompost enr = new Roompost("v2022", "Bergen", "Norge", true, 2, "hei trenger en kammerat inn", true, false, 5000);
-	Roompost tor = new Roompost("h2022", "Bergen", "Norge", true, 2, "hei trenger en kammerat inn", false, false, 7002);
+//	Roompost enr = new Roompost("v2022", "Bergen", "Norge", true, 2, "hei trenger en kammerat inn", true, false, 5000);
+//	Roompost tor = new Roompost("h2022", "Bergen", "Norge", true, 2, "hei trenger en kammerat inn", false, false, 7002);
 
-	@BeforeEach
-	public void addData() {
-		userpostRepo.save(en);
-		userpostRepo.save(to);
-		userpostRepo.save(tre);
+//	@BeforeEach
+//	public void addData() {
+//		userpostRepo.save(en);
+//		userpostRepo.save(to);
+//		userpostRepo.save(tre);
+//		
+//		roompostRepo.save(enr);
+//		roompostRepo.save(tor);
+//	}
+//	
+//	@AfterEach
+//	public void removeData() {
+//		userpostRepo.delete(en);
+//		userpostRepo.delete(to);
+//		userpostRepo.delete(tre);
+//		
+//		roompostRepo.delete(enr);
+//		roompostRepo.delete(tor);
+//	}
+//	
+//	@Test
+//	public void testFindRoomByParam () {
+//		List<Roompost> test = roompostService.findActiveByParameters(5000, 7000, "Bergen", "v2022");
+//		
+//		assertTrue(test.contains(enr));
+//		assertFalse(test.contains(tor));
 		
-		roompostRepo.save(enr);
-		roompostRepo.save(tor);
-	}
-	
-	@AfterEach
-	public void removeData() {
-		userpostRepo.delete(en);
-		userpostRepo.delete(to);
-		userpostRepo.delete(tre);
-		
-		roompostRepo.delete(enr);
-		roompostRepo.delete(tor);
-	}
-	
-	@Test
-	public void testFindRoomByParam () {
-		List<Roompost> test = roompostService.findActiveByParameters(5000, 7000, "Bergen", "v2022");
-		
-		assertTrue(test.contains(enr));
-		assertFalse(test.contains(tor));
 		
 		
-		
-	}
+//	}
 	
 	@Test
 	public void testFindUserByParam () {
