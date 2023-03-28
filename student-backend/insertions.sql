@@ -28,6 +28,7 @@ CREATE TABLE roompost
 	mobile VARCHAR NOT NULL,
 	price INTEGER,
 	kvm INTEGER,
+	picture VARCHAR,
 	
 	FOREIGN KEY (mobile) REFERENCES userr(mobile)
 );
