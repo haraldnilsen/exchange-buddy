@@ -41,7 +41,7 @@ const SearchRoom: React.FC = () => {
     const [city, setCity] = useState("");
     const [country, setCountry] = useState("");
     const [roomates, setRoomates] = useState("");
-    const [wifi, setWifi] = useState(true);
+    const [wifi, setWifi] = useState(false);
     const [appliances, setAppliances] = useState(true);
     const [roomsizeFrom, setRoomsizeFrom] = useState("");
     const [roomsizeTo, setRoomsizeTo] = useState("");
@@ -68,6 +68,7 @@ const SearchRoom: React.FC = () => {
     const handleSearch = async(e: React.FormEvent<HTMLFormElement>) => {
         setLoading(true);
         e.preventDefault();
+        console.log(wifi);
 
         const Roompost: RoompostToBackend = {
             address: "",
