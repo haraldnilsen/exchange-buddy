@@ -8,6 +8,7 @@ import keyImage from "../images/exchange.jpg";
 import groupImage from "../images/tull.jpg";
 
 import amundImage from "../images/people/amund.jpg";
+import amundImage2 from "../images/people/amund2.jpg";
 import dennisImage from "../images/people/dennis.jpg";
 import adrianImage from "../images/people/pff.jpg";
 import haraldImage from "../images/people/harald.jpg";
@@ -112,7 +113,7 @@ const AboutUs: React.FC = () => {
                         <div className="sm:w-1/3">
                             <div className="bg-white rounded-3xl text-center shadow p-4 transition transform hover:-translate-y-1">
                                 <img
-                                    src={amundImage}
+                                    src={amundImage2}
                                     alt="Agent"
                                     className="w-full rounded-3xl mb-4"
                                 />
