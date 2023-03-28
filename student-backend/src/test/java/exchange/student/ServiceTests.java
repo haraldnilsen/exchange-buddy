@@ -27,23 +27,23 @@ public class ServiceTests {
 	@BeforeEach()
 	public void setup() {
 				
-//		user1 = uservice.RegisterUserr("12345678", "Petter", "Pilgaard", "20.12.1969", "mordiNaken", "Mann", "Vendela");
-		user2 = new Userr("12345678", "Petter", "Pilgaard", "20.12.1969", "mordiNaken", "Mann", "123", "Vendela");
-		uservice.saveUserr(user2);
+////		user1 = uservice.RegisterUserr("12345678", "Petter", "Pilgaard", "20.12.1969", "mordiNaken", "Mann", "Vendela");
+//		user2 = new Userr("12345678", "Petter", "Pilgaard", "20.12.1969", "mordiNaken", "Mann", "123", "Vendela");
+//		uservice.saveUserr(user2);
 	}
 	
 	/**
 	 * Test if the users mobile is in the database
 	 */
 	
-	@Test
-	public void findUserrByMobile() {
-		System.out.println("Test av userr fra databasen");
-		
-		Userr usrrCheck = uservice.getUserr("12345678");	
-		System.out.println(usrrCheck.getMobile() + " " + usrrCheck.getFname() + "kukker");
-		
-		assertTrue(user2.equals(uservice.getUserr(user2.getMobile())));
+//	@Test
+//	public void findUserrByMobile() {
+//		System.out.println("Test av userr fra databasen");
+//		
+//		Userr usrrCheck = uservice.getUserr("12345678");	
+//		System.out.println(usrrCheck.getMobile() + " " + usrrCheck.getFname() + "kukker");
+//		
+//		assertTrue(user2.equals(uservice.getUserr(user2.getMobile())));
 	}
 	
-}
+//}

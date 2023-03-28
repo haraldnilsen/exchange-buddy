@@ -7,6 +7,7 @@ import javax.persistence.Table;
 
 import org.springframework.jdbc.support.lob.DefaultLobHandler;
 import org.springframework.jdbc.support.lob.LobHandler;
+import org.springframework.web.multipart.MultipartFile;
 
 @Entity
 @Table(name="userr")
@@ -36,6 +37,7 @@ public class Userr {
 		this.sex = sex;
 		this.salt = salt;
 		this.password = password;
+//		this.img = img;
 	}
 
 
@@ -134,5 +136,13 @@ public class Userr {
 	public void setPassword(String password) {
 		this.password = password;
 	}
+	
+//	public byte[] getImage() {
+//		return img;
+//	}
+//	
+//	public void setImage(byte[] img) {
+//		this.img = img;
+//	}
 	
 }

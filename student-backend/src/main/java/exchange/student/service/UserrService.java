@@ -1,9 +1,13 @@
 package exchange.student.service;
 
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 import exchange.student.entity.Userr;
 import exchange.student.repository.UserrRepo;
@@ -24,15 +28,8 @@ public class UserrService {
 	private @Autowired UserrRepo urepo;
 	
 	/**
-	 * Register a new user and save the userinfo in the database
-	 * @param mobile
-	 * @param fname
-	 * @param lname
-	 * @param fdate
-	 * @param profilepic
-	 * @param sex
-	 * @param salt
-	 * @param password
+	 * Register a user and generate password with salt and hashing
+	 * @param user
 	 * @return
 	 */
 		
@@ -60,6 +57,13 @@ public class UserrService {
 	
 	public void saveUserr(Userr user) {
 		urepo.save(user);
+	}
+	
+	public void saveImage(MultipartFile imagefile) throws Exception {
+		
+		byte[] bytes = imagefile.getBytes();
+		Path path = Paths.get(imagefile.getOriginalFilename());
+		Files.write(path, bytes);
 	}
 	
 }

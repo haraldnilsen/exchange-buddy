@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 
 import exchange.student.entity.Userr;
 import exchange.student.service.UserrService;
@@ -43,6 +44,18 @@ public class RegisterController {
 			response = "User already exists!";
 			return;
 		}
+		
+		// save image of user
+		
+		
+//		try {
+//			userService.saveImage(file);
+//		} catch (Exception e) {
+//		
+//			e.printStackTrace();
+//		}
+		
+		
 		
 		boolean valid = RegexUtil.validateUser(user);
 		
