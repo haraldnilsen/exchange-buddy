@@ -9,6 +9,7 @@ import Faq from './pages/Faq';
 import RegisterOld from './Test/RegisterOld';
 import SearchRoom from './pages/SearchRoom';
 import SearchUser from './pages/SearchUser';
+import AboutUs from './pages/AboutUs';
 
 import Register from './pages/Register';
 
@@ -32,6 +33,10 @@ const route = createBrowserRouter([
   {
     path:"/faq",
     element: <Faq />
+  },
+  {
+    path:"/about",
+    element: <AboutUs/>
   },
   {
     path:"/search",

@@ -14,7 +14,7 @@ const Navbar: React.FC = (props) => {
                 <div id="navbar" className='md:flex items-center justify-between bg-d-green py-4 md:px-10 px-7 h-24 shadow-md'>
                     <div className='md:hidden-true cursor-pointer flex items-center ml-8'>
                         <NavLink to="/">
-                            <img alt='logo' className='w-13 h-20 color-violet-400' src={require("../images/logo.png")} />
+                            <img alt='logo' className='w-36 ml-10 h-29 color-violet-400' src={require("../images/logo.png")} />
                         </NavLink>
                     </div>
                     <div onClick={() => setOpen(!open)}>
@@ -31,22 +31,27 @@ const Navbar: React.FC = (props) => {
                         </li>
                         <li className='md:ml-8 text-xl'>
                             <NavLink to="/faq">
-                                <p className='text-pink-200 hover:text-pink-400 duration-500'>faq</p>
+                                <p className='text-pink-200 hover:text-pink-400 duration-500'>FAQ</p>
+                            </NavLink>
+                        </li>
+                        <li className='md:ml-8 text-xl md:my-0 my-7'>
+                            <NavLink to="/about">
+                                <p className='text-pink-200 hover:text-pink-400 duration-500'>About Us</p>
                             </NavLink>
                         </li>
                         <li className='md:ml-8 text-xl md:my-0 my-7'>
                             <NavLink to="/search">
-                                <p className='text-pink-200 hover:text-pink-400 duration-500'>search</p>
+                                <p className='text-pink-200 hover:text-pink-400 duration-500'>Find Buddy</p>
                             </NavLink>
                         </li>
                         <li className='md:ml-8 md:my-0 my-7'>
                             <NavLink to="/register">
-                                <Button3d text="register" />
+                                <Button3d text="Register" />
                             </NavLink>
                         </li>
                         <li className='md:ml-8 md:my-0 my-7'>
                             <NavLink to="/login">
-                                <Button3d text="login" />
+                                <Button3d text="Login" />
                             </NavLink>
                         </li>
                     </ul>
