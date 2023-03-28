@@ -1,8 +1,27 @@
 import React, { useState } from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import { MdWifi } from "react-icons/md";
+import { GiWashingMachine } from "react-icons/gi";
+import RoomPost, { RoomPostProps } from "../components/RoomPost";
 
-const SearchRoom : React.FC = () => {
+const SearchRoom: React.FC = () => {
+
+    const roomPostProps: RoomPostProps = {
+        address: "Fjøsangerveien 57",
+        term: "2020-2021",
+        city: "Oslo",
+        country: "Norway",
+        active: true,
+        roomates: "1",
+        bio: "hei på deg",
+        wifi: true,
+        appliances: true,
+        mobile: "12345678",
+        price: "1000",
+        kvm: "20",
+        picture: "picture"
+    }
     
     // Mulig det må spesifiseres hordan type array det skal være sånn som i Student-test
     /* Search parameters */
@@ -19,6 +38,8 @@ const SearchRoom : React.FC = () => {
     
     /* Other state hooks */
 
+    // onClick funksjon for antall rommates slik at den som blir trykket på lyser farge, når ny blir trykket på endres fargen til den som ble trykket på
+
     return(
         <>
             <Navbar />
@@ -27,19 +48,24 @@ const SearchRoom : React.FC = () => {
             <div className="flex justify-center mt-32">
 
                 {/* Search specs */}
-                <div className="flex flex-col mx-6 mt-20">
+                <form className="flex flex-col mx-6 mt-20">
                     {/* Search rooms */}
-                    <label>Search rooms</label>
-                    <input className="border-2 rounded-md h-10 w-64" />
+                    <div className="flex flex-col my-2">
+                        <label>Search rooms</label>
+                        <input className="border-2 rounded-md h-10 w-64" />
+                    </div>
                     {/* Search Country */}
-                    <label>Country</label>
-                    <input className="border-2 rounded-md h-10 w-64" placeholder="DROPDOWN TODO" />
+                    <div className="flex flex-col my-2">
+                        <label>Country</label>
+                        <input className="border-2 rounded-md h-10 w-64" placeholder="DROPDOWN TODO" />
+                    </div>
                     {/* Search city */}
-                    <label>City</label>
-                    <input className="border-2 rounded-md h-10 w-64" placeholder="DROPDOWN TODO" />
+                    <div className="flex flex-col my-2">
+                        <label>City</label>
+                        <input className="border-2 rounded-md h-10 w-64" placeholder="DROPDOWN TODO" />
+                    </div>
                     {/* Pricing */}
-                    <label>Total price</label>
-                    <div className="flex">
+                    <div className="flex my-2">
                         <div className="flex flex-col">
                             <input className="h-10 w-20 border-2 rounded-md" />
                             <label>from kr</label>
@@ -53,7 +79,7 @@ const SearchRoom : React.FC = () => {
                         </div>
                     </div>
                     {/* Sizing */}
-                    <div className="flex">
+                    <div className="flex my-2">
                         <div className="flex flex-col">
                             <input className="h-10 w-20 border-2 rounded-md" />
                             <label>from m2</label>
@@ -67,29 +93,31 @@ const SearchRoom : React.FC = () => {
                         </div>
                     </div>
                     {/* number of roomates */}
-                    <div>
-                        {/* lage n rekke med knapper med antall roomates på som value, direkte søk */}
+                    <div className="flex my-2">
+                        <button className="h-11 w-11 border-2 rounded-l">Fritt</button>
+                        <button className="h-11 w-11 border-2">1+</button>
+                        <button className="h-11 w-11 border-2">2+</button>
+                        <button className="h-11 w-11 border-2">3+</button>
+                        <button className="h-11 w-11 border-2">4+</button>
+                        <button className="h-11 w-11 border-2 rounded-r">5+</button>
                     </div>
                     {/* Wifi and appliances */}
-                    <div>
-                        {/* Radiobuttons */}
+                    <div className="flex my-2">
+                        <input type="radio" />
+                        <MdWifi className="text-3xl mx-3" />
+                        <input type="radio" />
+                        <GiWashingMachine className="text-3xl mx-3" />
                     </div>
-
-
-                </div>
+                    {/* Search button */}
+                    <input type="submit" className="w-1/2 h-9 rounded-md border-b-4 border-black bg-gray-300 items-center justify-center flex my-2" value="search" />
+                </form>
 
                 {/* Results */}
                 <div className="flex flex-col w-1/2">
-                    {/* Mock pictures */}
-                    <div className="w-1/2 my-4">
-                        <img alt="picture" src={require("../images/apartment.png")} />
-                    </div>
-                    <div className="w-1/2 my-4">
-                        <img alt="picture" src={require("../images/apartment.png")} />
-                    </div>
-                    <div className="w-1/2 my-4">
-                        <img alt="picture" src={require("../images/apartment.png")} />
-                    </div>
+                    <RoomPost roomPostProps={roomPostProps} />
+                    <RoomPost roomPostProps={roomPostProps} />
+                    <RoomPost roomPostProps={roomPostProps} />
+                    <RoomPost roomPostProps={roomPostProps} />
                 </div>
 
             </div>

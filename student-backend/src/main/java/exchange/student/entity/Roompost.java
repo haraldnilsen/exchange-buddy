@@ -18,6 +18,7 @@ public class Roompost {
 	private int rpostid;
 	
 	private String term;
+	private String address;
 	private String city;
 	private String country;
 	private boolean active;
@@ -34,9 +35,10 @@ public class Roompost {
 	private Userr mobile;
 	
 
-	public Roompost(String term, String city, String country, boolean active, Integer roomates, String bio,
+	public Roompost(String address, String term, String city, String country, boolean active, Integer roomates, String bio,
 			boolean wifi, boolean appliances, Integer price, Integer kvm, String picture) {
 		super();
+		this.address = address;
 		this.term = term;
 		this.city = city;
 		this.country = country;
@@ -161,5 +163,17 @@ public class Roompost {
 	public void setPicture(String picture) {
 		this.picture = picture;
 	}
+
+
+	public String getAddress() {
+		return address;
+	}
+
+
+	public void setAddress(String address) {
+		this.address = address;
+	}
+	
+	
 	
 }

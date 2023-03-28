@@ -12,9 +12,9 @@ const Navbar: React.FC = (props) => {
         <>
             <div className='shadow-md w-full fixed top-0 left-0 z-50'>
                 <div id="navbar" className='md:flex items-center justify-between bg-d-green py-4 md:px-10 px-7 h-24 shadow-md'>
-                    <div className='cursor-pointer flex items-center ml-8'>
+                    <div className='md:hidden-true cursor-pointer flex items-center ml-8'>
                         <NavLink to="/">
-                            <img alt='logo' className='w-32 h-26 ml-8 color-pink-400' src={require("../images/logo.png")} />
+                            <img alt='logo' className='w-13 h-20 color-violet-400' src={require("../images/logo.png")} />
                         </NavLink>
                     </div>
                     <div onClick={() => setOpen(!open)}>
@@ -31,27 +31,22 @@ const Navbar: React.FC = (props) => {
                         </li>
                         <li className='md:ml-8 text-xl'>
                             <NavLink to="/faq">
-                                <p className='text-pink-200 hover:text-pink-400 duration-500'>FAQ</p>
-                            </NavLink>
-                        </li>
-                        <li className='md:ml-8 text-xl md:my-0 my-7'>
-                            <NavLink to="/about">
-                                <p className='text-pink-200 hover:text-pink-400 duration-500'>About Us</p>
+                                <p className='text-pink-200 hover:text-pink-400 duration-500'>faq</p>
                             </NavLink>
                         </li>
                         <li className='md:ml-8 text-xl md:my-0 my-7'>
                             <NavLink to="/search">
-                                <p className='text-pink-200 hover:text-pink-400 duration-500'>Find Buddy</p>
+                                <p className='text-pink-200 hover:text-pink-400 duration-500'>search</p>
                             </NavLink>
                         </li>
                         <li className='md:ml-8 md:my-0 my-7'>
                             <NavLink to="/register">
-                                <Button3d text="Register" />
+                                <Button3d text="register" />
                             </NavLink>
                         </li>
                         <li className='md:ml-8 md:my-0 my-7'>
                             <NavLink to="/login">
-                                <Button3d text="Login" />
+                                <Button3d text="login" />
                             </NavLink>
                         </li>
                     </ul>
