@@ -169,12 +169,12 @@ const SearchRoom: React.FC = () => {
                     </div>
                     {/* number of roomates */}
                     <div className="flex my-2">
-                        <div onClick={e => setRoomates("1")} className="h-11 w-11 border-2 rounded-l">1+</div>
-                        <div onClick={e => setRoomates("2")} className="h-11 w-11 border-2 text-center">2+</div>
-                        <div onClick={e => setRoomates("3")} className="h-11 w-11 border-2 text-center">3+</div>
-                        <div onClick={e => setRoomates("4")} className="h-11 w-11 border-2 text-center">4+</div>
-                        <div onClick={e => setRoomates("5")} className="h-11 w-11 border-2 text-center">5+</div>
-                        <div onClick={e => setRoomates("6")} className="h-11 w-11 border-2 rounded-r text-center">6+</div>
+                        <div onClick={e => setRoomates("")} className="h-11 w-11 border-2 rounded-l">none</div>
+                        <div onClick={e => setRoomates("1")} className="h-11 w-11 border-2 text-center">1</div>
+                        <div onClick={e => setRoomates("2")} className="h-11 w-11 border-2 text-center">2</div>
+                        <div onClick={e => setRoomates("3")} className="h-11 w-11 border-2 text-center">3</div>
+                        <div onClick={e => setRoomates("4")} className="h-11 w-11 border-2 text-center">4</div>
+                        <div onClick={e => setRoomates("5")} className="h-11 w-11 border-2 rounded-r text-center">5+</div>
                     </div>
                     {/* Wifi and appliances */}                                                                                                     {/* MÅ ENDRE STATE TIL WIFI OG HVITVARER */}
                     <div className="flex my-2">

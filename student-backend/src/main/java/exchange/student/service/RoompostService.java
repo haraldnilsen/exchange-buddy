@@ -63,52 +63,32 @@ public class RoompostService {
 		
 		List<Roompost> allPosts = roompostRepo.findAll();
 		List<Roompost> filteredPosts = new ArrayList<>();
-		boolean Vterm = false;
-		boolean Vcity = false;
-		boolean Vcountry = false;
-		boolean Vactive = false;
-		boolean Vroomates = false;
 		
 		for(Roompost param : allPosts) {
 			
+			// Case: skal ikke sjekke param, bare legge til
+			boolean termEmpty = param.getTerm().equals(null);
+			boolean cityEmpty = param.getCity().equals(null);
+			boolean countryEmpty = param.getCountry().equals(null);
+			// boolean isActive = active;
+			boolean roomatesEmpty = param.getRoomates().equals(null);
+			
+			System.err.println(
+					"term: " + termEmpty + "\n" +
+			"city: " + cityEmpty + "\n" +
+							"country: " + countryEmpty + "\n" +
+			"roomates: " + roomatesEmpty + "\n" +
+							"active: " + active + "\n"
+					);
+			
 			/*
-			 * Mooooordi
+			 * VIKTIG
+			 * 
+			 * de parameterene fra frontend som skal være lik "" er ikke lik "",
+			 * og de er heller ikke lik null
 			 */
 			
-			System.err.println(param.getCountry());
-			System.err.println(param.getTerm());
-			
-			if(param.getTerm().equals(term) || param.getTerm().equals("")) {
-				// filteredPosts.add(param);
-				Vterm = true;
-				System.err.println("1");
-			}
-				
-			if(param.getCity().equals(city) || param.getCity().equals("")) {
-				// filteredPosts.add(param);
-				Vcity = true;
-				System.err.println("2");
-			}
-				
-			if(param.getCountry().equals(country) || param.getCountry().equals("")) {
-				// filteredPosts.add(param);
-				Vcountry = true;
-				System.err.println("3");
-			} 
-			
-			if(param.isActive() == true) {
-				// filteredPosts.add(param);
-				Vactive = true;
-				System.err.println("4");
-			}
-			
-			if(param.getRoomates().equals(roomates) || param.getRoomates().equals("")) {
-				// filteredPosts.add(param);
-				Vroomates = true;
-				System.err.println("5");
-			}
-			
-			if(Vterm && Vcity && Vcountry && Vactive && Vroomates) {
+			if(termEmpty && cityEmpty && countryEmpty && roomatesEmpty && active) {
 				filteredPosts.add(param);
 			}
 			
