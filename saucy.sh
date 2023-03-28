@@ -1,4 +1,4 @@
 git pull
 git add .
-git commit -m "kakemann"
+git commit -m "Skulle vært like digg som Amund"
 git push
