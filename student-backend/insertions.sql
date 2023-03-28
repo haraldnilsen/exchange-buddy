@@ -17,6 +17,7 @@ CREATE TABLE userr
 CREATE TABLE roompost
 (
 	rpostid SERIAL PRIMARY KEY,
+	address VARCHAR,
 	term VARCHAR,
 	city VARCHAR,
 	country VARCHAR,
