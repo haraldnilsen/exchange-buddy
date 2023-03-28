@@ -27,8 +27,8 @@ CREATE TABLE roompost
 	wifi BOOL,
 	appliances BOOL,
 	mobile VARCHAR NOT NULL,
-	price INTEGER,
-	kvm INTEGER,
+	price VARCHAR,
+	kvm VARCHAR,
 	picture VARCHAR,
 	
 	FOREIGN KEY (mobile) REFERENCES userr(mobile)

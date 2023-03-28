@@ -1,3 +1,8 @@
+INSERT INTO userr
+    (mobile, fname, lname, fdate, profilepic, sex, salt, password)
+VALUES
+    ('12345678', 'Amund', 'Fremming', '12.12.2002', 'amund.no', 'male', 'asdhjbasdfgn', 'Hallamannen123');
+
 INSERT INTO roompost
     (address, term, city, country, active, roomates, bio, wifi, appliances, mobile, price, kvm, picture)
 VALUES
