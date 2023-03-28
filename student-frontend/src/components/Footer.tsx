@@ -1,5 +1,6 @@
 import React from "react";
-import { BsFacebook, BsTwitter, BsInstagram, BsYoutube } from "react-icons/bs";
+import { BsFacebook, BsTwitter, BsInstagram, BsYoutube, BsMailbox } from "react-icons/bs";
+import { MdMail } from "react-icons/md"
 
 const Footer : React.FC = () => {
 
@@ -51,7 +52,9 @@ const Footer : React.FC = () => {
                     <BsFacebook className="mx-4 text-2xl hover:text-green-700"/>
                     <BsTwitter className="mx-4 text-2xl hover:text-green-700"/>
                     <BsInstagram className="mx-4 text-2xl hover:text-green-700"/>
-                    <BsYoutube className="mx-4 text-2xl hover:text-green-700"/>
+                    <a href="mailto: info@fremminglabs.no">
+                        <MdMail className="mx-4 text-3xl hover:text-green-700 pb-1"/>
+                    </a>
                 </div>
                 <div className="flex-col mx-8 mt-8">
                     <p>Innholdet er beskyttet etter åndsverkloven. Regelmessig, systematisk eller kontinuerlig innhenting, lagring, indeksering, </p>
