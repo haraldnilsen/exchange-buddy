@@ -29,6 +29,7 @@ const SearchRoom: React.FC = () => {
         picture: string;
     }
     
+    let id = 1;
     const [loading, setLoading] = useState(false);
 
     // Mulig det må spesifiseres hordan type array det skal være sånn som i Student-test
@@ -71,8 +72,8 @@ const SearchRoom: React.FC = () => {
         console.log(wifi);
 
         const Roompost: RoompostToBackend = {
-            address: "",
             term: term,
+            address: "",
             city: city,
             country: country,
             active: true,
@@ -80,7 +81,6 @@ const SearchRoom: React.FC = () => {
             bio: "",
             wifi: wifi,
             appliances: appliances,
-            mobile: "",
             price: "",
             kvm: "",
             picture: "",
@@ -93,7 +93,7 @@ const SearchRoom: React.FC = () => {
         })
 
         setTimeout(() => setLoading(false), 10);
-        setTimeout(() => clearInput(), 1000);
+        // setTimeout(() => clearInput(), 2000);
 
         // function to further filter the data
     }
@@ -210,8 +210,10 @@ const SearchRoom: React.FC = () => {
                                 picture: room.picture,
                             }
 
+                            id++;
+
                             return(
-                                <RoomPost key={room.address} roomPostProps={roomPost} />
+                                <RoomPost key={id} roomPostProps={roomPost} />
                             );
                         })
                     }

@@ -1,5 +1,6 @@
 package exchange.student.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -61,32 +62,55 @@ public class RoompostService {
 							boolean active, String roomates) {
 		
 		List<Roompost> allPosts = roompostRepo.findAll();
+		List<Roompost> filteredPosts = new ArrayList<>();
+		boolean Vterm = false;
+		boolean Vcity = false;
+		boolean Vcountry = false;
+		boolean Vactive = false;
+		boolean Vroomates = false;
 		
-		allPosts.forEach(param -> {
+		for(Roompost param : allPosts) {
+			
+			System.err.println(param.getCountry());
+			System.err.println(param.getTerm());
 			
 			if(param.getTerm().equals(term) || param.getTerm().equals("")) {
-				allPosts.add(param);
+				// filteredPosts.add(param);
+				Vterm = true;
+				System.err.println("1");
 			}
 				
 			if(param.getCity().equals(city) || param.getCity().equals("")) {
-				allPosts.add(param);
+				// filteredPosts.add(param);
+				Vcity = true;
+				System.err.println("2");
 			}
 				
 			if(param.getCountry().equals(country) || param.getCountry().equals("")) {
-				allPosts.add(param);
+				// filteredPosts.add(param);
+				Vcountry = true;
+				System.err.println("3");
 			} 
 			
-			if(param.isActive() == active || param.isActive() == true) {
-				allPosts.add(param);
+			if(param.isActive() == true) {
+				// filteredPosts.add(param);
+				Vactive = true;
+				System.err.println("4");
 			}
 			
 			if(param.getRoomates().equals(roomates) || param.getRoomates().equals("")) {
-				allPosts.add(param);
+				// filteredPosts.add(param);
+				Vroomates = true;
+				System.err.println("5");
 			}
 			
-		});
+			if(Vterm && Vcity && Vcountry && Vactive && Vroomates) {
+				filteredPosts.add(param);
+			}
+			
+		}
 		
-		return allPosts;
+		return filteredPosts;
 	}
 	
 }

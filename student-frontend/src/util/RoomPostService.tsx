@@ -11,8 +11,8 @@ const ROOM_POST_API_URL = "http://localhost:8080/api/roompost";
 const ROOM_UPDATE_API_URL = "http://localhost:8080/api/roompost";
 
 export interface RoompostToBackend {
-    address: string;
     term: string; 
+    address: string;
     city: string;
     country: string;
     active: boolean;
@@ -20,7 +20,6 @@ export interface RoompostToBackend {
     bio: string;
     wifi: boolean;
     appliances: boolean;
-    mobile: string;
     price: string;
     kvm: string;
     picture: string;

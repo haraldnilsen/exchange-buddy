@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import exchange.student.entity.Roompost;
+import exchange.student.entity.RoompostFromFrontend;
 import exchange.student.repository.RoompostRepo;
 import exchange.student.service.RoompostService;
 
@@ -37,14 +38,12 @@ public class RoompostController {
 		return roompostRepo.findAll();
 	}
 	
-	@GetMapping("filter")
-	public List<Roompost> getFilteredRoomposts(@RequestParam Roompost roompost) {
+	@PostMapping("filter")
+	public List<Roompost> getFilteredRoomposts(@RequestBody RoompostFromFrontend roompost) {
 		
-		System.err.println("FØR");
 		List<Roompost> filter = roompostService.filterByParameters(roompost.getTerm(), roompost.getCity(), 
 					roompost.getCountry(), roompost.isActive(), roompost.getRoomates());
 		
-		System.err.println("ETTEr");
 		return filter;
 	}
 	
