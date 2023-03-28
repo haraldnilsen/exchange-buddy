@@ -26,13 +26,13 @@ public class RoompostService {
 	 * @return list of right posts
 	 */
 	
-	public List <Roompost> findActiveByParameters(Integer minPrice, Integer maxPrice,
+	public List <Roompost> findActiveByParameters(String minPrice, String maxPrice,
 			String city, String term){
 		List <Roompost> allPosts = roompostRepo.findAll();
 		List <Roompost> sorted = allPosts.stream()
 		.filter(x -> 
-		x.getPrice() >= minPrice &&
-		x.getPrice() <= maxPrice &&
+		x.getPrice().compareTo(minPrice) >= 0 &&
+		x.getPrice().compareTo(maxPrice) <= 0 &&
 		x.getCity().equals(city) &&
 		x.getTerm().equals(term) &&
 		x.isActive())
@@ -80,7 +80,7 @@ public class RoompostService {
 				allPosts.add(param);
 			}
 			
-			if(param.getRoomates() == roomates || param.getRoomates().equals("")) {
+			if(param.getRoomates().equals(roomates) || param.getRoomates().equals("")) {
 				allPosts.add(param);
 			}
 			

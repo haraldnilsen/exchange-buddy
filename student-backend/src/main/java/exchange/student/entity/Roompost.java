@@ -26,8 +26,8 @@ public class Roompost {
 	private String bio;
 	private boolean wifi;
 	private boolean appliances;
-	private Integer price;
-	private Integer kvm;
+	private String price;
+	private String kvm;
 	private String picture; //////
 	
 	@OneToOne(fetch = FetchType.EAGER)
@@ -36,7 +36,7 @@ public class Roompost {
 	
 
 	public Roompost(String address, String term, String city, String country, boolean active, String roomates, String bio,
-			boolean wifi, boolean appliances, Integer price, Integer kvm, String picture) {
+			boolean wifi, boolean appliances, String price, String kvm, String picture) {
 		super();
 		this.address = address;
 		this.term = term;
@@ -140,19 +140,19 @@ public class Roompost {
 		this.mobile = mobile;
 	}
 
-	public Integer getPrice() {
+	public String getPrice() {
 		return price;
 	}
 
-	public void setPrice(Integer price) {
+	public void setPrice(String price) {
 		this.price = price;
 	}
 	
-	public Integer getKvm() {
+	public String getKvm() {
 		return kvm;
 	}
 	
-	public void setKvm(Integer kvm) {
+	public void setKvm(String kvm) {
 		this.kvm = kvm;
 	}
 	
