@@ -71,6 +71,10 @@ public class RoompostService {
 		
 		for(Roompost param : allPosts) {
 			
+			/*
+			 * Mooooordi
+			 */
+			
 			System.err.println(param.getCountry());
 			System.err.println(param.getTerm());
 			
