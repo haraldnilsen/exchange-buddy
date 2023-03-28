@@ -55,8 +55,8 @@ const Footer : React.FC = () => {
                 </div>
                 <div className="flex-col mx-8 mt-8">
                     <p>Innholdet er beskyttet etter åndsverkloven. Regelmessig, systematisk eller kontinuerlig innhenting, lagring, indeksering, </p>
-                    <p>distribusjon og all annen form for sammenstilling av data tillates ikke uten eksplisitt, skriftlig tillatelse fra FINN.no. © 1996–2023 FINN.no</p>
-                    <p>AS</p>
+                    <p>distribusjon og all annen form for sammenstilling av data tillates ikke uten eksplisitt, skriftlig tillatelse fra exchange-buddy.com.</p>
+                    <p> © 2023–2023 exchange-buddy.com AS</p>
                 </div>
             </div>
         </>
