@@ -58,26 +58,35 @@ public class RoompostService {
 	}
 	
 	public List<Roompost> filterByParameters(String term, String city, String country, 
-							boolean active, int roomates,  boolean wifi, boolean appliances) {
+							boolean active, String roomates) {
 		
 		List<Roompost> allPosts = roompostRepo.findAll();
 		
-		List<Roompost> filtered = allPosts.stream()
-				.filter(x -> 
-				x.getTerm().equals(term))
-				.filter(x -> x.getCity().equals(city))
-				.filter(x -> x.getCountry().equals(country))
-				.filter(x -> x.isActive() == active)
-				.filter(x -> x.getRoomates() == roomates)
-				.filter(x -> x.isWifi() == wifi)
-				.filter(x -> x.isAppliances() == appliances)
-				.toList();
-		
-		if(x.getCountry().equals(country) || x.getCountry().equals("")) {
+		allPosts.forEach(param -> {
 			
-		}
+			if(param.getTerm().equals(term) || param.getTerm().equals("")) {
+				allPosts.add(param);
+			}
+				
+			if(param.getCity().equals(city) || param.getCity().equals("")) {
+				allPosts.add(param);
+			}
+				
+			if(param.getCountry().equals(country) || param.getCountry().equals("")) {
+				allPosts.add(param);
+			} 
+			
+			if(param.isActive() == active || param.isActive() == true) {
+				allPosts.add(param);
+			}
+			
+			if(param.getRoomates() == roomates || param.getRoomates().equals("")) {
+				allPosts.add(param);
+			}
+			
+		});
 		
-		return filtered;
+		return allPosts;
 	}
 	
 }

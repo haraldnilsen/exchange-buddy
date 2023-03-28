@@ -22,7 +22,7 @@ public class Roompost {
 	private String city;
 	private String country;
 	private boolean active;
-	private Integer roomates;
+	private String roomates;
 	private String bio;
 	private boolean wifi;
 	private boolean appliances;
@@ -35,7 +35,7 @@ public class Roompost {
 	private Userr mobile;
 	
 
-	public Roompost(String address, String term, String city, String country, boolean active, Integer roomates, String bio,
+	public Roompost(String address, String term, String city, String country, boolean active, String roomates, String bio,
 			boolean wifi, boolean appliances, Integer price, Integer kvm, String picture) {
 		super();
 		this.address = address;
@@ -100,11 +100,11 @@ public class Roompost {
 		this.active = active;
 	}
 
-	public Integer getRoomates() {
+	public String getRoomates() {
 		return roomates;
 	}
 
-	public void setRoomates(Integer roomates) {
+	public void setRoomates(String roomates) {
 		this.roomates = roomates;
 	}
 

@@ -41,8 +41,7 @@ public class RoompostController {
 	public List<Roompost> getFilteredRoomposts(@RequestParam Roompost roompost) {
 			
 		List<Roompost> filter = roompostService.filterByParameters(roompost.getTerm(), roompost.getCity(), 
-					roompost.getCountry(), roompost.isActive(), roompost.getRoomates(), 
-					roompost.isWifi(), roompost.isAppliances());
+					roompost.getCountry(), roompost.isActive(), roompost.getRoomates());
 		
 		return filter;
 	}
