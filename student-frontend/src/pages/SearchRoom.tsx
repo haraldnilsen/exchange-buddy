@@ -3,30 +3,37 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { MdWifi } from "react-icons/md";
 import { GiWashingMachine } from "react-icons/gi";
-import RoomPost, { RoomPostProps } from "../components/RoomPost";
+import RoomPost, { RoomPostProps, RoompostToBackend } from "../components/RoomPost";
 import RoomPostService from "../util/RoomPostService";
+import { NewtonsCradle } from '@uiball/loaders'
 
 const SearchRoom: React.FC = () => {
 
-    const roomPostProps: RoomPostProps = {
-        address: "Fjøsangerveien 57",
-        term: "2020-2021",
-        city: "Oslo",
-        country: "Norway",
-        active: true,
-        roomates: "1",
-        bio: "hei på deg",
-        wifi: true,
-        appliances: true,
-        mobile: "12345678",
-        price: "1000",
-        kvm: "20",
-        picture: "picture"
+    interface RoomRes {
+        address: string;
+        term: string; 
+        city: string;
+        country: string;
+        active: boolean;
+        roomates: string;
+        bio: string;
+        wifi: boolean;
+        appliances: boolean;
+        mobile: {
+            mobile: string;
+            fname: string;
+            lname: string;
+        };
+        price: string;
+        kvm: string;
+        picture: string;
     }
     
+    const [loading, setLoading] = useState(false);
+
     // Mulig det må spesifiseres hordan type array det skal være sånn som i Student-test
     /* Search parameters */
-    const [searchResults, setSearchResults] = useState([]);
+    const [searchResults, setSearchResults] = useState<RoomRes[]>([]);
     const [searchbar, setSearchbar] = useState("");
     const [priceFrom, setPriceFrom] = useState("");
     const [priceTo, setPriceTo] = useState("");
@@ -61,9 +68,10 @@ const SearchRoom: React.FC = () => {
         // - fra og til pris
         // - fra og til romstørrelse
     const handleSearch = async(e: React.FormEvent<HTMLFormElement>) => {
+        setLoading(true);
         e.preventDefault();
 
-        const Roompost: RoomPostProps = {
+        const Roompost: RoompostToBackend = {
             address: "",
             // Må legge til term på nettsiden
             term: "2020-2021",
@@ -81,14 +89,27 @@ const SearchRoom: React.FC = () => {
         }
         console.log("Sending roompost request to backend");
 
-        await RoomPostService.searchRoomPost(Roompost).then((response) => {
+        await RoomPostService.getAllRoomPosts().then((response) => {
             console.log(response.data);
             setSearchResults(response.data);
         })
 
+        setTimeout(() => setLoading(false), 10);
         setTimeout(() => clearInput(), 1000);
         // Map the data to post data on the website
 
+    }
+
+    if(loading) {
+        return(
+            <div className="flex items-center justify-center mt-96">
+                <NewtonsCradle 
+                    size={70}
+                    speed={1.4} 
+                    color="pink" 
+                />
+            </div>
+        );
     }
 
     return(
@@ -165,10 +186,32 @@ const SearchRoom: React.FC = () => {
 
                 {/* Results */}
                 <div className="flex flex-col w-1/2">
-                    <RoomPost roomPostProps={roomPostProps} />
-                    <RoomPost roomPostProps={roomPostProps} />
-                    <RoomPost roomPostProps={roomPostProps} />
-                    <RoomPost roomPostProps={roomPostProps} />
+                    {
+                        searchResults.map((room: RoomRes) => {
+
+                            const roomPost: RoomPostProps = {
+                                address: room.address,
+                                term: room.term,
+                                city: room.city,
+                                country: room.country,
+                                active: room.active,
+                                roomates: room.roomates,
+                                bio: room.bio,
+                                wifi: room.wifi,
+                                appliances: room.appliances,
+                                mobile: room.mobile.mobile,
+                                fname: room.mobile.fname,
+                                lname: room.mobile.lname,
+                                price: room.price,
+                                kvm: room.kvm,
+                                picture: room.picture,
+                            }
+
+                            return(
+                                <RoomPost key={room.address} roomPostProps={roomPost} />
+                            );
+                        })
+                    }
                 </div>
 
             </div>

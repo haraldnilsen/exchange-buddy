@@ -24,7 +24,7 @@ public class Userr {
 	private String salt;
 	private String password;
 
-	private byte[] img;
+//	private byte[] img;
 	
 	
 	public Userr(String mobile, String fname, String lname, String fdate, String profilepic, String sex, String salt,

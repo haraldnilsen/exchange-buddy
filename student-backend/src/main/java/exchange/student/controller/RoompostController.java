@@ -22,9 +22,10 @@ import exchange.student.service.RoompostService;
 @RequestMapping("/api/roompost")
 @CrossOrigin(
 		origins = "http://localhost:3000",
-		methods = {RequestMethod.GET, RequestMethod.POST, RequestMethod.PUT},
+		methods = {RequestMethod.GET, RequestMethod.POST},
 		allowedHeaders = {"Content-Type", "Authorization"}
 		)
+
 public class RoompostController {
 	
 	@Autowired private RoompostService roompostService;
