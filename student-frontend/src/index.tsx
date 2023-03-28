@@ -6,7 +6,6 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Home from './pages/Home';
 import Login from './pages/Login';
 import Faq from './pages/Faq';
-import RegisterOld from './Test/RegisterOld';
 import SearchRoom from './pages/SearchRoom';
 import SearchUser from './pages/SearchUser';
 import AboutUs from './pages/AboutUs';
@@ -41,6 +40,10 @@ const route = createBrowserRouter([
   {
     path:"/search",
     element: <SearchRoom/>
+  },
+  {
+    path:"/searchuser",
+    element: <SearchUser/>
   },
 ])
 root.render(

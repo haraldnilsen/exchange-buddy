@@ -46,8 +46,6 @@ const SearchRoom: React.FC = () => {
     const [roomsizeFrom, setRoomsizeFrom] = useState("");
     const [roomsizeTo, setRoomsizeTo] = useState("");
     
-    /* Other state hooks */
-
     // onClick funksjon for antall rommates slik at den som blir trykket på lyser farge, når ny blir trykket på endres fargen til den som ble trykket på
 
     const clearInput = () => {
@@ -73,8 +71,7 @@ const SearchRoom: React.FC = () => {
 
         const Roompost: RoompostToBackend = {
             address: "",
-            // Må legge til term på nettsiden
-            term: "2020-2021",
+            term: term,
             city: city,
             country: country,
             active: true,
@@ -96,8 +93,8 @@ const SearchRoom: React.FC = () => {
 
         setTimeout(() => setLoading(false), 10);
         setTimeout(() => clearInput(), 1000);
-        // Map the data to post data on the website
 
+        // function to further filter the data
     }
 
     if(loading) {
@@ -125,6 +122,11 @@ const SearchRoom: React.FC = () => {
                     <div className="flex flex-col my-2">
                         <label>Search rooms</label>
                         <input onChange={e => setSearchbar(e.target.value)} className="border-2 rounded-md h-10 w-64" />
+                    </div>
+                    {/* Search Term */}
+                    <div className="flex flex-col my-2">
+                        <label>Term</label>
+                        <input onChange={e => setTerm(e.target.value)} className="border-2 rounded-md h-10 w-64" placeholder="DROPDOWN TODO" />
                     </div>
                     {/* Search Country */}
                     <div className="flex flex-col my-2">
