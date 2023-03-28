@@ -22,7 +22,7 @@ CREATE TABLE roompost
 	city VARCHAR,
 	country VARCHAR,
 	active BOOL,
-	roomates INTEGER,
+	roomates VARCHAR,
 	bio VARCHAR,
 	wifi BOOL,
 	appliances BOOL,

@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import UserPost from "../components/UserPost";
+import RoomPost from "../components/RoomPost";
 
 const SearchUser: React.FC = () => {
 
@@ -67,9 +69,19 @@ const SearchUser: React.FC = () => {
                 </form>
 
                 {/* Results */}
-                <div>
-                    
+                <div className="flex flex-wrap w-1/2">
+                    <UserPost />
+                    <UserPost />
+                    <UserPost />
+                    <UserPost />
+                    <UserPost />
+                    <UserPost />
+                    <UserPost />
+                    <UserPost />
                 </div>
+
+            </div>
+            <div className="h-96">
 
             </div>
             <Footer />
