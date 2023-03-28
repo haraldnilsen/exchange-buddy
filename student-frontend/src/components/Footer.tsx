@@ -15,6 +15,7 @@ const Footer : React.FC = () => {
                 {/* element 1 */}
                 <div className="mx-4">
                     <p className="font-extrabold text-2xl">Cheaper possibilities</p>
+                    <img className="w-20 color-black" alt="logo" src={require("../images/logo-black.png")} />
                 </div>
 
                 {/* element 2 */}
