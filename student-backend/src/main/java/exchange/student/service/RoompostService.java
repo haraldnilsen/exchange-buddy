@@ -26,7 +26,7 @@ public class RoompostService {
 	 * @return list of right posts
 	 */
 	
-	public List <Roompost> findActiveByParameters (Integer minPrice, Integer maxPrice,
+	public List <Roompost> findActiveByParameters(Integer minPrice, Integer maxPrice,
 			String city, String term){
 		List <Roompost> allPosts = roompostRepo.findAll();
 		List <Roompost> sorted = allPosts.stream()
@@ -55,6 +55,25 @@ public class RoompostService {
 		
 		return roompost;
 		
+	}
+	
+	public List<Roompost> filterByParameters(String term, String city, String country, 
+							boolean active, int roomates,  boolean wifi, boolean appliances) {
+		
+		List<Roompost> allPosts = roompostRepo.findAll();
+		
+		List<Roompost> filtered = allPosts.stream()
+				.filter(x -> 
+				x.getTerm().equals(term))
+				.filter(x -> x.getCity().equals(city))
+				.filter(x -> x.getCountry().equals(country))
+				.filter(x -> x.isActive() == active)
+				.filter(x -> x.getRoomates() == roomates)
+				.filter(x -> x.isWifi() == wifi)
+				.filter(x -> x.isAppliances() == appliances)
+				.toList();
+		
+		return filtered;
 	}
 	
 }
