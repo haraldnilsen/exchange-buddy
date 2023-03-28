@@ -21,7 +21,7 @@ const AboutUs: React.FC = () => {
     return (
         <>
             <Navbar />
-            <div className="bg-pink-200 rounded-3xl mt-52 -mb-3 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <div className="bg-pink-200 rounded-3xl mt-52 -mb-3 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 hover:shadow-2xl shadow-xl">
                 <h1 className="text-3xl font-bold mb-6">About Us</h1>
                 <div className="flex flex-column items-stretch gap-12">
                     <div className="sm:w-1/2">
