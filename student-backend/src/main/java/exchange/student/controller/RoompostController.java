@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import exchange.student.entity.Roompost;
@@ -35,6 +36,17 @@ public class RoompostController {
 	public List <Roompost> getAllRoomposts(){
 		return roompostRepo.findAll();
 	}
+	
+	@GetMapping("filter")
+	public List<Roompost> getFilteredRoomposts(@RequestParam Roompost roompost) {
+			
+		List<Roompost> filter = roompostService.filterByParameters(roompost.getTerm(), roompost.getCity(), 
+					roompost.getCountry(), roompost.isActive(), roompost.getRoomates(), 
+					roompost.isWifi(), roompost.isAppliances());
+		
+		return filter;
+	}
+	
 	
 	@PostMapping("roompost")
 	public Roompost createRoompost(@RequestBody Roompost roompost) {
