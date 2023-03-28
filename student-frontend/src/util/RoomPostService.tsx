@@ -1,10 +1,11 @@
 import axios from "axios";
+import { RoompostToBackend } from "../components/RoomPost";
 
 // For searching rooms
 const ROOM_GET_ALL_API_URL = "http://localhost:8080/api/roompost/all";
 
 const ROOM_GET_API_URL = "http://localhost:8080/api/roompost";
-const ROOM_GET_ID_API_URL = "http://localhost:8080/api/roompost";
+const ROOM_GET_FILTER_API_URL = "http://localhost:8080/api/roompost/filter";
 
 // For handling rooms
 const ROOM_POST_API_URL = "http://localhost:8080/api/roompost";
@@ -36,12 +37,8 @@ class RoomPostService {
         return axios.get(ROOM_GET_API_URL);
     }
 
-    getRoomPostById(id: number) {
-        return axios.get(ROOM_GET_ID_API_URL + '/' + id);
-    }
-
-    searchRoomPost(roomPost: RoomPost) {
-        return axios.post(ROOM_POST_API_URL, roomPost);
+    searchRoomPost(roomPost: RoompostToBackend) {
+        return axios.post(ROOM_GET_FILTER_API_URL, roomPost);
     }
 
 }
