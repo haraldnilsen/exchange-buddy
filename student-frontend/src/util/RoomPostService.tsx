@@ -64,7 +64,7 @@ class RoomPostService {
     }
 
     getRoompostByMobile(mobile: string) {
-        return axios.get(ROOM_GET_API_URL + "/" + "mypost", mobile);
+        return axios.get(ROOM_GET_API_URL + "/" + "mypost", { params: { mobile: mobile } });
     }
 
 }
