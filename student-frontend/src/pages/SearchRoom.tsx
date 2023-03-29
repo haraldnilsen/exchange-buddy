@@ -71,7 +71,7 @@ const SearchRoom: React.FC = () => {
         e.preventDefault();
         console.log(wifi);
 
-        const Roompost: RoompostToBackend = {
+        const Roompost = {
             term: term,
             address: "",
             city: city,
@@ -87,7 +87,7 @@ const SearchRoom: React.FC = () => {
         }
         console.log("Sending roompost request to backend");
 
-        await RoomPostService.getAllRoomPosts().then((response) => {
+        await RoomPostService.searchRoomPost(Roompost).then((response) => {
             console.log(response.data);
             setSearchResults(response.data);
         })
@@ -128,16 +128,25 @@ const SearchRoom: React.FC = () => {
                     <div className="flex flex-col my-2">
                         <label>Term</label>
                         <input onChange={e => setTerm(e.target.value)} className="border-2 rounded-md h-10 w-64" placeholder="DROPDOWN TODO" />
+
+
+
                     </div>
                     {/* Search Country */}
                     <div className="flex flex-col my-2">
                         <label>Country</label>
                         <input onChange={e => setCountry(e.target.value)} className="border-2 rounded-md h-10 w-64" placeholder="DROPDOWN TODO" />
+
+
+
                     </div>
                     {/* Search city */}
                     <div className="flex flex-col my-2">
                         <label>City</label>
                         <input onChange={e => setCity(e.target.value)} className="border-2 rounded-md h-10 w-64" placeholder="DROPDOWN TODO" />
+
+
+
                     </div>
                     {/* Pricing */}
                     <div className="flex my-2">
