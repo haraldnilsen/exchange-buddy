@@ -92,7 +92,7 @@ const SearchRoom: React.FC = () => {
         }
         console.log("Sending roompost request to backend");
 
-        await RoomPostService.searchRoomPost(Roompost).then((response) => {
+        await RoomPostService.getAllRoomPosts().then((response) => {
             console.log(response.data);
             setSearchResults(response.data);
             setCountriesAndCities();
@@ -118,6 +118,22 @@ const SearchRoom: React.FC = () => {
 
         setCountries(countries);
         setCities(cities);
+    }
+
+    const handleRoomatesClick = (num: string) => {
+        setRoomates(num);
+        document.getElementById("10")?.classList.remove("text-pink-500");
+        document.getElementById("10")?.classList.remove("bg-pink-500");
+        document.getElementById("1")?.classList.remove("bg-pink-500");
+        document.getElementById("2")?.classList.remove("bg-pink-500");
+        document.getElementById("3")?.classList.remove("bg-pink-500");
+        document.getElementById("4")?.classList.remove("bg-pink-500");
+        document.getElementById("5")?.classList.remove("bg-pink-500");
+
+        const btn = document.getElementById(num)?.classList.add("bg-pink-500");
+        if(num === "0") {
+            document.getElementById("10")?.classList.add("text-pink-500");
+        }
     }
 
     if(loading) {
@@ -216,12 +232,12 @@ const SearchRoom: React.FC = () => {
                     </div>
                     {/* number of roomates */}
                     <div className="flex my-2">
-                        <div onClick={e => setRoomates("")} className="h-11 w-11 border-2 rounded-l">none</div>
-                        <div onClick={e => setRoomates("1")} className="h-11 w-11 border-2 text-center">1</div>
-                        <div onClick={e => setRoomates("2")} className="h-11 w-11 border-2 text-center">2</div>
-                        <div onClick={e => setRoomates("3")} className="h-11 w-11 border-2 text-center">3</div>
-                        <div onClick={e => setRoomates("4")} className="h-11 w-11 border-2 text-center">4</div>
-                        <div onClick={e => setRoomates("5")} className="h-11 w-11 border-2 rounded-r text-center">5+</div>
+                        <div id="10" onClick={() => handleRoomatesClick("0")} className="h-11 w-11 border-2 rounded-l flex justify-center items-center">none</div>
+                        <div id="1" onClick={() => handleRoomatesClick("1")} className="h-11 w-11 border-2 flex justify-center items-center">1</div>
+                        <div id="2" onClick={() => handleRoomatesClick("2")} className="h-11 w-11 border-2 flex justify-center items-center">2</div>
+                        <div id="3" onClick={() => handleRoomatesClick("3")} className="h-11 w-11 border-2 flex justify-center items-center">3</div>
+                        <div id="4" onClick={() => handleRoomatesClick("4")} className="h-11 w-11 border-2 flex justify-center items-center">4</div>
+                        <div id="5" onClick={() => handleRoomatesClick("5")} className="h-11 w-11 border-2 rounded-r flex justify-center items-center">5+</div>
                     </div>
                     {/* Wifi and appliances */}                                                                                                     {/* MÅ ENDRE STATE TIL WIFI OG HVITVARER */}
                     <div className="flex my-2">
