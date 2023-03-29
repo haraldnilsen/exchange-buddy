@@ -62,39 +62,30 @@ public class RoompostService {
 							boolean active, String roomates) {
 		
 		List<Roompost> allPosts = roompostRepo.findAll();
-		List<Roompost> filteredPosts = new ArrayList<>();
+		List<Roompost> filteredPosts = allPosts;
 		
-		for(Roompost param : allPosts) {
-			
-			// Case: skal ikke sjekke param, bare legge til
-			boolean termEmpty = param.getTerm().equals(null);
-			boolean cityEmpty = param.getCity().equals(null);
-			boolean countryEmpty = param.getCountry().equals(null);
-			// boolean isActive = active;
-			boolean roomatesEmpty = param.getRoomates().equals(null);
-			
-			System.err.println(
-					"term: " + termEmpty + "\n" +
-			"city: " + cityEmpty + "\n" +
-							"country: " + countryEmpty + "\n" +
-			"roomates: " + roomatesEmpty + "\n" +
-							"active: " + active + "\n"
-					);
-			
-			/*
-			 * VIKTIG
-			 * 
-			 * de parameterene fra frontend som skal være lik "" er ikke lik "",
-			 * og de er heller ikke lik null
-			 */
-			
-			if(termEmpty && cityEmpty && countryEmpty && roomatesEmpty && active) {
-				filteredPosts.add(param);
-			}
-			
+		if (!term.equals("")) {
+			filteredPosts = filteredPosts.stream().filter(x -> term.equals(x.getTerm())).toList();
+		} 
+		
+		if (!city.equals("")) {
+			filteredPosts = filteredPosts.stream().filter(x -> city.equals(x.getCity())).toList();
+		}
+		
+		if (!country.equals("")) {
+			filteredPosts = filteredPosts.stream().filter(x -> country.equals(x.getCountry())).toList();
+		}
+		
+		if (!roomates.equals("")) {
+			filteredPosts = filteredPosts.stream().filter(x -> roomates.equals(x.getRoomates())).toList();
+		}
+		
+		for (Roompost p : filteredPosts) {
+			System.err.println(p.getTerm() + p.getCity() + p.getCountry() + p.getRoomates());
 		}
 		
 		return filteredPosts;
+		
 	}
 	
 }

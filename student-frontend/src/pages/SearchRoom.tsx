@@ -32,6 +32,10 @@ const SearchRoom: React.FC = () => {
     let id = 1;
     const [loading, setLoading] = useState(false);
 
+    /* Setter info til søke parametere */
+    const [cities, setCities] = useState<string[]>([]);
+    const [countries, setCountries] = useState<string[]>([]);
+
     // Mulig det må spesifiseres hordan type array det skal være sånn som i Student-test
     /* Search parameters */
     const [searchResults, setSearchResults] = useState<RoomRes[]>([]);
@@ -41,6 +45,7 @@ const SearchRoom: React.FC = () => {
     const [term, setTerm] = useState("");
     const [city, setCity] = useState("");
     const [country, setCountry] = useState("");
+    const [active, setActive] = useState("");
     const [roomates, setRoomates] = useState("");
     const [wifi, setWifi] = useState(false);
     const [appliances, setAppliances] = useState(true);
@@ -71,7 +76,7 @@ const SearchRoom: React.FC = () => {
         e.preventDefault();
         console.log(wifi);
 
-        const Roompost: RoompostToBackend = {
+        const Roompost = {
             term: term,
             address: "",
             city: city,
@@ -90,12 +95,45 @@ const SearchRoom: React.FC = () => {
         await RoomPostService.getAllRoomPosts().then((response) => {
             console.log(response.data);
             setSearchResults(response.data);
+            setCountriesAndCities();
         })
 
         setTimeout(() => setLoading(false), 10);
-        // setTimeout(() => clearInput(), 2000);
 
         // function to further filter the data
+    }
+
+    const setCountriesAndCities = () => {
+        let countries: string[] = [];
+        let cities: string[] = [];
+
+        searchResults.forEach((result) => {
+            if(!countries.includes(result.country)) {
+                countries.push(result.country);
+            }
+            if(!cities.includes(result.city)) {
+                cities.push(result.city);
+            }
+        })
+
+        setCountries(countries);
+        setCities(cities);
+    }
+
+    const handleRoomatesClick = (num: string) => {
+        setRoomates(num);
+        document.getElementById("10")?.classList.remove("text-pink-500");
+        document.getElementById("10")?.classList.remove("bg-pink-500");
+        document.getElementById("1")?.classList.remove("bg-pink-500");
+        document.getElementById("2")?.classList.remove("bg-pink-500");
+        document.getElementById("3")?.classList.remove("bg-pink-500");
+        document.getElementById("4")?.classList.remove("bg-pink-500");
+        document.getElementById("5")?.classList.remove("bg-pink-500");
+
+        const btn = document.getElementById(num)?.classList.add("bg-pink-500");
+        if(num === "0") {
+            document.getElementById("10")?.classList.add("text-pink-500");
+        }
     }
 
     if(loading) {
@@ -127,17 +165,45 @@ const SearchRoom: React.FC = () => {
                     {/* Search Term */}
                     <div className="flex flex-col my-2">
                         <label>Term</label>
-                        <input onChange={e => setTerm(e.target.value)} className="border-2 rounded-md h-10 w-64" placeholder="DROPDOWN TODO" />
+                        <select onChange={e => setTerm(e.target.value)} className="border-2 rounded-md h-10 w-64">
+                            <option value=""></option>
+                            <option value="2022V">2022V</option>
+                            <option value="2022H">2022H</option>
+                            <option value="2023V">2023V</option>
+                            <option value="2023H">2023H</option>
+                            <option value="2024V">2024V</option>
+                            <option value="2024H">2024H</option>
+                            <option value="2025V">2025V</option>
+                            <option value="2025H">2025H</option>
+                        </select>
                     </div>
                     {/* Search Country */}
                     <div className="flex flex-col my-2">
                         <label>Country</label>
-                        <input onChange={e => setCountry(e.target.value)} className="border-2 rounded-md h-10 w-64" placeholder="DROPDOWN TODO" />
+                        <select onChange={e => setCountry(e.target.value)} className="border-2 rounded-md h-10 w-64">
+                            <option value=""></option>
+                            {
+                                countries.map((country) => {
+                                    return(
+                                        <option key={country} value={country}>{country}</option>
+                                    )
+                                })
+                            }
+                        </select>
                     </div>
-                    {/* Search city */}
+                    {/* Search City */}
                     <div className="flex flex-col my-2">
                         <label>City</label>
-                        <input onChange={e => setCity(e.target.value)} className="border-2 rounded-md h-10 w-64" placeholder="DROPDOWN TODO" />
+                        <select onChange={e => setCity(e.target.value)} className="border-2 rounded-md h-10 w-64">
+                            <option value=""></option>
+                            {
+                                cities.map((city) => {
+                                    return(
+                                        <option key={city} value={city}>{city}</option>
+                                    );
+                                })
+                            }
+                        </select>
                     </div>
                     {/* Pricing */}
                     <div className="flex my-2">
@@ -169,12 +235,12 @@ const SearchRoom: React.FC = () => {
                     </div>
                     {/* number of roomates */}
                     <div className="flex my-2">
-                        <div onClick={e => setRoomates("")} className="h-11 w-11 border-2 rounded-l">none</div>
-                        <div onClick={e => setRoomates("1")} className="h-11 w-11 border-2 text-center">1</div>
-                        <div onClick={e => setRoomates("2")} className="h-11 w-11 border-2 text-center">2</div>
-                        <div onClick={e => setRoomates("3")} className="h-11 w-11 border-2 text-center">3</div>
-                        <div onClick={e => setRoomates("4")} className="h-11 w-11 border-2 text-center">4</div>
-                        <div onClick={e => setRoomates("5")} className="h-11 w-11 border-2 rounded-r text-center">5+</div>
+                        <div id="10" onClick={() => handleRoomatesClick("0")} className="h-11 w-11 border-2 rounded-l flex justify-center items-center">none</div>
+                        <div id="1" onClick={() => handleRoomatesClick("1")} className="h-11 w-11 border-2 flex justify-center items-center">1</div>
+                        <div id="2" onClick={() => handleRoomatesClick("2")} className="h-11 w-11 border-2 flex justify-center items-center">2</div>
+                        <div id="3" onClick={() => handleRoomatesClick("3")} className="h-11 w-11 border-2 flex justify-center items-center">3</div>
+                        <div id="4" onClick={() => handleRoomatesClick("4")} className="h-11 w-11 border-2 flex justify-center items-center">4</div>
+                        <div id="5" onClick={() => handleRoomatesClick("5")} className="h-11 w-11 border-2 rounded-r flex justify-center items-center">5+</div>
                     </div>
                     {/* Wifi and appliances */}                                                                                                     {/* MÅ ENDRE STATE TIL WIFI OG HVITVARER */}
                     <div className="flex my-2">
