@@ -1,6 +1,7 @@
 import React from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import HeroSection from "../components/HeroSection";
 
 /*
     Simple home page for the webapp
@@ -13,9 +14,7 @@ const Home : React.FC = () => {
     return (
         <>
             <Navbar />
-            <h1>Home Page</h1>
-            <div className="mt-96"></div>
-            <div className="mt-96"></div>
+            <HeroSection/>
             <Footer />
         </>
     );

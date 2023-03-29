@@ -16,7 +16,7 @@ export default function Faq() {
                         Frequently asked questions and their answers.
                     </p>
                     <div className="space-y-4">
-                        <details className="w-full max-w-md rounded-lg ring-2 ring-green-900">
+                        <details className="w-full max-w-md rounded-lg ring-2 ring-green-900 transition transform hover:-translate-y-1">
                             <summary className="px-4 py-6">
                                 How does the payment work?
                             </summary>
@@ -26,7 +26,7 @@ export default function Faq() {
                                 and this person will pay the rent to the landlord.
                             </p>
                         </details>
-                        <details className="w-full max-w-md rounded-lg ring-2 ring-green-900">
+                        <details className="w-full max-w-md rounded-lg ring-2 ring-green-900 transition transform hover:-translate-y-1">
                             <summary className="px-4 py-6">
                             What happens if the owner of the apartment termniates the contract?
                             </summary>
@@ -34,7 +34,7 @@ export default function Faq() {
                             in this case we cannot provide any insurance or guarantee, but we will try to help you find a new apartment.
                             </p>
                         </details>
-                        <details className="w-full max-w-md rounded-lg ring-2 ring-green-900">
+                        <details className="w-full max-w-md rounded-lg ring-2 ring-green-900 transition transform hover:-translate-y-1">
                             <summary className="px-4 py-6">
                             What happens if the person moving in does not pay the rent?
                             </summary>
@@ -43,7 +43,7 @@ export default function Faq() {
                             so normal insurances will not cover this. We will try to help you find a new person to move in.
                             </p>
                         </details>
-                        <details className="w-full max-w-md rounded-lg ring-2 ring-green-900">
+                        <details className="w-full max-w-md rounded-lg ring-2 ring-green-900 transition transform hover:-translate-y-1">
                             <summary className="px-4 py-6">
                             No one wants to move in with me, what should I do?
                             </summary>
@@ -52,7 +52,7 @@ export default function Faq() {
                             update your profile and article with better pictures and more information about yourself.
                             </p>
                         </details>
-                        <details className="w-full max-w-md rounded-lg ring-2 ring-green-900">
+                        <details className="w-full max-w-md rounded-lg ring-2 ring-green-900 transition transform hover:-translate-y-1">
                             <summary className="px-4 py-6">
                             I want to switch apartments with someone in the city i am going to, how do i do that?
                             </summary>
