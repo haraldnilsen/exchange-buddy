@@ -55,6 +55,14 @@ class RoomPostService {
         return axios.post(ROOM_GET_FILTER_API_URL, roompost);
     }
 
+    getCities() {
+        return axios.get(ROOM_GET_API_URL + "/cities");
+    }
+
+    getCountries() {
+        return axios.get(ROOM_GET_API_URL + "/countries");
+    }
+
 }
 
 export default new RoomPostService();
