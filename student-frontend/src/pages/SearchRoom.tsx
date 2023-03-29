@@ -38,10 +38,10 @@ const SearchRoom: React.FC = () => {
     const [searchbar, setSearchbar] = useState("");
     const [priceFrom, setPriceFrom] = useState("");
     const [priceTo, setPriceTo] = useState("");
-    const [term, setTerm] = useState("pølse");
-    const [city, setCity] = useState("pølse");
-    const [country, setCountry] = useState("pølse");
-    const [roomates, setRoomates] = useState("pølse");
+    const [term, setTerm] = useState("");
+    const [city, setCity] = useState("");
+    const [country, setCountry] = useState("");
+    const [roomates, setRoomates] = useState("");
     const [wifi, setWifi] = useState(false);
     const [appliances, setAppliances] = useState(true);
     const [roomsizeFrom, setRoomsizeFrom] = useState("");
