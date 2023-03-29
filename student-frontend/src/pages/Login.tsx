@@ -69,7 +69,7 @@ const Login : React.FC = () => {
                     {/* Form */}
                     <form className="w-1/4" onSubmit={e => handleUserSubmit(e)}>
                         <h1 className="font-bold text-2xl text-center mb-8">Login</h1>
-                        <p className="my-0 mx-2">Username</p>
+                        <p className="my-0 mx-2">Mobile</p>
                         <input 
                             className="bg-pink-200 text-green-700 border-b-2 rounded border-b-black m-2 outline-none"
                             onChange={e => setMobile(e.target.value)}
@@ -81,7 +81,7 @@ const Login : React.FC = () => {
                             onChange={e => setPassword(e.target.value)}
                         />
                         <br/>
-                        <input className="w-44 bg-green-500 border-b-4 border-green-900 h-9 hover:bg-gray-500 hover:border-gray-900 mx-2 my-4 rounded-xl " type="submit" value="login"/>
+                        <input className="w-44 bg-green-500 border-b-4 border-green-900 h-9 hover:bg-gray-500 hover:border-gray-900 mx-2 my-4 rounded-xl " type="submit" value="Login"/>
                     </form> 
                 </div>
             </div>
