@@ -37,7 +37,8 @@ public class UserrpostController {
 		return userrpostRepo.findAll();
 	}
 	
-	
+	// params til å filterer på:
+		// Term, country, city
 	
 	
 	
