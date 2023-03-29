@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import exchange.student.entity.Roompost;
 import exchange.student.entity.Userrpost;
 import exchange.student.repository.UserpostRepo;
 import exchange.student.service.UserrpostService;
