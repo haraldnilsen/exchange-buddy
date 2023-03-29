@@ -50,7 +50,7 @@ const Navbar: React.FC = (props) => {
                                 <p className='text-pink-200 hover:text-pink-400 duration-500'>Find Buddy</p>
                             </NavLink>
                         </li>
-                        <li className='md:ml-8 md:my-0 my-7'>
+                       <li className='md:ml-8 md:my-0 my-7'>
                             <NavLink to="/register">
                                 <Button3d text="Register" />
                             </NavLink>
