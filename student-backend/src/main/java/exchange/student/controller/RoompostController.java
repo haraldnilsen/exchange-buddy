@@ -59,6 +59,11 @@ public class RoompostController {
 		return roompostRepo.findAll().stream().map(rp -> rp.getCountry()).distinct().toList();
 	}
 	
+	@PostMapping("mypost")
+	public Roompost getRoompostByMobile(@RequestParam String mobile) {
+		return roompostRepo.findByMobile(mobile);
+	}
+	
 	
 	
 	

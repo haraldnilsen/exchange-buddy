@@ -63,6 +63,10 @@ class RoomPostService {
         return axios.get(ROOM_GET_API_URL + "/countries");
     }
 
+    getRoompostByMobile(mobile: string) {
+        return axios.get(ROOM_GET_API_URL + "/" + "mypost", mobile);
+    }
+
 }
 
 export default new RoomPostService();
