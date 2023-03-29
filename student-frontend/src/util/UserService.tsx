@@ -19,6 +19,7 @@ export interface Userr {
 }
 
 export interface UserrPost {
+    mobile: string;
     term: string;
     city: string;
     country: string;

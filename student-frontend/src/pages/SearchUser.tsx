@@ -43,6 +43,7 @@ const SearchUser: React.FC = () => {
         e.preventDefault();
 
         const search: UserrPost = {
+            mobile: "00000000",
             term: term,
             city: city,
             country: country,
@@ -155,6 +156,7 @@ const SearchUser: React.FC = () => {
                         <input onChange={e => setDate(e.target.value)} className="border-2 rounded-md h-10 w-20" />
                     </div>
                     */}
+                    <input type="submit" className="w-1/2 h-9 rounded-md border-b-4 border-black bg-gray-300 items-center justify-center flex my-2" value="Search" />
                 </form>
 
                 {/* Results */}
