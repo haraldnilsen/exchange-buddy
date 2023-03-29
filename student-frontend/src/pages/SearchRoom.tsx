@@ -87,7 +87,7 @@ const SearchRoom: React.FC = () => {
         }
         console.log("Sending roompost request to backend");
 
-        await RoomPostService.searchRoomPost(Roompost).then((response) => {
+        await RoomPostService.getAllRoomPosts().then((response) => {
             console.log(response.data);
             setSearchResults(response.data);
         })
