@@ -83,11 +83,13 @@ const SearchUser: React.FC = () => {
                             <button type="submit" className="h-10 w-16 border-2 rounded-md">search</button>
                         </div>
                     </div>
-                    {/* Age */}
+                    {/*
+                     Age
                     <div className="flex flex-col">
                         <label>Age</label>
                         <input onChange={e => setDate(e.target.value)} className="border-2 rounded-md h-10 w-20" />
                     </div>
+                    */}
                 </form>
 
                 {/* Results */}
