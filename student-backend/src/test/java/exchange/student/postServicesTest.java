@@ -25,9 +25,9 @@ public class postServicesTest {
 	private @Autowired UserpostRepo userpostRepo;
 	private @Autowired RoompostRepo roompostRepo;
 	
-	Userrpost en = new Userrpost("v2022", "Bergen", "Norge", true, "Leter etter rolig campingvogn", 5000, 7000);
-	Userrpost to = new Userrpost("h2022", "Bergen", "Norge", true, "Leter etter rolig kammerat", 4000, 7000);
-	Userrpost tre = new Userrpost("v2022", "Bergen", "Norge", true, "Leter etter tjomi med bra sofaløsning", 5000, 7000);
+//	Userrpost en = new Userrpost("v2022", "Bergen", "Norge", true, "Leter etter rolig campingvogn", 5000, 7000);
+//	Userrpost to = new Userrpost("h2022", "Bergen", "Norge", true, "Leter etter rolig kammerat", 4000, 7000);
+//	Userrpost tre = new Userrpost("v2022", "Bergen", "Norge", true, "Leter etter tjomi med bra sofaløsning", 5000, 7000);
 	
 //	Roompost enr = new Roompost("v2022", "Bergen", "Norge", true, 2, "hei trenger en kammerat inn", true, false, 5000);
 //	Roompost tor = new Roompost("h2022", "Bergen", "Norge", true, 2, "hei trenger en kammerat inn", false, false, 7002);
