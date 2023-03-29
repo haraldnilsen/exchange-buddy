@@ -34,7 +34,7 @@ CREATE TABLE roompost
 	FOREIGN KEY (mobile) REFERENCES userr(mobile)
 );
 
-CREATE TABLE userpost
+CREATE TABLE userrpost
 (
 	upostid SERIAL PRIMARY KEY,
 	term VARCHAR,
@@ -42,8 +42,8 @@ CREATE TABLE userpost
 	country VARCHAR,
 	active BOOL,
 	bio VARCHAR,
-	minPrice VARCHAR,
-	maxPrice VARCHAR,
+	minprice VARCHAR,
+	maxprice VARCHAR,
 	mobile VARCHAR NOT NULL,
 	
 	FOREIGN KEY (mobile) REFERENCES userr(mobile)
