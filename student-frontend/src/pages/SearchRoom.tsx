@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { MdWifi } from "react-icons/md";
@@ -52,20 +52,17 @@ const SearchRoom: React.FC = () => {
     const [roomsizeFrom, setRoomsizeFrom] = useState("");
     const [roomsizeTo, setRoomsizeTo] = useState("");
     
-    // onClick funksjon for antall rommates slik at den som blir trykket på lyser farge, når ny blir trykket på endres fargen til den som ble trykket på
+    useEffect(() => {
+        getCountriesAndCities();
+    }, []);
 
-    const clearInput = () => {
-        setSearchbar("");
-        setPriceFrom("");
-        setPriceTo("");
-        setTerm("");
-        setCity("");
-        setCountry("");
-        setRoomates("");
-        setWifi(true);
-        setAppliances(true);
-        setRoomsizeFrom("");
-        setRoomsizeTo("");
+    const getCountriesAndCities = async() => {
+        await RoomPostService.getCountries().then((response) => {
+            setCountries(response.data);
+        })
+        await RoomPostService.getCities().then((response) => {
+            setCities(response.data);
+        })
     }
 
     // Her må det filtrers for:
@@ -92,32 +89,30 @@ const SearchRoom: React.FC = () => {
         }
         console.log("Sending roompost request to backend");
 
-        await RoomPostService.getAllRoomPosts().then((response) => {
+        await RoomPostService.searchRoomPost(Roompost).then((response) => {
             console.log(response.data);
             setSearchResults(response.data);
-            setCountriesAndCities();
+            clearInputs();
         })
 
-        setTimeout(() => setLoading(false), 10);
+        setTimeout(() => setLoading(false), 500);
 
         // function to further filter the data
     }
 
-    const setCountriesAndCities = () => {
-        let countries: string[] = [];
-        let cities: string[] = [];
-
-        searchResults.forEach((result) => {
-            if(!countries.includes(result.country)) {
-                countries.push(result.country);
-            }
-            if(!cities.includes(result.city)) {
-                cities.push(result.city);
-            }
-        })
-
-        setCountries(countries);
-        setCities(cities);
+    const clearInputs = () => {
+        setSearchbar("");
+        setPriceFrom("");
+        setPriceTo("");
+        setTerm("");
+        setCity("");
+        setCountry("");
+        setActive("");
+        setRoomates("");
+        setWifi(false);
+        setAppliances(true);
+        setRoomsizeFrom("");
+        setRoomsizeTo("");
     }
 
     const handleRoomatesClick = (num: string) => {

@@ -10,4 +10,6 @@ import exchange.student.entity.Roompost;
 public interface RoompostRepo extends JpaRepository<Roompost, Integer> {
 
 	Roompost findByRpostid(int rpostid);
+	
+	Roompost findByMobile(String mobile);
 }
