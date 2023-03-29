@@ -80,6 +80,10 @@ public class RoompostService {
 			filteredPosts = filteredPosts.stream().filter(x -> roomates.equals(x.getRoomates())).toList();
 		}
 		
+		for (Roompost p : filteredPosts) {
+			System.err.println(p.getTerm() + p.getCity() + p.getCountry() + p.getRoomates());
+		}
+		
 		return filteredPosts;
 		
 	}
