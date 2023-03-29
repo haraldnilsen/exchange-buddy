@@ -11,6 +11,7 @@ import SearchUser from './pages/SearchUser';
 import AboutUs from './pages/AboutUs';
 
 import Register from './pages/Register';
+import Profile from './pages/Profile';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -45,6 +46,10 @@ const route = createBrowserRouter([
     path:"/searchuser",
     element: <SearchUser/>
   },
+  {
+    path:"/profile",
+    element: <Profile/>
+  }
 ])
 root.render(
   <React.StrictMode>
