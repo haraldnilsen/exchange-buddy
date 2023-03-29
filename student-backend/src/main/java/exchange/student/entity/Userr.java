@@ -12,10 +12,10 @@ import org.springframework.web.multipart.MultipartFile;
 @Entity
 @Table(name="userr")
 public class Userr {
-	
+
 	@Id
 	private String mobile;
-	
+
 	private String fname;
 	private String lname;
 	private String fdate;
@@ -24,9 +24,9 @@ public class Userr {
 	private String salt;
 	private String password;
 
-//	private byte[] img;
-	
-	
+	//	private byte[] img;
+
+
 	public Userr(String mobile, String fname, String lname, String fdate, String profilepic, String sex, String salt,
 			String password) {
 		this.mobile = mobile;
@@ -37,14 +37,12 @@ public class Userr {
 		this.sex = sex;
 		this.salt = salt;
 		this.password = password;
-//		this.img = img;
+		//		this.img = img;
 	}
 
 
-	public Userr() {
-		super();
-	}
-	
+	public Userr() {}
+
 
 	public String getMobile() {
 		return mobile;
@@ -80,12 +78,12 @@ public class Userr {
 		this.lname = lname;
 	}
 
-	
+
 	public String getFdate() {
 		return fdate;
 	}
-	
-	
+
+
 	public void setFdate(String fdate) {
 		this.fdate = fdate;
 	}
@@ -136,13 +134,13 @@ public class Userr {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	
-//	public byte[] getImage() {
-//		return img;
-//	}
-//	
-//	public void setImage(byte[] img) {
-//		this.img = img;
-//	}
-	
+
+	//	public byte[] getImage() {
+	//		return img;
+	//	}
+	//	
+	//	public void setImage(byte[] img) {
+	//		this.img = img;
+	//	}
+
 }

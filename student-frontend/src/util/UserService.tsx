@@ -18,7 +18,12 @@ export interface Userr {
     password: string;
 }
 
-export interface UserrPost {
+/*
+    Her må man mest sansynlig hente ut en bruker
+    og sende brukeren under mobil for at det skal
+    kunne bli tatt i mot av Spring backend
+*/
+export interface Userrpost {
     mobile: string;
     term: string;
     city: string;
@@ -67,12 +72,8 @@ class UserService {
         return axios.get(USERPOST_REST_API_URL + "/countries");
     }
 
-    getFilteredUsers() {
-        return axios.get(USERPOST_REST_API_URL + "/filter");
-    }
-
-    searchUser(userr: UserrPost) {
-        return axios.post(USERPOST_REST_API_URL, userr);
+    searchUser(userr: Userrpost) {
+        return axios.post(USERPOST_REST_API_URL + "/filter", userr);
     }
 
 }

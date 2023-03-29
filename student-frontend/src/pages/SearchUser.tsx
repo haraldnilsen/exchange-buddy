@@ -3,14 +3,14 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import UserPost from "../components/UserPost";
 import RoomPost from "../components/RoomPost";
-import { UserrPost } from "../util/UserService";
+import { Userrpost } from "../util/UserService";
 import { NewtonsCradle } from '@uiball/loaders'
 import UserService from "../util/UserService";
 
 const SearchUser: React.FC = () => {
 
-    const [cities, setCities] = useState("");
-    const [countries, setCountries] = useState("");
+    const [cities, setCities] = useState([]);
+    const [countries, setCountries] = useState([]);
     const [searchResults, setSearchResults] = useState("");
 
     // Må ha type
@@ -30,6 +30,7 @@ const SearchUser: React.FC = () => {
     }, []);
 
     const getCountriesAndCities = async () => {
+        console.log("Fetching data")
         await UserService.getUserCountries().then((response) => {
             setCountries(response.data);
         })
@@ -42,8 +43,8 @@ const SearchUser: React.FC = () => {
         setLoading(true);
         e.preventDefault();
 
-        const search: UserrPost = {
-            mobile: "00000000",
+        const search: Userrpost = {
+            mobile: "00",
             term: term,
             city: city,
             country: country,
@@ -54,8 +55,9 @@ const SearchUser: React.FC = () => {
         }
         console.log("Sending userpost search request to backend");
 
-        await UserService.searchUser(search).then((response) => {
-            console.log(response);
+        // ENDRE HER TIL .searchUser(search) NÅR KODEN ER KLAR
+        await UserService.getAllUsers().then((response) => {
+            console.log(response.data);
             setSearchResults(response.data);
             clearInputs();
         })
@@ -119,9 +121,11 @@ const SearchUser: React.FC = () => {
                         <label>Country</label>
                         <select onChange={e => setCountry(e.target.value)} className="border-2 rounded-md h-10 w-64">
                             <option value=""></option>
-                            {/*
-                                HER MÅ DET LEGGES INN MAPPING
-                            */}
+                            {
+                                countries.map(country => {
+                                    return <option key={country} value={country} >{country}</option>
+                                })
+                            }
                         </select>
                     </div>
                     {/* Search city */}
@@ -129,9 +133,11 @@ const SearchUser: React.FC = () => {
                         <label>City</label>
                         <select onChange={e => setCity(e.target.value)} className="border-2 rounded-md h-10 w-64">
                             <option value=""></option>
-                            {/*
-                                HER MÅ DET LEGGES INN MAPPING
-                            */}
+                            {
+                                cities.map(city => {
+                                    return <option key={city} value={city}>{city}</option>
+                                })
+                            }
                         </select>
                     </div>
                     {/* Pricing */}

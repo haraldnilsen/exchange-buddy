@@ -54,9 +54,7 @@ public class Roompost {
 
 
 
-	public Roompost() {
-		super();
-	}
+	public Roompost() {}
 
 
 

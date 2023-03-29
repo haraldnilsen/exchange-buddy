@@ -25,3 +25,22 @@ VALUES
     ('Dadddds 123', '2023V', 'Oslo', 'Norway', 'true', '3', 'Ballinciaga er dine roommates!!! gratis leie!!!', 'true', 'true', '31988352', '0', '20', 'https://images.squarespace-cdn.com/content/v1/622f95ddf8c6725b5213f9d5/7ca772ee-bcfa-4679-8a74-15121c80ee7f/Ballinciaga+Pressebilde+2+v2.jpg'),
     ('Champ de Mars', '2024V', 'Paris', 'France', 'true', '2', 'le baguette', 'true', 'false', '47328932', '100', '220', 'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1a/5b/4b/14/caption.jpg?w=1200&h=-1&s=1'),
     ('1600 Pennsylvania Avenue NW', '2023V', 'Washington DC', 'USA', 'true', '31', 'Trump is not here', 'true', 'true', '10284953', '22', '1000', 'https://www.whitehouse.gov/wp-content/uploads/2021/01/white-house-sunrise.jpg');
+    
+INSERT INTO userrpost
+	(term, city, country, active, bio, minprice, maxprice, mobile)
+VALUES
+	('2023H', 'Bergen', 'Norway', true, 'Jeg liker sjokolade og kringler. og veldig snill.', '4000', '10000', '97329238'),
+	('2023V', 'Tokyo', 'Japan', true, 'I am a technology enthusiast who loves exploring new gadgets. Looking for a partner to geek out with!', '5000', '20000', '93282377'),
+	('2024H', 'Barcelona', 'Spain', true, 'Soy un amante de la cultura y la historia. Busco una pareja para explorar el mundo juntos.', '6000', '25000', '78246732'),
+    ('2024V', 'Chicago', 'United States', true, 'I am a sports fan who loves to cheer on my favorite teams. Looking for a partner to share in the excitement!', '7000', '30000', '93498372'),
+    ('2025H', 'London', 'United Kingdom', true, 'I am a lover of literature and the arts. Seeking a partner who shares my passion for the written word.', '8000', '35000', '29834938'),
+	('2026V', 'Rome', 'Italy', true, 'Sono un appassionato di cibo e vino. Cerco un partner per esplorare i tesori culinari dell Italia.', '9000', '40000', '31988352'),
+	('2023H', 'Athens', 'Greece', true, 'I am a lover of history and mythology. Looking for a partner to explore the ancient world with!', '10000', '45000', '47328932'),
+	('2023V', 'Oslo', 'Norway', true, 'Jeg er en naturelsker som elsker å utforske Norges utendørsparadiser. Ser etter en partner som deler min lidenskap for naturen.', '11000', '50000', '10284953'),
+	('2023H', 'Florence', 'Italy', true, 'Sono un appassionato di arte e architettura. Cerco un partner per scoprire i tesori di Firenze insieme.', '12000', '55000', '54920292'),
+	('2024V', 'Istanbul', 'Turkey', true, 'I am a lover of music and dance. Seeking a partner to explore the vibrant culture of Turkey with!', '13000', '60000', '43895282');
+	
+    
+    
+  
+ 

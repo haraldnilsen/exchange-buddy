@@ -43,9 +43,7 @@ public class Userrpost {
 	}
 
 
-	public Userrpost() {
-		super();
-	}
+	public Userrpost() {}
 
 
 

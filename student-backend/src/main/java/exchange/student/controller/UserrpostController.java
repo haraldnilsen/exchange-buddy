@@ -36,7 +36,6 @@ public class UserrpostController {
 		return userrpostRepo.findAll();
 	}
 	
-	
 	@PostMapping("filter")
 	public List<Userrpost> getFilteredUserrposts(@RequestBody Userrpost userrpost) {
 		
