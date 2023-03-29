@@ -46,10 +46,10 @@ const Register : React.FC = () => {
         })
 
         setTimeout(() => clearInput(), 1000);
-        handleResponseMessage();
+        handleResponseMessage(userr.mobile);
     }
 
-    const handleResponseMessage = async() => {
+    const handleResponseMessage = async(userMobile: any) => {
         console.log("Getting response message from backend");
 
         await UserService.getResponseMessage().then((response) => {
@@ -58,6 +58,7 @@ const Register : React.FC = () => {
                 alert(response.data);
             } else {
                 alert("New user created!");
+                localStorage.setItem("user", JSON.stringify(userMobile));
                 window.location.replace("http://localhost:3000/");
             }
         })
