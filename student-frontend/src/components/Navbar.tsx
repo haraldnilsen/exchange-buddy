@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { NavLink } from "react-router-dom";
 import Menu from "../icons/Menu";
+import User from "../images/user.png"
 import Close from "../icons/Close";
 import Button3d from "../icons/Button3d";
 import DropdownComponent from './DropdownComponent';
@@ -8,6 +9,15 @@ import DropdownComponent from './DropdownComponent';
 const Navbar: React.FC = (props) => {
 
     let [ open, setOpen ] = useState(false);
+    let [ loggedIn, setLoggedIn ] = useState(false);
+
+    useEffect(() => {
+        if (localStorage.getItem("user") != null) {
+            setLoggedIn(true)
+        } else {
+            setLoggedIn(false)
+        }
+    }, [])
         
     return(
         <>
@@ -60,6 +70,26 @@ const Navbar: React.FC = (props) => {
                                 <Button3d text="Login" />
                             </NavLink>
                         </li>
+                        {!loggedIn ? 
+                        <>
+                            <li className='md:ml-8 md:my-0 my-7'>
+                                <NavLink to="/register">
+                                    <Button3d text="Register" />
+                                </NavLink>
+                            </li>
+                            <li className='md:ml-8 md:my-0 my-7'>
+                                <NavLink to="/login">
+                                    <Button3d text="Login" />
+                                </NavLink>
+                            </li>
+                        </> : 
+                        <>
+                            <li className='md:ml-8 md:my-0 my-7'>
+                                <NavLink to="/profile">
+                                    <img src={User} className="h-8"/>
+                                </NavLink>
+                            </li>
+                        </>}
                     </ul>
                 </div>
             </div>

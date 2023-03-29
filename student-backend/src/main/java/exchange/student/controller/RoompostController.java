@@ -39,13 +39,39 @@ public class RoompostController {
 	}
 	
 	@PostMapping("filter")
-	public List<Roompost> getFilteredRoomposts(@RequestBody RoompostFromFrontend roompost) {
+	public List<Roompost> getFilteredRoomposts(@RequestBody Roompost roompost) {
 		
 		List<Roompost> filter = roompostService.filterByParameters(roompost.getTerm(), roompost.getCity(), 
 					roompost.getCountry(), roompost.isActive(), roompost.getRoomates());
 		
+		
 		return filter;
 	}
+	
+	@GetMapping("cities")
+	public List<String> getCities() {
+		return roompostRepo.findAll().stream().map(rp -> rp.getCity()).distinct().toList();
+		
+	}
+	
+	@GetMapping("countries")
+	public List<String> getCountries() {
+		return roompostRepo.findAll().stream().map(rp -> rp.getCountry()).distinct().toList();
+	}
+	
+	@PostMapping("mypost")
+	public Roompost getRoompostByMobile(@RequestParam String mobile) {
+		return roompostRepo.findByMobile(mobile);
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	@PostMapping("roompost")

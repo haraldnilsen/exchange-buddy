@@ -18,7 +18,7 @@ export interface RoomPostProps {
     picture: string;
 }
 
-const RoomPost: React.FC<{ roomPostProps: RoomPostProps }> = ({ roomPostProps }) => {
+const RoomPost: React.FC<{ roomPostProps: RoomPostProps }> = ({ roomPostProps }) => {    
 
     return(
         <>
@@ -26,8 +26,8 @@ const RoomPost: React.FC<{ roomPostProps: RoomPostProps }> = ({ roomPostProps })
             <div className="w-full h-1/2 bg-gray-200 rounded-md shadow-xl hover:shadow-2xl my-6 mx-4 pb-4">
                 {/* Images */}                                                {/* <== Kanskje lage image slider her */}
                 <div className="flex">
-                    <img className="w-1/2 border-2 rounded" src={require("../images/apartment.png")} alt="room" />
-                    <img className="w-1/2 border-2 rounded" src={require("../images/apartment.png")} alt="room" />
+                    <img className="w-1/2 h-64 object-cover border-2 rounded" src={roomPostProps.picture} alt="room" />
+                    <img className="w-1/2 h-64 object-cover border-2 rounded" src={roomPostProps.picture} alt="room" />
                 </div>
 
                 {/* Info */}

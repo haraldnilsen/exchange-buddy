@@ -36,10 +36,10 @@ const Login : React.FC = () => {
         })
           
         setTimeout(() => clearInput(), 1000);
-        handleResponseMessage();
+        handleResponseMessage(userr.mobile);
     }
 
-    const handleResponseMessage = async() => {
+    const handleResponseMessage = async(userMobile: any) => {
         console.log("Getting response message from backend");
 
         await UserService.getLoginResponseMessage().then((response) => {
@@ -48,7 +48,7 @@ const Login : React.FC = () => {
                 alert(response.data);
             } else {
                 alert("Login successful");
-
+                localStorage.setItem("user", JSON.stringify(userMobile));
                 // Legg til logget inn bruker på localstorage/session for videre validering
                 window.location.replace("http://localhost:3000/");
             }

@@ -91,7 +91,7 @@ const AboutUs: React.FC = () => {
                                     className="w-full rounded-3xl mb-4"
                                 />
                                 <h3 className="text-xl font-bold mb-2">Adrian Berget</h3>
-                                <p className="text-gray-500 mb-4">Chief Technology Officer (CTO) </p>
+                                <p className="text-gray-500 mb-4">Sønn av far</p>
                             </div>
                         </div>
                     </div>
@@ -118,7 +118,7 @@ const AboutUs: React.FC = () => {
                                     className="w-full rounded-3xl mb-4"
                                 />
                                 <h3 className="text-xl font-bold mb-2">Amund Fremming</h3>
-                                <p className="text-gray-500 mb-4">Trainee</p>
+                                <p className="text-gray-500 mb-4">Far</p>
                             </div>
                         </div>
                         <div className="sm:w-1/3">
