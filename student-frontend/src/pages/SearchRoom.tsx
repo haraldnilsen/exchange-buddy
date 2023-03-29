@@ -95,7 +95,7 @@ const SearchRoom: React.FC = () => {
             clearInputs();
         })
 
-        setTimeout(() => setLoading(false), 500);
+        setTimeout(() => setLoading(false), 50);
 
         // function to further filter the data
     }
@@ -204,11 +204,11 @@ const SearchRoom: React.FC = () => {
                     <div className="flex my-2">
                         <div className="flex flex-col">
                             <input onChange={e => setPriceFrom(e.target.value)} className="h-10 w-20 border-2 rounded-md" />
-                            <label>from kr</label>
+                            <label>From kr</label>
                         </div>
                         <div className="flex flex-col mx-4">
                             <input onChange={e => setPriceTo(e.target.value)} className="h-10 w-20 border-2 rounded-md" />
-                            <label>to kr</label>
+                            <label>To kr</label>
                         </div>
                         <div className="flex flex-col">
                             <button type="submit" className="h-10 w-16 border-2 rounded-md">search</button>
@@ -218,17 +218,18 @@ const SearchRoom: React.FC = () => {
                     <div className="flex my-2">
                         <div className="flex flex-col">
                             <input onChange={e => setRoomsizeFrom(e.target.value)} className="h-10 w-20 border-2 rounded-md" />
-                            <label>from m2</label>
+                            <label>From m<sup>2</sup></label>
                         </div>
                         <div className="flex flex-col mx-4">
                             <input onChange={e => setRoomsizeTo(e.target.value)} className="h-10 w-20 border-2 rounded-md" />
-                            <label>to m2</label>
+                            <label>To m<sup>2</sup></label>
                         </div>
                         <div className="flex flex-col">
                             <button type="submit" className="h-10 w-16 border-2 rounded-md">search</button>
                         </div>
                     </div>
                     {/* number of roomates */}
+                    <label>Roommates</label>
                     <div className="flex my-2">
                         <div id="10" onClick={() => handleRoomatesClick("0")} className="h-11 w-11 border-2 rounded-l flex justify-center items-center">none</div>
                         <div id="1" onClick={() => handleRoomatesClick("1")} className="h-11 w-11 border-2 flex justify-center items-center">1</div>

@@ -94,26 +94,26 @@ const Register : React.FC = () => {
 
                             {/* Left side */}
                             <div className="flex flex-col">
-                                <label className="mx-1">firstname</label>
+                                <label className="mx-1">First name</label>
                                 <input
                                     className="bg-pink-200 rounded text-green-700 w-30 h-8 m-1 my-2 border-b-2 border-b-black outline-none"
                                     onChange={e => setFirstname(e.target.value)}
                                     value={firstname}
                                 />
-                                <label className="mx-1">mobile</label>
+                                <label className="mx-1">Mobile</label>
                                 <input
                                     className="bg-pink-200 rounded text-green-700 w-30 h-8 m-1 my-2 border-b-2 border-black outline-none"
                                     onChange={e => setMobile(e.target.value)}
                                     value={mobile}
                                 />
-                                <label className="mx-1">password</label>
+                                <label className="mx-1">Password</label>
                                 <input
                                     className="bg-pink-200 rounded text-green-700 w-30 h-8 m-1 my-2 border-b-2 border-black outline-none"
                                     type="password"
                                     onChange={e => setPassword(e.target.value)}
                                     value={password}
                                 />
-                                <label className="mx-1">profilepicture</label>
+                                <label className="mx-1">Profile picture</label>
                                 <input
                                     className="bg-pink-200 rounded text-green-700 w-30 h-8 m-1 my-2 border-b-2 border-black outline-none"
                                     onChange={e => setProfilepicture(e.target.value)}
@@ -123,7 +123,7 @@ const Register : React.FC = () => {
 
                             {/* Right side */}
                             <div className="flex flex-col">
-                                <label className="mx-1">lastname</label>
+                                <label className="mx-1">Last name</label>
                                 <input
                                     className="bg-pink-200 rounded text-green-700 w-30 h-8 m-1 my-2 border-b-2 border-black outline-none"
                                     onChange={e => setLastname(e.target.value)}

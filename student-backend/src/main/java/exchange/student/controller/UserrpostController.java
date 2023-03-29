@@ -32,10 +32,22 @@ public class UserrpostController {
 	@Autowired private UserpostRepo userrpostRepo;
 	
 	
-	@GetMapping
+	@GetMapping("all")
 	public List <Userrpost> getAllUserposts() {
 		return userrpostRepo.findAll();
 	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	@PostMapping
 	public Userrpost createUserrpost(@RequestBody Userrpost userrpost) {

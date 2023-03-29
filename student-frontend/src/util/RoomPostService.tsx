@@ -6,10 +6,6 @@ const ROOM_GET_ALL_API_URL = "http://localhost:8080/api/roompost/all";
 const ROOM_GET_API_URL = "http://localhost:8080/api/roompost";
 const ROOM_GET_FILTER_API_URL = "http://localhost:8080/api/roompost/filter";
 
-// For handling rooms
-const ROOM_POST_API_URL = "http://localhost:8080/api/roompost";
-const ROOM_UPDATE_API_URL = "http://localhost:8080/api/roompost";
-
 export interface RoompostToBackend {
     term: string; 
     address: string;

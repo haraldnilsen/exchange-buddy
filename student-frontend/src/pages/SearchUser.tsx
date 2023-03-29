@@ -6,8 +6,10 @@ import RoomPost from "../components/RoomPost";
 
 const SearchUser: React.FC = () => {
 
+    const [cities, setCities] = useState("");
+    const [countries, setCountries] = useState("");
+
     // Må ha type
-    const [] = useState();
     const [loading, setLoading] = useState(false);
 
     /* Search parameters */
@@ -35,27 +37,47 @@ const SearchUser: React.FC = () => {
                     {/* Search Country */}
                     <div className="flex flex-col my-2">
                         <label>Term</label>
-                        <input onChange={e => setTerm(e.target.value)} className="border-2 rounded-md h-10 w-64" placeholder="DROPDOWN TODO" />
+                        <select onChange={e => setTerm(e.target.value)} className="border-2 rounded-md h-10 w-64">
+                            <option value=""></option>
+                            <option value="2022V">2022V</option>
+                            <option value="2022H">2022H</option>
+                            <option value="2023V">2023V</option>
+                            <option value="2023H">2023H</option>
+                            <option value="2024V">2024V</option>
+                            <option value="2024H">2024H</option>
+                            <option value="2025V">2025V</option>
+                            <option value="2025H">2025H</option>
+                        </select>
                     </div>
                     {/* Search Country */}
                     <div className="flex flex-col my-2">
                         <label>Country</label>
-                        <input onChange={e => setCountry(e.target.value)} className="border-2 rounded-md h-10 w-64" placeholder="DROPDOWN TODO" />
+                        <select onChange={e => setCountry(e.target.value)} className="border-2 rounded-md h-10 w-64">
+                            <option value=""></option>
+                            {/*
+                                HER MÅ DET LEGGES INN MAPPING
+                            */}
+                        </select>
                     </div>
                     {/* Search city */}
                     <div className="flex flex-col my-2">
                         <label>City</label>
-                        <input onChange={e => setCity(e.target.value)} className="border-2 rounded-md h-10 w-64" placeholder="DROPDOWN TODO" />
+                        <select onChange={e => setCity(e.target.value)} className="border-2 rounded-md h-10 w-64">
+                            <option value=""></option>
+                            {/*
+                                HER MÅ DET LEGGES INN MAPPING
+                            */}
+                        </select>
                     </div>
                     {/* Pricing */}
                     <div className="flex my-2">
                         <div className="flex flex-col">
                             <input onChange={e => setPriceFrom(e.target.value)} className="h-10 w-20 border-2 rounded-md" />
-                            <label>from kr</label>
+                            <label>From kr</label>
                         </div>
                         <div className="flex flex-col mx-4">
                             <input onChange={e => setPriceTo(e.target.value)} className="h-10 w-20 border-2 rounded-md" />
-                            <label>to kr</label>
+                            <label>To kr</label>
                         </div>
                         <div className="flex flex-col">
                             <button type="submit" className="h-10 w-16 border-2 rounded-md">search</button>
