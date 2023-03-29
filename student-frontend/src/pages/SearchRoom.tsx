@@ -166,7 +166,7 @@ const SearchRoom: React.FC = () => {
                     <div className="flex flex-col my-2">
                         <label>Term</label>
                         <select onChange={e => setTerm(e.target.value)} className="border-2 rounded-md h-10 w-64">
-                            <option value=""><p placeholder="select"></p></option>
+                            <option value=""></option>
                             <option value="2022V">2022V</option>
                             <option value="2022H">2022H</option>
                             <option value="2023V">2023V</option>
