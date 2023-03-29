@@ -8,6 +8,7 @@ const SearchUser: React.FC = () => {
 
     const [cities, setCities] = useState("");
     const [countries, setCountries] = useState("");
+    const [searchResults, setSearchResults] = useState("");
 
     // Må ha type
     const [loading, setLoading] = useState(false);
@@ -20,6 +21,16 @@ const SearchUser: React.FC = () => {
     const [city, setCity] = useState("");
     const [country, setCountry] = useState("");
     const [date, setDate] = useState("");
+
+    const clearInputs = () => {
+        setSearchbar("");
+        setPriceFrom("");
+        setPriceTo("");
+        setTerm("");
+        setCity("");
+        setCountry("");
+        setDate("");
+    }
 
     return(
         <> 

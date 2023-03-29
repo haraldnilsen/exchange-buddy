@@ -5,6 +5,8 @@ const RESPONSE_REST_API_URL = "http://localhost:8080/api/response";
 const LOGIN_REST_API_URL = "http://localhost:8080/api/login";
 const LOGIN_RESPONSE_REST_API_URL = "http://localhost:8080/api/response2";
 
+const USERPOST_REST_API_URL = "http://localhost:8080/api/userpost";
+
 export interface Userr {
     mobile: string;
     fname: string;
@@ -31,7 +33,6 @@ class UserService {
         return axios.get(RESPONSE_REST_API_URL);
     }
 
-
     // For logging in
     loginUser(userr: Userr) {
         return axios.post(LOGIN_REST_API_URL, userr);
@@ -39,6 +40,27 @@ class UserService {
 
     getLoginResponseMessage() {
         return axios.get(LOGIN_RESPONSE_REST_API_URL);
+    }
+
+    // For Userpost page
+    getAllUsers() {
+        return axios.get(USERPOST_REST_API_URL + "/all");
+    }
+
+    getUserCities() {
+        return axios.get(USERPOST_REST_API_URL + "/cities");
+    }
+
+    getUserCountries() {
+        return axios.get(USERPOST_REST_API_URL + "/countries");
+    }
+
+    getFilteredUsers() {
+        return axios.get(USERPOST_REST_API_URL + "/filter");
+    }
+
+    searchUser(userr: Userr) {
+        return axios.post(USERPOST_REST_API_URL, userr);
     }
 
 }
