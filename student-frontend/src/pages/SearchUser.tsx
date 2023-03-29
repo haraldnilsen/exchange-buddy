@@ -1,11 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import UserPost from "../components/UserPost";
 import RoomPost from "../components/RoomPost";
 import { UserrPost } from "../util/UserService";
 import { NewtonsCradle } from '@uiball/loaders'
-
+import UserService from "../util/UserService";
 
 const SearchUser: React.FC = () => {
 
@@ -25,6 +25,19 @@ const SearchUser: React.FC = () => {
     const [country, setCountry] = useState("");
     const [date, setDate] = useState("");
 
+    useEffect(() => {
+        getCountriesAndCities();
+    }, []);
+
+    const getCountriesAndCities = async () => {
+        await UserService.getUserCountries().then((response) => {
+            setCountries(response.data);
+        })
+        await UserService.getUserCities().then((response) => {
+            setCities(response.data);
+        })
+    }
+
     const handleSearch = async (e: React.FormEvent<HTMLFormElement>) => {
         setLoading(true);
         e.preventDefault();
@@ -40,6 +53,13 @@ const SearchUser: React.FC = () => {
         }
         console.log("Sending userpost search request to backend");
 
+        await UserService.searchUser(search).then((response) => {
+            console.log(response);
+            setSearchResults(response.data);
+            clearInputs();
+        })
+
+        setTimeout(() => setLoading(false), 50);
 
     }
 
@@ -52,7 +72,6 @@ const SearchUser: React.FC = () => {
         setCountry("");
         setDate("");
     }
-
 
     if(loading) {
         return(
@@ -73,7 +92,7 @@ const SearchUser: React.FC = () => {
             <div className="flex justify-center mt-32">
 
                 {/* Search specs */}
-                <form className="flex flex-col mx-6 mt-20">
+                <form onSubmit={e => handleSearch(e)} className="flex flex-col mx-6 mt-20">
                     {/* Search rooms */}
                     <div className="flex flex-col my-2">
                         <label>Search Buddies</label>

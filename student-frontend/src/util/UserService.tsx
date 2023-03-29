@@ -70,7 +70,7 @@ class UserService {
         return axios.get(USERPOST_REST_API_URL + "/filter");
     }
 
-    searchUser(userr: Userr) {
+    searchUser(userr: UserrPost) {
         return axios.post(USERPOST_REST_API_URL, userr);
     }
 
