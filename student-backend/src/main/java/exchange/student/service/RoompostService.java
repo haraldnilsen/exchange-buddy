@@ -67,8 +67,8 @@ public class RoompostService {
 		for(Roompost param : allPosts) {
 			
 			// Case: skal ikke sjekke param, bare legge til
-			boolean termEmpty = param.getTerm().equals("pølse");
-			boolean cityEmpty = param.getCity().equals("pølse");
+			boolean termEmpty = param.getTerm().equals(term);
+			boolean cityEmpty = param.getCity().equals(city);
 			boolean countryEmpty = param.getCountry().equals("null");
 			// boolean isActive = active;
 			boolean roomatesEmpty = param.getRoomates().equals("null");
