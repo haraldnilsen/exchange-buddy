@@ -31,7 +31,7 @@ const SearchUser: React.FC = () => {
                 <form className="flex flex-col mx-6 mt-20">
                     {/* Search rooms */}
                     <div className="flex flex-col my-2">
-                        <label>Search rooms</label>
+                        <label>Search Buddies</label>
                         <input onChange={e => setSearchbar(e.target.value)} className="border-2 rounded-md h-10 w-64" />
                     </div>
                     {/* Search Country */}
@@ -70,6 +70,7 @@ const SearchUser: React.FC = () => {
                         </select>
                     </div>
                     {/* Pricing */}
+                    <label>Price</label>
                     <div className="flex my-2">
                         <div className="flex flex-col">
                             <input onChange={e => setPriceFrom(e.target.value)} className="h-10 w-20 border-2 rounded-md" />
@@ -80,7 +81,7 @@ const SearchUser: React.FC = () => {
                             <label>To kr</label>
                         </div>
                         <div className="flex flex-col">
-                            <button type="submit" className="h-10 w-16 border-2 rounded-md">search</button>
+                            <button type="submit" className="h-10 w-16 border-2 rounded-md">Search</button>
                         </div>
                     </div>
                     {/*
