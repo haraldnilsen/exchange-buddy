@@ -38,10 +38,10 @@ const SearchRoom: React.FC = () => {
     const [searchbar, setSearchbar] = useState("");
     const [priceFrom, setPriceFrom] = useState("");
     const [priceTo, setPriceTo] = useState("");
-    const [term, setTerm] = useState("");
-    const [city, setCity] = useState("");
-    const [country, setCountry] = useState("");
-    const [roomates, setRoomates] = useState("");
+    const [term, setTerm] = useState("pølse");
+    const [city, setCity] = useState("pølse");
+    const [country, setCountry] = useState("pølse");
+    const [roomates, setRoomates] = useState("pølse");
     const [wifi, setWifi] = useState(false);
     const [appliances, setAppliances] = useState(true);
     const [roomsizeFrom, setRoomsizeFrom] = useState("");
@@ -71,7 +71,7 @@ const SearchRoom: React.FC = () => {
         e.preventDefault();
         console.log(wifi);
 
-        const Roompost: RoompostToBackend = {
+        const Roompost = {
             term: term,
             address: "",
             city: city,
@@ -87,7 +87,7 @@ const SearchRoom: React.FC = () => {
         }
         console.log("Sending roompost request to backend");
 
-        await RoomPostService.getAllRoomPosts().then((response) => {
+        await RoomPostService.searchRoomPost(Roompost).then((response) => {
             console.log(response.data);
             setSearchResults(response.data);
         })
@@ -128,16 +128,25 @@ const SearchRoom: React.FC = () => {
                     <div className="flex flex-col my-2">
                         <label>Term</label>
                         <input onChange={e => setTerm(e.target.value)} className="border-2 rounded-md h-10 w-64" placeholder="DROPDOWN TODO" />
+
+
+
                     </div>
                     {/* Search Country */}
                     <div className="flex flex-col my-2">
                         <label>Country</label>
                         <input onChange={e => setCountry(e.target.value)} className="border-2 rounded-md h-10 w-64" placeholder="DROPDOWN TODO" />
+
+
+
                     </div>
                     {/* Search city */}
                     <div className="flex flex-col my-2">
                         <label>City</label>
                         <input onChange={e => setCity(e.target.value)} className="border-2 rounded-md h-10 w-64" placeholder="DROPDOWN TODO" />
+
+
+
                     </div>
                     {/* Pricing */}
                     <div className="flex my-2">
