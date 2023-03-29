@@ -18,7 +18,7 @@ export interface RoomPostProps {
     picture: string;
 }
 
-const RoomPost: React.FC<{ roomPostProps: RoomPostProps }> = ({ roomPostProps }) => {
+const RoomPost: React.FC<{ roomPostProps: RoomPostProps }> = ({ roomPostProps }) => {    
 
     return(
         <>

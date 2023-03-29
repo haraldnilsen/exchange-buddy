@@ -32,6 +32,10 @@ const SearchRoom: React.FC = () => {
     let id = 1;
     const [loading, setLoading] = useState(false);
 
+    /* Setter info til søke parametere */
+    const [cities, setCities] = useState<string[]>([]);
+    const [countries, setCountries] = useState<string[]>([]);
+
     // Mulig det må spesifiseres hordan type array det skal være sånn som i Student-test
     /* Search parameters */
     const [searchResults, setSearchResults] = useState<RoomRes[]>([]);
@@ -41,6 +45,7 @@ const SearchRoom: React.FC = () => {
     const [term, setTerm] = useState("");
     const [city, setCity] = useState("");
     const [country, setCountry] = useState("");
+    const [active, setActive] = useState("");
     const [roomates, setRoomates] = useState("");
     const [wifi, setWifi] = useState(false);
     const [appliances, setAppliances] = useState(true);
@@ -90,12 +95,29 @@ const SearchRoom: React.FC = () => {
         await RoomPostService.searchRoomPost(Roompost).then((response) => {
             console.log(response.data);
             setSearchResults(response.data);
+            setCountriesAndCities();
         })
 
         setTimeout(() => setLoading(false), 10);
-        // setTimeout(() => clearInput(), 2000);
 
         // function to further filter the data
+    }
+
+    const setCountriesAndCities = () => {
+        let countries: string[] = [];
+        let cities: string[] = [];
+
+        searchResults.forEach((result) => {
+            if(!countries.includes(result.country)) {
+                countries.push(result.country);
+            }
+            if(!cities.includes(result.city)) {
+                cities.push(result.city);
+            }
+        })
+
+        setCountries(countries);
+        setCities(cities);
     }
 
     if(loading) {
@@ -127,26 +149,42 @@ const SearchRoom: React.FC = () => {
                     {/* Search Term */}
                     <div className="flex flex-col my-2">
                         <label>Term</label>
-                        <input onChange={e => setTerm(e.target.value)} className="border-2 rounded-md h-10 w-64" placeholder="DROPDOWN TODO" />
-
-
-
+                        <select onChange={e => setTerm(e.target.value)} className="border-2 rounded-md h-10 w-64">
+                            <option value="2022V">2022V</option>
+                            <option value="2022H">2022H</option>
+                            <option value="2023V">2023V</option>
+                            <option value="2023H">2023H</option>
+                            <option value="2024V">2024V</option>
+                            <option value="2024H">2024H</option>
+                            <option value="2025V">2025V</option>
+                            <option value="2025H">2025H</option>
+                        </select>
                     </div>
                     {/* Search Country */}
                     <div className="flex flex-col my-2">
                         <label>Country</label>
-                        <input onChange={e => setCountry(e.target.value)} className="border-2 rounded-md h-10 w-64" placeholder="DROPDOWN TODO" />
-
-
-
+                        <select onChange={e => setCountry(e.target.value)} className="border-2 rounded-md h-10 w-64">
+                            {
+                                countries.map((country) => {
+                                    return(
+                                        <option key={country} value={country}>{country}</option>
+                                    )
+                                })
+                            }
+                        </select>
                     </div>
-                    {/* Search city */}
+                    {/* Search City */}
                     <div className="flex flex-col my-2">
                         <label>City</label>
-                        <input onChange={e => setCity(e.target.value)} className="border-2 rounded-md h-10 w-64" placeholder="DROPDOWN TODO" />
-
-
-
+                        <select onChange={e => setCity(e.target.value)} className="border-2 rounded-md h-10 w-64">
+                            {
+                                cities.map((city) => {
+                                    return(
+                                        <option key={city} value={city}>{city}</option>
+                                    );
+                                })
+                            }
+                        </select>
                     </div>
                     {/* Pricing */}
                     <div className="flex my-2">
