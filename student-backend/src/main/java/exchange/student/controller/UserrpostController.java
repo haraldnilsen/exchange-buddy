@@ -33,18 +33,33 @@ public class UserrpostController {
 	
 	
 	@GetMapping("all")
-	public List <Userrpost> getAllUserposts() {
+	public List<Userrpost> getAllUserposts() {
 		return userrpostRepo.findAll();
 	}
 	
-	// params til å filterer på:
-		// Term, country, city
+	
+	@PostMapping("filter")
+	public List<Userrpost> getFilteredUserrposts(@RequestBody Userrpost userrpost) {
+		
+		List<Userrpost> filter = userrpostService.filterByParameters(userrpost.getTerm(),
+				userrpost.getCity(), userrpost.getCountry(), userrpost.getMinPrice(), userrpost.getMaxPrice());
+		
+		return filter;
+	}
 	
 	
+	@GetMapping("cities")
+	public List<String> getCities() {
+		return userrpostRepo.findAll().stream().map(rp -> rp.getCity()).distinct().toList();
+		
+	}
 	
+	@GetMapping("countries")
+	public List<String> getCountries() {
+		return userrpostRepo.findAll().stream().map(rp -> rp.getCountry()).distinct().toList();
+	}
 	
-	
-	
+
 	
 	
 	

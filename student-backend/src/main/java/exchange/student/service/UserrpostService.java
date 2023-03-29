@@ -26,18 +26,32 @@ public class UserrpostService {
 	 * @return list of right posts
 	 */
 	
-	public List <Userrpost> findActiveByParameters (Integer price, String term, String city) {
+	public List <Userrpost> filterByParameters(String term, String city, String country, String minprice, String maxprice) {
 		List<Userrpost> allPosts = userpostRepo.findAll();
-		List<Userrpost> sorted = allPosts.stream().
-		filter(x -> 
-		x.getMaxPrice() >= price && 
-		x.getMinPrice() <= price &&
-		x.getCity().equals(city) &&
-		x.getTerm().equals(term) &&
-		x.isActive())
-		.toList();
+		List<Userrpost> filtered = allPosts;
+			
 		
-		return sorted;
+		if (!term.equals("")) {
+			filtered = filtered.stream().filter(x -> term.equals(x.getTerm())).toList();
+		}
+		
+		if (!city.equals("")) {
+			filtered = filtered.stream().filter(x -> city.equals(x.getCity())).toList();
+		}
+		
+		if (!country.equals("")) {
+			filtered = filtered.stream().filter(x -> country.equals(x.getCountry())).toList();
+		}
+		
+		if (!minprice.equals("")) {
+			filtered = filtered.stream().filter(x -> minprice.compareTo(x.getMinPrice()) >= 0).toList();
+		}
+		
+		if (!maxprice.equals("")) {
+			filtered = filtered.stream().filter(x -> maxprice.compareTo(x.getMinPrice()) <= 0).toList();
+		}
+	
+		return filtered;
 	}
 	
 	/**

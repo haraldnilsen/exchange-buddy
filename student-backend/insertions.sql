@@ -42,8 +42,8 @@ CREATE TABLE userpost
 	country VARCHAR,
 	active BOOL,
 	bio VARCHAR,
-	minPrice INTEGER,
-	maxPrice INTEGER,
+	minPrice VARCHAR,
+	maxPrice VARCHAR,
 	mobile VARCHAR NOT NULL,
 	
 	FOREIGN KEY (mobile) REFERENCES userr(mobile)

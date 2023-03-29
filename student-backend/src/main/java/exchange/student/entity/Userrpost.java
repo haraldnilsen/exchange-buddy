@@ -22,16 +22,16 @@ public class Userrpost {
 	private String country;
 	private boolean active;
 	private String bio;
-	private Integer minPrice;
-	private Integer maxPrice;
+	private String minPrice;
+	private String maxPrice;
 	
 	@OneToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name="mobile", referencedColumnName = "mobile")
 	private Userr mobile;
 	
 
-	public Userrpost(String term, String city, String country, boolean active, String bio, Integer minPrice,
-			Integer maxPrice) {
+	public Userrpost(String term, String city, String country, boolean active, String bio, String minPrice,
+			String maxPrice) {
 		super();
 		this.term = term;
 		this.city = city;
@@ -106,19 +106,19 @@ public class Userrpost {
 	}
 
 
-	public Integer getMinPrice() {
+	public String getMinPrice() {
 		return minPrice;
 	}
 
-	public void setMinPrice(Integer minPrice) {
+	public void setMinPrice(String minPrice) {
 		this.minPrice = minPrice;
 	}
 
-	public Integer getMaxPrice() {
+	public String getMaxPrice() {
 		return maxPrice;
 	}
 
-	public void setMaxPrice(Integer maxPrice) {
+	public void setMaxPrice(String maxPrice) {
 		this.maxPrice = maxPrice;
 	}
 	
