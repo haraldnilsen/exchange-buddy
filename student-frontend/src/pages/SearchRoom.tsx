@@ -154,7 +154,7 @@ const SearchRoom: React.FC = () => {
                 <form onSubmit={e => handleSearch(e)} className="flex flex-col mx-6 mt-20">
                     {/* Search rooms */}
                     <div className="flex flex-col my-2">
-                        <label>Search rooms</label>
+                        <label>Search Rooms</label>
                         <input onChange={e => setSearchbar(e.target.value)} className="border-2 rounded-md h-10 w-64" />
                     </div>
                     {/* Search Term */}
@@ -201,6 +201,7 @@ const SearchRoom: React.FC = () => {
                         </select>
                     </div>
                     {/* Pricing */}
+                    <label>Price</label>
                     <div className="flex my-2">
                         <div className="flex flex-col">
                             <input onChange={e => setPriceFrom(e.target.value)} className="h-10 w-20 border-2 rounded-md" />
@@ -211,10 +212,11 @@ const SearchRoom: React.FC = () => {
                             <label>To kr</label>
                         </div>
                         <div className="flex flex-col">
-                            <button type="submit" className="h-10 w-16 border-2 rounded-md">search</button>
+                            <button type="submit" className="h-10 w-16 border-2 rounded-md">Search</button>
                         </div>
                     </div>
                     {/* Sizing */}
+                    <label>Size</label>
                     <div className="flex my-2">
                         <div className="flex flex-col">
                             <input onChange={e => setRoomsizeFrom(e.target.value)} className="h-10 w-20 border-2 rounded-md" />
@@ -225,13 +227,13 @@ const SearchRoom: React.FC = () => {
                             <label>To m<sup>2</sup></label>
                         </div>
                         <div className="flex flex-col">
-                            <button type="submit" className="h-10 w-16 border-2 rounded-md">search</button>
+                            <button type="submit" className="h-10 w-16 border-2 rounded-md">Search</button>
                         </div>
                     </div>
                     {/* number of roomates */}
                     <label>Roommates</label>
                     <div className="flex my-2">
-                        <div id="10" onClick={() => handleRoomatesClick("0")} className="h-11 w-11 border-2 rounded-l flex justify-center items-center">none</div>
+                        <div id="10" onClick={() => handleRoomatesClick("0")} className="h-11 w-11 border-2 rounded-l flex justify-center items-center">None</div>
                         <div id="1" onClick={() => handleRoomatesClick("1")} className="h-11 w-11 border-2 flex justify-center items-center">1</div>
                         <div id="2" onClick={() => handleRoomatesClick("2")} className="h-11 w-11 border-2 flex justify-center items-center">2</div>
                         <div id="3" onClick={() => handleRoomatesClick("3")} className="h-11 w-11 border-2 flex justify-center items-center">3</div>
@@ -246,7 +248,7 @@ const SearchRoom: React.FC = () => {
                         <GiWashingMachine className="text-3xl mx-3" />
                     </div>
                     {/* Search button */}
-                    <input type="submit" className="w-1/2 h-9 rounded-md border-b-4 border-black bg-gray-300 items-center justify-center flex my-2" value="search" />
+                    <input type="submit" className="w-1/2 h-9 rounded-md border-b-4 border-black bg-gray-300 items-center justify-center flex my-2" value="Search" />
                 </form>
 
                 {/* Results */}
