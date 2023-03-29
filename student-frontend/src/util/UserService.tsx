@@ -18,6 +18,17 @@ export interface Userr {
     password: string;
 }
 
+export interface UserrPost {
+    term: string;
+    city: string;
+    country: string;
+    active: boolean;
+    bio: string;
+    minPrice: string;
+    maxPrice: string;
+}
+
+
 class UserService {
 
     // For registering a new user

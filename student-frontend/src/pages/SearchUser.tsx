@@ -3,6 +3,9 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import UserPost from "../components/UserPost";
 import RoomPost from "../components/RoomPost";
+import { UserrPost } from "../util/UserService";
+import { NewtonsCradle } from '@uiball/loaders'
+
 
 const SearchUser: React.FC = () => {
 
@@ -22,6 +25,24 @@ const SearchUser: React.FC = () => {
     const [country, setCountry] = useState("");
     const [date, setDate] = useState("");
 
+    const handleSearch = async (e: React.FormEvent<HTMLFormElement>) => {
+        setLoading(true);
+        e.preventDefault();
+
+        const search: UserrPost = {
+            term: term,
+            city: city,
+            country: country,
+            active: true,
+            bio: "",
+            minPrice: priceFrom,
+            maxPrice: priceTo,
+        }
+        console.log("Sending userpost search request to backend");
+
+
+    }
+
     const clearInputs = () => {
         setSearchbar("");
         setPriceFrom("");
@@ -30,6 +51,19 @@ const SearchUser: React.FC = () => {
         setCity("");
         setCountry("");
         setDate("");
+    }
+
+
+    if(loading) {
+        return(
+            <div className="flex items-center justify-center mt-96">
+                <NewtonsCradle 
+                    size={70}
+                    speed={1.4} 
+                    color="pink" 
+                />
+            </div>
+        );
     }
 
     return(
