@@ -4,7 +4,7 @@ function HeroSection() {
     return (
         <>
 
-            <div className="mt-14 bg-gray-100 pb-12 overflow-y-hidden" style={{ minHeight: 700 }}>
+            <div className="md:hidden-true mt-14 bg-gray-100 pb-12 overflow-y-hidden" style={{ minHeight: 700 }}>
                 {/* Code block starts */}
                 <div className="bg-gray-300">
                     <div className="container mx-auto flex flex-col items-center py-12 sm:py-24">

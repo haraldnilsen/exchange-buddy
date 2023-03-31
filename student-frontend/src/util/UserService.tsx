@@ -21,7 +21,7 @@ export interface Userr {
 /*
     Her må man mest sansynlig hente ut en bruker
     og sende brukeren under mobil for at det skal
-    kunne bli tatt i mot av Spring backend
+    kunne bli tatt i mot av Spring backend.
 */
 export interface Userrpost {
     mobile: string;

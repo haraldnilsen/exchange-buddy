@@ -25,7 +25,7 @@ const Navbar: React.FC = (props) => {
                 <div id="navbar" className='md:flex items-center justify-between bg-d-green py-4 md:px-10 px-7 h-24 shadow-md'>
                     <div className='md:hidden-true cursor-pointer flex items-center ml-8'>
                         <NavLink to="/">
-                            <img alt='logo' className='w-36 ml-10 h-29 color-violet-400' src={require("../images/logo.png")} />
+                            <img alt='logo' className='md:hidden-true w-36 ml-10 h-29 color-violet-400' src={require("../images/logo.png")} />
                         </NavLink>
                     </div>
                     <div onClick={() => setOpen(!open)}>

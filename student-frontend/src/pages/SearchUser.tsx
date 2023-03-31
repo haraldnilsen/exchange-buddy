@@ -166,7 +166,7 @@ const SearchUser: React.FC = () => {
                 </form>
 
                 {/* Results */}
-                <div className="flex flex-wrap w-8/12">
+                <div className="flex flex-wrap lg:flex-col md:flex-col w-8/12">
                     <UserPost />
                     <UserPost />
                     <UserPost />
@@ -176,10 +176,6 @@ const SearchUser: React.FC = () => {
                     <UserPost />
                     <UserPost />
                 </div>
-
-            </div>
-            <div className="h-96">
-
             </div>
             <Footer />
         </>

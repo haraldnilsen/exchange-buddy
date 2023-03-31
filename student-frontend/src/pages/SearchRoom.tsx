@@ -87,7 +87,7 @@ const SearchRoom: React.FC = () => {
             kvm: "",
             picture: "",
         }
-        console.log("Sending roompost request to backend");
+        console.log("Sending roompost search request to backend");
 
         await RoomPostService.searchRoomPost(Roompost).then((response) => {
             console.log(response.data);

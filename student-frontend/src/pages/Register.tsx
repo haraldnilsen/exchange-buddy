@@ -81,7 +81,7 @@ const Register : React.FC = () => {
             <div className="flex items-center justify-center">
                 <Navbar />
                 {/* Container */}
-                <div className="mt-52 flex justify-center items-center bg-pink-200 rounded-2xl shadow-md w-1/2 h-1/2 hover:shadow-2xl">
+                <div className="bg-pink-200 mt-52 flex justify-center items-center rounded-2xl shadow-md w-1/2 h-1/2 hover:shadow-2xl">
                     {/* Image */}
                     <div>
                         <img src={require("../images/trans.png")} />
