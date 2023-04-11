@@ -2,16 +2,16 @@ import React, { useState, useEffect } from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import UserPost from "../components/UserPost";
-import RoomPost from "../components/RoomPost";
-import { Userrpost } from "../util/UserService";
+import { UserrpostSearchEntity } from "../util/UserService";
 import { NewtonsCradle } from '@uiball/loaders'
 import UserService from "../util/UserService";
+import { Userrpost } from "../components/UserPost";
 
 const SearchUser: React.FC = () => {
 
     const [cities, setCities] = useState([]);
     const [countries, setCountries] = useState([]);
-    const [searchResults, setSearchResults] = useState("");
+    const [searchResults, setSearchResults] = useState<Userrpost[]>([]);
 
     // Må ha type
     const [loading, setLoading] = useState(false);
@@ -23,10 +23,11 @@ const SearchUser: React.FC = () => {
     const [term, setTerm] = useState("");
     const [city, setCity] = useState("");
     const [country, setCountry] = useState("");
-    const [date, setDate] = useState("");
 
     useEffect(() => {
         getCountriesAndCities();
+        setLoading(true)
+        initSearch();
     }, []);
 
     const getCountriesAndCities = async () => {
@@ -43,20 +44,19 @@ const SearchUser: React.FC = () => {
         setLoading(true);
         e.preventDefault();
 
-        const search: Userrpost = {
-            mobile: "00",
+        const search: UserrpostSearchEntity = {
             term: term,
             city: city,
             country: country,
             active: true,
-            bio: "",
-            minPrice: priceFrom,
-            maxPrice: priceTo,
+            pricefrom: priceFrom,
+            priceto: priceTo
         }
+        
         console.log("Sending userpost search request to backend");
+        console.log(search);
 
-        // ENDRE HER TIL .searchUser(search) NÅR KODEN ER KLAR
-        await UserService.getAllUsers().then((response) => {
+        await UserService.searchUser(search).then((response) => {
             console.log(response.data);
             setSearchResults(response.data);
             clearInputs();
@@ -66,6 +66,14 @@ const SearchUser: React.FC = () => {
 
     }
 
+    const initSearch = async() => {
+        await UserService.getAllUsers().then(response => {
+            console.log(response.data);
+            setSearchResults(response.data);
+            setLoading(false);
+        })
+    }
+
     const clearInputs = () => {
         setSearchbar("");
         setPriceFrom("");
@@ -73,7 +81,6 @@ const SearchUser: React.FC = () => {
         setTerm("");
         setCity("");
         setCountry("");
-        setDate("");
     }
 
     if(loading) {
@@ -95,7 +102,7 @@ const SearchUser: React.FC = () => {
             <div className="flex justify-center mt-32">
 
                 {/* Search specs */}
-                <form onSubmit={e => handleSearch(e)} className="flex flex-col mx-6 mt-20">
+                <form onSubmit={e => handleSearch(e)} className="flex flex-col mt-20">
                     {/* Search rooms */}
                     <div className="flex flex-col my-2">
                         <label>Search Buddies</label>
@@ -144,11 +151,11 @@ const SearchUser: React.FC = () => {
                     <label>Price</label>
                     <div className="flex my-2">
                         <div className="flex flex-col">
-                            <input onChange={e => setPriceFrom(e.target.value)} className="h-10 w-20 border-2 rounded-md" />
+                            <input type="number" onChange={e => setPriceFrom(e.target.value)} className="h-10 w-20 border-2 rounded-md" />
                             <label>From kr</label>
                         </div>
                         <div className="flex flex-col mx-4">
-                            <input onChange={e => setPriceTo(e.target.value)} className="h-10 w-20 border-2 rounded-md" />
+                            <input type="number" onChange={e => setPriceTo(e.target.value)} className="h-10 w-20 border-2 rounded-md" />
                             <label>To kr</label>
                         </div>
                         <div className="flex flex-col">
@@ -166,15 +173,16 @@ const SearchUser: React.FC = () => {
                 </form>
 
                 {/* Results */}
-                <div className="flex flex-wrap lg:flex-col md:flex-col w-8/12">
-                    <UserPost />
-                    <UserPost />
-                    <UserPost />
-                    <UserPost />
-                    <UserPost />
-                    <UserPost />
-                    <UserPost />
-                    <UserPost />
+                <div className="flex flex-wrap justify-center items-center w-8/12">
+
+                    {
+                        searchResults.map((userpost: Userrpost) => {
+                            return(
+                                <UserPost key={userpost.upostid} userpost={userpost} />
+                            )
+                        })
+                    }
+
                 </div>
             </div>
             <Footer />

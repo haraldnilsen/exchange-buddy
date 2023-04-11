@@ -54,6 +54,8 @@ const SearchRoom: React.FC = () => {
     
     useEffect(() => {
         getCountriesAndCities();
+        setLoading(true)
+        initSearch();
     }, []);
 
     const getCountriesAndCities = async() => {
@@ -98,6 +100,15 @@ const SearchRoom: React.FC = () => {
         setTimeout(() => setLoading(false), 50);
 
         // function to further filter the data
+    }
+
+    const initSearch = async() => {
+        await RoomPostService.getAllRoomPosts().then(response => {
+            console.log(response.data);
+            setSearchResults(response.data);
+            clearInputs();
+            setLoading(false);
+        })
     }
 
     const clearInputs = () => {

@@ -23,15 +23,13 @@ export interface Userr {
     og sende brukeren under mobil for at det skal
     kunne bli tatt i mot av Spring backend.
 */
-export interface Userrpost {
-    mobile: string;
+export interface UserrpostSearchEntity {
     term: string;
     city: string;
     country: string;
     active: boolean;
-    bio: string;
-    minPrice: string;
-    maxPrice: string;
+    pricefrom: string;
+    priceto: string;
 }
 
 
@@ -72,7 +70,7 @@ class UserService {
         return axios.get(USERPOST_REST_API_URL + "/countries");
     }
 
-    searchUser(userr: Userrpost) {
+    searchUser(userr: UserrpostSearchEntity) {
         return axios.post(USERPOST_REST_API_URL + "/filter", userr);
     }
 
