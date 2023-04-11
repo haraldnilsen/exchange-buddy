@@ -43,14 +43,23 @@ public class UserrpostService {
 			filtered = filtered.stream().filter(x -> country.equals(x.getCountry())).toList();
 		}
 		
-		if (!minprice.equals("")) {
-			filtered = filtered.stream().filter(x -> minprice.compareTo(x.getMinPrice()) >= 0).toList();
-		}
-		
-		if (!maxprice.equals("")) {
-			filtered = filtered.stream().filter(x -> maxprice.compareTo(x.getMinPrice()) <= 0).toList();
+		try {
+			
+			if (!minprice.equals("")) {
+				filtered = filtered.stream().filter(x -> Integer.parseInt(x.getMinprice()) >= Integer.parseInt(minprice)).toList();
+			}
+			
+			if (!maxprice.equals("")) {
+				filtered = filtered.stream().filter(x -> Integer.parseInt(x.getMaxprice()) <= Integer.parseInt(maxprice)).toList();
+			}
+			
+		} catch(Exception e) {
+			System.out.println("Feil pris fra og til");
+			e.printStackTrace();
 		}
 	
+		
+		
 		return filtered;
 	}
 	

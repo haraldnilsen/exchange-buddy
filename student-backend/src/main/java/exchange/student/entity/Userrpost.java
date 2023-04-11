@@ -24,6 +24,8 @@ public class Userrpost {
 	private String bio;
 	private String minprice;
 	private String maxprice;
+	private String img;
+	private String namee; 
 	
 	@OneToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name="mobile", referencedColumnName = "mobile")
@@ -31,7 +33,7 @@ public class Userrpost {
 	
 
 	public Userrpost(String term, String city, String country, boolean active, String bio, String minprice,
-			String maxprice) {
+			String maxprice, String img, String namee) {
 		super();
 		this.term = term;
 		this.city = city;
@@ -40,7 +42,60 @@ public class Userrpost {
 		this.bio = bio;
 		this.minprice = minprice;
 		this.maxprice = maxprice;
+		this.img = img;
+		this.namee = namee;
 	}
+	
+	
+
+	public String getMinprice() {
+		return minprice;
+	}
+
+
+
+	public void setMinprice(String minprice) {
+		this.minprice = minprice;
+	}
+
+
+
+	public String getMaxprice() {
+		return maxprice;
+	}
+
+
+
+	public void setMaxprice(String maxprice) {
+		this.maxprice = maxprice;
+	}
+
+
+
+	public String getNamee() {
+		return namee;
+	}
+
+
+
+	public void setNamee(String namee) {
+		this.namee = namee;
+	}
+
+
+
+	public String getImg() {
+		return img;
+	}
+
+
+
+
+	public void setImg(String img) {
+		this.img = img;
+	}
+
+
 
 
 	public Userrpost() {}

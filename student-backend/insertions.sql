@@ -44,6 +44,8 @@ CREATE TABLE userrpost
 	bio VARCHAR,
 	minprice VARCHAR,
 	maxprice VARCHAR,
+	img VARCHAR,
+	namee VARCHAR,
 	mobile VARCHAR NOT NULL,
 	
 	FOREIGN KEY (mobile) REFERENCES userr(mobile)

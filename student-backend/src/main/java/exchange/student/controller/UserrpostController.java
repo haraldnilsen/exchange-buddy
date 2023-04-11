@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import exchange.student.entity.UserpostSearchEntity;
 import exchange.student.entity.Userrpost;
 import exchange.student.repository.UserpostRepo;
 import exchange.student.service.UserrpostService;
@@ -37,10 +38,10 @@ public class UserrpostController {
 	}
 	
 	@PostMapping("filter")
-	public List<Userrpost> getFilteredUserrposts(@RequestBody Userrpost userrpost) {
+	public List<Userrpost> getFilteredUserrposts(@RequestBody UserpostSearchEntity userrpost) {
 		
 		List<Userrpost> filter = userrpostService.filterByParameters(userrpost.getTerm(),
-				userrpost.getCity(), userrpost.getCountry(), userrpost.getMinPrice(), userrpost.getMaxPrice());
+				userrpost.getCity(), userrpost.getCountry(), userrpost.getPricefrom(), userrpost.getPriceto());
 		
 		return filter;
 	}
