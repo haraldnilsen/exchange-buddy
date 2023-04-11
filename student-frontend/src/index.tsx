@@ -12,6 +12,7 @@ import AboutUs from './pages/AboutUs';
 
 import Register from './pages/Register';
 import Profile from './pages/Profile';
+import RegisterRoom from './pages/RegisterRoom';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -49,6 +50,10 @@ const route = createBrowserRouter([
   {
     path:"/profile",
     element: <Profile/>
+  },
+  {
+    path:"/registerroom",
+    element: <RegisterRoom/>
   }
 ])
 root.render(

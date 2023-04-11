@@ -5,6 +5,8 @@ import RoomPost, { RoomPostProps } from "../components/RoomPost";
 import Sindre from "../images/people/sindre.jpg"
 import RoomPostService, { RoompostToBackend } from "../util/RoomPostService";
 import RoomRes from "./SearchRoom"
+import Button3d from "../icons/Button3d";
+import { NavLink } from "react-router-dom";
 
 export default function Profile () {
 
@@ -53,7 +55,7 @@ export default function Profile () {
             <Navbar />
             <div className="items-center pt-40 flex flex-col">
                 {/*Profile header*/}
-                <div className=" bg-slate-200">
+                <div className="">
                     <div className="flex m-2">
                         <img src={Sindre} className="rounded-full h-36"/>
                         <div className="my-auto px-10">
@@ -61,50 +63,36 @@ export default function Profile () {
                         </div>
                     </div>
                 </div>
+                {/* Container for profile ads */}
+                <div className="shadow-xl bg-slate-100 mt-16 p-14 w-full">
+                    <h3 className="text-4xl py-5">My ads</h3>
 
-                <div className="bg-slate-500 mt-10 w-64">
-                    <h3 className="text-4xl">My ads</h3>
-
-                    <h4>Room ads</h4>
-                    <div className="flex flex-col w-1/2">
-                    {
-                        searchResults.map((room: RoomRes) => {
-
-                            const roomPost: RoomPostProps = {
-                                address: room.address,
-                                term: room.term,
-                                city: room.city,
-                                country: room.country,
-                                active: room.active,
-                                roomates: room.roomates,
-                                bio: room.bio,
-                                wifi: room.wifi,
-                                appliances: room.appliances,
-                                mobile: room.mobile.mobile,
-                                fname: room.mobile.fname,
-                                lname: room.mobile.lname,
-                                price: room.price,
-                                kvm: room.kvm,
-                                picture: room.picture,
-                            }
-                            return(
-                                <RoomPost roomPostProps={roomPost} />
-                            );
-                        })
-                    }
-                </div>
-                    <h4>Profile ads</h4>
-                    <div>
-
+                    {/* List of room ads */}
+                    <h4 className="text-2xl">Ads for your rooms:</h4>
+                    <div className="flex flex-col">
+                        <div>
+                            {searchResults.length > 0 ? "Ads" : 
+                            
+                            <div className="">
+                                <p className="p-2">Looks like you have no current ads! Click here to create one:</p>
+                                <NavLink to="/RegisterRoom">
+                                    <button className="bg-d-green hover:bg-green-900 text-white font-bold py-2 mx-10 my-5 px-4 rounded">Create add</button>
+                                </NavLink>
+                            </div>}
+                        </div>
                     </div>
                 </div>
+                {/*Sign out-button*/}
+                
+                    <button className="bg-d-green hover:bg-green-900 text-white font-bold py-4 mt-32 px-6 rounded" onClick={() => {
+                    localStorage.removeItem("user");
+                    window.location.reload();
+                    }}>
+                    Sign out
+                    </button>
+                
             </div>
-            <button onClick={() => {
-                localStorage.removeItem("user");
-                window.location.reload();
-                }}>
-                Sign out
-            </button>
+            
             <Footer />
         </div>
     </>
