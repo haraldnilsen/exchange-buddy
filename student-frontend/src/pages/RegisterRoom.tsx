@@ -36,7 +36,7 @@ const RegisterRoom: React.FC = () => {
 
         console.log("Sending room to backend");
 
-
+        
     }
 
     return (
